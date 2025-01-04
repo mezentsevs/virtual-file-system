@@ -1,15 +1,18 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "mezentsevs/virtual-file-system",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Virtual file system",
     "keywords": [
         "laravel",
-        "framework"
+        "framework",
+        "virtual",
+        "file",
+        "system"
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.4",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9"
     },
