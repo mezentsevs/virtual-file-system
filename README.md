@@ -8,8 +8,10 @@ Based on tech stack:
 - [PHP](https://www.php.net/),
 - [Laravel](https://laravel.com/),
 - [MySQL](https://www.mysql.com/),
-- [TailwindCss](https://tailwindcss.com/),
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript),
+- [Vue](https://vuejs.org/),
+- [Jetstream](https://jetstream.laravel.com/introduction.html),
+- [TailwindCss](https://tailwindcss.com/),
 - [Docker](https://www.docker.com/),
 - [Sail](https://github.com/laravel/sail).
 
