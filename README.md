@@ -84,6 +84,11 @@ npm run build
 
 - Register new user on http://localhost/register (enter your name, email, password)
 
+- Or you can seed database with random users, folders and files:
+``` bash
+php artisan migrate:fresh --seed
+```
+
 - Login on http://localhost/login (next time)
 
 That's it! Thank you!

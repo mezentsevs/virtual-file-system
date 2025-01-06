@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Database\Factories\FileFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
@@ -18,6 +20,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property-read Folder $folder
+ * @method static FileFactory factory($count = null, $state = [])
  * @method static Builder<static>|File newModelQuery()
  * @method static Builder<static>|File newQuery()
  * @method static Builder<static>|File query()
@@ -31,6 +34,9 @@ use Illuminate\Support\Carbon;
  */
 class File extends Model
 {
+    /** @use HasFactory<FileFactory> */
+    use HasFactory;
+
     public function folder(): BelongsTo
     {
         return $this->belongsTo(Folder::class);
