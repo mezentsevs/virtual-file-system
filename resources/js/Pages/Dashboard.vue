@@ -1,6 +1,9 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Welcome from '@/Components/Welcome.vue';
+
+axios.get('/api/folders')
+    .then((response) => console.log(response.data));
 </script>
 
 <template>
