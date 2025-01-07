@@ -1,9 +1,13 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import FoldersTree from '@/Components/FoldersTree/FoldersTree.vue';
 import Welcome from '@/Components/Welcome.vue';
+import {ref} from 'vue';
+
+let folders = ref([]);
 
 axios.get('/api/folders')
-    .then((response) => console.log(response.data));
+    .then((response) => folders.value = response.data);
 </script>
 
 <template>
@@ -22,4 +26,6 @@ axios.get('/api/folders')
             </div>
         </div>
     </AppLayout>
+
+    <FoldersTree :folders />
 </template>
