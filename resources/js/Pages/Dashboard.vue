@@ -2,12 +2,14 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import FoldersTree from '@/Components/FoldersTree/FoldersTree.vue';
 import Welcome from '@/Components/Welcome.vue';
-import {ref} from 'vue';
+import { useFoldersStore } from '@/Stores/Folders.js';
+import { onMounted } from 'vue';
 
-let folders = ref([]);
+const foldersStore = useFoldersStore();
 
-axios.get('/api/folders')
-    .then((response) => folders.value = response.data);
+onMounted(() => {
+    foldersStore.fetchFolders();
+});
 </script>
 
 <template>
@@ -27,5 +29,5 @@ axios.get('/api/folders')
         </div>
     </AppLayout>
 
-    <FoldersTree :folders />
+    <FoldersTree :folders="foldersStore.folders" />
 </template>
