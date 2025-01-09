@@ -39,7 +39,7 @@ function handleImageError() {
                             <Link :href="'/'" class="inline-block w-[70px] h-[70px]">
                                 <ApplicationLogo class="p-[10px]"/>
                             </Link>
-                            <span class="inline-block text-4xl font-black text-gray-700 dark:text-gray-200">Virtual File System</span>
+                            <span class="inline-block text-4xl font-black text-gray-700 dark:text-gray-200">Virtual file system</span>
                         </h1>
                     </div>
                     <nav v-if="canLogin" class="-mx-3 flex flex-1 justify-end">

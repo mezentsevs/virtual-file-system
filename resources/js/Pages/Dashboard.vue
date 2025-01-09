@@ -16,7 +16,7 @@ onMounted(() => {
     <AppLayout title="Dashboard">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                Virtual File System
+                Virtual file system
             </h2>
         </template>
 
