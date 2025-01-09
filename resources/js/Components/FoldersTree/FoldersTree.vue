@@ -1,7 +1,9 @@
 <script setup>
-import ChildFolder from '@/Components/FoldersTree/ChildFolder.vue';
+import FoldersTreeChildFolder from '@/Components/FoldersTree/FoldersTreeChildFolder.vue';
+import FolderIcon from '@/Icons/FolderIcon.vue';
+import FoldersTreeListItem from '@/Components/FoldersTree/FoldersTreeListItem.vue';
 
-const props = defineProps({
+defineProps({
     folders: {
         type: Array,
         default: [],
@@ -10,10 +12,12 @@ const props = defineProps({
 </script>
 
 <template>
-    <ul class="pl-4" v-for="folder in folders" :key="folder.id">
-        <li>{{ folder.name }}</li>
+    <ul class="p-4 text-gray-500 dark:text-gray-400" v-for="folder in folders" :key="folder.id">
+        <FoldersTreeListItem :content="folder.name">
+            <FolderIcon />
+        </FoldersTreeListItem>
         <ul class="pl-4" v-if="folder.children_folders.length">
-            <ChildFolder v-for="childFolder in folder.children_folders" :key="childFolder.id" :child-folder />
+            <FoldersTreeChildFolder v-for="childFolder in folder.children_folders" :key="childFolder.id" :child-folder />
         </ul>
     </ul>
 </template>

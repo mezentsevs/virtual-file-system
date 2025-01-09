@@ -1,7 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import FoldersTree from '@/Components/FoldersTree/FoldersTree.vue';
-import Welcome from '@/Components/Welcome.vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
 import { onMounted } from 'vue';
 
@@ -23,11 +22,9 @@ onMounted(() => {
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-                    <Welcome />
+                    <FoldersTree :folders="foldersStore.folders" />
                 </div>
             </div>
         </div>
     </AppLayout>
-
-    <FoldersTree :folders="foldersStore.folders" />
 </template>
