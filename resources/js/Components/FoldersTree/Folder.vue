@@ -27,6 +27,6 @@ function onFolderClick(event) {
         <div class="inline-block w-[25px] h-[25px] shrink-0 cursor-pointer fill-gray-500 dark:fill-gray-400 hover:fill-indigo-600">
             <component :is="icons[currentIcon]" />
         </div>
-        <span class="inline-block ml-[5px] cursor-pointer select-none"><slot /></span>
+        <span class="inline-block ml-[5px] cursor-pointer select-none truncate"><slot /></span>
     </li>
 </template>
