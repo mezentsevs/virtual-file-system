@@ -2,13 +2,22 @@
 import ChildFolder from '@/Components/FoldersTree/ChildFolder.vue';
 import Folder from '@/Components/FoldersTree/Folder.vue';
 import ItemPanel from '@/Components/FoldersTree/ItemPanel.vue';
+import { ref } from 'vue';
 
-defineProps({
+const props = defineProps({
     folders: {
         type: Array,
         default: [],
     },
 });
+
+const currentItem = ref([]);
+
+function setCurrentItem(item) {
+    currentItem.value = item;
+}
+
+setCurrentItem(props.folders.find((folder) => folder.folder_id === null));
 </script>
 
 <template>
@@ -17,12 +26,17 @@ defineProps({
             v-for="folder in folders"
             :key="folder.id"
         >
-            <Folder>{{ folder.name }}</Folder>
+            <Folder :folder @item-selected="setCurrentItem" />
             <ul class="children-folders pl-4 hidden" v-if="folder.children_folders.length">
-                <ChildFolder v-for="childFolder in folder.children_folders" :key="childFolder.id" :child-folder />
+                <ChildFolder
+                    v-for="childFolder in folder.children_folders"
+                    :key="childFolder.id"
+                    :child-folder
+                    @item-selected="setCurrentItem"
+                />
             </ul>
         </ul>
 
-        <ItemPanel />
+        <ItemPanel :item="currentItem" />
     </div>
 </template>

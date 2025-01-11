@@ -8,11 +8,18 @@ defineProps({
         default: [],
     },
 });
+
+defineEmits(['itemSelected']);
 </script>
 
 <template>
-    <Folder>{{ childFolder.name }}</Folder>
+    <Folder :folder="childFolder" @item-selected="(item) => $emit('itemSelected', item)" />
     <ul class="children-folders pl-4 hidden" v-if="childFolder.children_folders.length">
-        <ChildFolder v-for="childFolder in childFolder.children_folders" :child-folder />
+        <ChildFolder
+            v-for="childFolder in childFolder.children_folders"
+            :key="childFolder.id"
+            :child-folder
+            @item-selected="(item) => $emit('itemSelected', item)"
+        />
     </ul>
 </template>
