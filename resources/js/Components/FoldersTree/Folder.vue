@@ -20,8 +20,6 @@ const icons = {
     opened: FolderOpenIcon,
 };
 
-const BACKGROUND_COLOR_CLASS = 'bg-indigo-100';
-
 function onFolderClick(event) {
     toggleIcon();
 
@@ -29,7 +27,7 @@ function onFolderClick(event) {
 
     toggleChildrenFolders($folder);
 
-    setBackgroundColor($folder, BACKGROUND_COLOR_CLASS);
+    setBackground($folder);
 
     emit('itemSelected', props.folder);
 }
@@ -46,12 +44,12 @@ function toggleChildrenFolders($folder) {
     }
 }
 
-function setBackgroundColor($folder, backgroundColorClass) {
-    if (!$folder.classList.value.includes(backgroundColorClass)) {
+function setBackground($folder) {
+    if (!$folder.classList.value.includes('selected')) {
         document.querySelectorAll('.folder')
-            .forEach((folder) => folder.classList.remove(backgroundColorClass));
+            .forEach((folder) => folder.classList.remove('selected'));
 
-        $folder.classList.add(backgroundColorClass);
+        $folder.classList.add('selected');
     }
 }
 </script>
@@ -64,3 +62,22 @@ function setBackgroundColor($folder, backgroundColorClass) {
         <span class="inline-block ml-[5px] cursor-pointer select-none truncate">{{ folder.name }}</span>
     </li>
 </template>
+
+<style scoped>
+.selected {
+    position: relative;
+    z-index: 0;
+
+    ::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 3840px;
+        height: 25px;
+        left: -1920px;
+        top: 0;
+        background: #E0E7FF;
+        z-index: -1;
+    }
+}
+</style>
