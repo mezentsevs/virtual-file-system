@@ -6,8 +6,8 @@ import { ref } from 'vue';
 
 const props = defineProps({
     folder: {
-        type: Array,
-        default: [],
+        type: Object,
+        default: {},
     },
 });
 

@@ -4,8 +4,8 @@ import Folder from '@/Components/FoldersTree/Folder.vue';
 
 defineProps({
     childFolder: {
-        type: Array,
-        default: [],
+        type: Object,
+        default: {},
     },
 });
 
