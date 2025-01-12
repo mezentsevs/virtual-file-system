@@ -2,7 +2,7 @@
 import ChildFolder from '@/Components/FoldersTree/ChildFolder.vue';
 import Folder from '@/Components/FoldersTree/Folder.vue';
 import ItemPanel from '@/Components/FoldersTree/ItemPanel.vue';
-import { ref } from 'vue';
+import { provide, ref } from 'vue';
 
 const props = defineProps({
     folders: {
@@ -12,6 +12,8 @@ const props = defineProps({
 });
 
 const currentItem = ref([]);
+
+provide('currentItem', currentItem);
 
 function setCurrentItem(item) {
     currentItem.value = item;
@@ -37,6 +39,6 @@ setCurrentItem(props.folders.find((folder) => folder.folder_id === null));
             </ul>
         </ul>
 
-        <ItemPanel :item="currentItem" />
+        <ItemPanel />
     </div>
 </template>

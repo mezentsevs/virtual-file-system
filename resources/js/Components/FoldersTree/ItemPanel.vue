@@ -1,10 +1,7 @@
 <script setup>
-defineProps({
-    item: {
-        type: Object,
-        default: {},
-    },
-});
+import { inject } from 'vue';
+
+const item = inject('currentItem');
 </script>
 
 <template>
