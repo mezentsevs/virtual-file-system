@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Database\Factories\FolderFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -27,6 +28,7 @@ use Illuminate\Support\Carbon;
  * @property-read Collection<int, Folder> $folders
  * @property-read int|null $folders_count
  * @property-read Folder $folder
+ * @property-read mixed $type
  * @property-read User $user
  * @method static FolderFactory factory($count = null, $state = [])
  * @method static Builder<static>|Folder newModelQuery()
@@ -43,6 +45,8 @@ class Folder extends Model
 {
     /** @use HasFactory<FolderFactory> */
     use HasFactory;
+
+    protected $appends = ['type'];
 
     public function user(): BelongsTo
     {
@@ -67,5 +71,12 @@ class Folder extends Model
     public function files(): HasMany
     {
         return $this->hasMany(File::class);
+    }
+
+    protected function type(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => 'folder',
+        );
     }
 }
