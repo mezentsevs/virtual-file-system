@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Api\Folder;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Api\ApiRequest;
 
-class UpdateFolderRequest extends FormRequest
+class StoreFolderRequest extends ApiRequest
 {
     public function authorize(): bool
     {

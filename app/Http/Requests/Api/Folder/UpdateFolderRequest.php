@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Api\Folder;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Api\ApiRequest;
 
-class UpdateFileRequest extends FormRequest
+class UpdateFolderRequest extends ApiRequest
 {
     public function authorize(): bool
     {
-        return false;
+        return $this->user()->can('update', $this->route()->parameter('folder'));
     }
 
     /**
@@ -19,7 +19,7 @@ class UpdateFileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
         ];
     }
 }

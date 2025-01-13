@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\StoreFileRequest;
-use App\Http\Requests\UpdateFileRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\File\StoreFileRequest;
+use App\Http\Requests\Api\File\UpdateFileRequest;
 use App\Models\File;
 
 class FileController extends Controller

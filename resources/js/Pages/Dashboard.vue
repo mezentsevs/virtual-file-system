@@ -7,7 +7,7 @@ import { ref } from 'vue';
 const foldersStore = useFoldersStore();
 const isLoaded = ref(false);
 
-foldersStore.fetchFolders()
+foldersStore.loadFolders()
     .then(() => isLoaded.value = true);
 </script>
 
