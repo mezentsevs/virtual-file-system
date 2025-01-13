@@ -5,6 +5,7 @@ import SaveFloppyIcon from '@/Icons/SaveFloppyIcon.vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
 import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
+import SaveButton from '@/Components/SaveButton.vue';
 
 const foldersStore = useFoldersStore();
 
@@ -12,7 +13,7 @@ const folder = inject('currentItem');
 
 const updateFolderFormErrors = ref({});
 
-async function onSubmit() {
+async function onUpdateFolderFormSubmit() {
     updateFolderFormErrors.value = {};
 
     const data = await foldersStore.updateFolderById(folder.value.id, {
@@ -39,8 +40,6 @@ async function onSubmit() {
             <InputError v-for="error in updateFolderFormErrors.name" class="mt-2" :message="error" />
         </div>
 
-        <div class="w-[32px] h-[32px] fill-indigo-500 cursor-pointer" @click="onSubmit">
-            <SaveFloppyIcon />
-        </div>
+        <SaveButton @click="onUpdateFolderFormSubmit" />
     </form>
 </template>
