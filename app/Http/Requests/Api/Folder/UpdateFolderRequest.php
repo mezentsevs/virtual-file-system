@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Api\Folder;
 
 use App\Http\Requests\Api\ApiRequest;
+use App\Models\Folder;
+use App\Rules\FolderUnique;
 
 class UpdateFolderRequest extends ApiRequest
 {
@@ -18,8 +20,13 @@ class UpdateFolderRequest extends ApiRequest
      */
     public function rules(): array
     {
+        /**
+         * @var Folder $currentFolder
+         */
+        $currentFolder = $this->route('folder');
+
         return [
-            'name' => 'required|string|max:255',
+            'name' => ['required', 'string', 'max:255', new FolderUnique($currentFolder->folder)],
         ];
     }
 }

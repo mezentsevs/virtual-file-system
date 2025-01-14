@@ -1,7 +1,6 @@
 <script setup>
 import { inject, ref } from 'vue';
 import TextInput from '@/Components/TextInput.vue';
-import SaveFloppyIcon from '@/Icons/SaveFloppyIcon.vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
 import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
