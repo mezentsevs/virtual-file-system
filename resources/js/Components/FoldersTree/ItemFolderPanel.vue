@@ -12,7 +12,11 @@ const folder = inject('currentItem');
 
 const updateFolderFormErrors = ref({});
 
+let isUpdateFolderNameInputChanged = false;
+
 async function onUpdateFolderFormSubmit() {
+    if (!isUpdateFolderNameInputChanged) { return; }
+
     updateFolderFormErrors.value = {};
 
     const data = await foldersStore.updateFolderById(folder.value.id, {
@@ -20,6 +24,8 @@ async function onUpdateFolderFormSubmit() {
     });
 
     if (data.success === false) { updateFolderFormErrors.value = data.errors; }
+
+    isUpdateFolderNameInputChanged = false;
 }
 </script>
 
@@ -35,6 +41,7 @@ async function onUpdateFolderFormSubmit() {
                 required
                 autofocus
                 autocomplete="name"
+                @update:model-value="isUpdateFolderNameInputChanged = true"
             />
             <InputError v-for="error in updateFolderFormErrors.name" class="mt-2" :message="error" />
         </div>
