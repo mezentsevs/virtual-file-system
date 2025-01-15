@@ -36,7 +36,7 @@ async function onUpdateFolderFormSubmit() {
     <div class="flex flex-row justify-between items-center">
         <h3 class="h-9 text-3xl text-center truncate grow">{{ folder.name }}</h3>
         <SaveButton class="shrink-0" @click="onUpdateFolderFormSubmit" />
-        <DeleteButton class="ml-2 shrink-0" />
+        <DeleteButton v-if="folder.folder_id" class="ml-2 shrink-0" />
     </div>
 
     <form @submit.prevent>
