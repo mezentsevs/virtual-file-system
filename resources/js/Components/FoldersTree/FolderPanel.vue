@@ -80,8 +80,8 @@ async function onDeleteButtonClick() {
 
     <div class="m-16 flex flex-col items-center">
         <div class="w-1/2 flex flex-row justify-between">
-            <CreateFolderButton @click="currentTab = 'folder'" />
-            <CreateFileButton @click="currentTab = 'file'" />
+            <CreateFolderButton :class="{ 'fill-indigo-500': currentTab === 'folder' }" @click="currentTab = 'folder'" />
+            <CreateFileButton :class="{ 'fill-indigo-500': currentTab === 'file' }" @click="currentTab = 'file'" />
         </div>
     </div>
 
