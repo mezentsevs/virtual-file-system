@@ -20,14 +20,14 @@ const icons = {
     opened: FolderOpenIcon,
 };
 
-function onFolderClick(event) {
+function onFolderIconClick(event) {
     toggleIcon();
 
-    const $folder = event.target.closest('.folder');
+    toggleChildrenFolders(event.target.closest('.folder'));
+}
 
-    toggleChildrenFolders($folder);
-
-    setBackground($folder);
+function onFolderNameClick(event) {
+    setBackground(event.target.closest('.folder'));
 
     emit('itemSelected', props.folder);
 }
@@ -55,11 +55,14 @@ function setBackground($folder) {
 </script>
 
 <template>
-    <li class="folder flex flex-row items-center" @click="onFolderClick">
-        <div class="inline-block w-[25px] h-[25px] shrink-0 cursor-pointer fill-gray-500 dark:fill-gray-400 hover:fill-indigo-600">
+    <li class="folder flex flex-row items-center">
+        <div
+            class="inline-block w-[25px] h-[25px] shrink-0 cursor-pointer fill-gray-500 dark:fill-gray-400 hover:fill-indigo-600"
+            @click.exact="onFolderIconClick"
+        >
             <component :is="icons[currentIcon]" />
         </div>
-        <span class="inline-block ml-[5px] cursor-pointer select-none truncate">{{ folder.name }}</span>
+        <span class="inline-block ml-[5px] cursor-pointer select-none truncate" @click="onFolderNameClick">{{ folder.name }}</span>
     </li>
 </template>
 
