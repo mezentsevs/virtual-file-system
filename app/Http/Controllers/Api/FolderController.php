@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Folder\DeleteFolderRequest;
 use App\Http\Requests\Api\Folder\IndexFolderRequest;
 use App\Http\Requests\Api\Folder\StoreFolderRequest;
 use App\Http\Requests\Api\Folder\UpdateFolderRequest;
@@ -51,8 +52,13 @@ class FolderController extends Controller
         ]);
     }
 
-    public function destroy(Folder $folder)
+    public function destroy(DeleteFolderRequest $request, Folder $folder): JsonResponse
     {
-        //
+        $folder->delete();
+
+        return response()->json([
+            'success' => true,
+            'folder' => $folder,
+        ]);
     }
 }

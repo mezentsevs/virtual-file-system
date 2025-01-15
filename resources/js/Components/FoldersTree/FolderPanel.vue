@@ -9,6 +9,9 @@ import CreateFolderButton from '@/Components/CreateFolderButton.vue';
 import CreateFileButton from '@/Components/CreateFileButton.vue';
 import CreateFolderTab from '@/Components/FoldersTree/CreateFolderTab.vue';
 import CreateFileTab from '@/Components/FoldersTree/CreateFileTab.vue';
+import { useFoldersStore } from '@/Stores/Folders.js';
+
+const foldersStore = useFoldersStore();
 
 const folder = inject('currentItem');
 
@@ -44,13 +47,21 @@ async function onSaveButtonClick() {
 
     isNameChanged = false;
 }
+
+async function onDeleteButtonClick() {
+    const response = await axios.delete(`/api/folders/${folder.value.id}`);
+
+    if (response.status === 200 && response.data.success === true) {
+        await foldersStore.loadFolders();
+    }
+}
 </script>
 
 <template>
     <div class="flex flex-row justify-between items-center">
         <h3 class="h-9 text-3xl text-center truncate grow">{{ folder.name }}</h3>
         <SaveButton class="shrink-0" @click="onSaveButtonClick" />
-        <DeleteButton v-if="folder.folder_id" class="ml-2 shrink-0" />
+        <DeleteButton v-if="folder.folder_id" class="ml-2 shrink-0" @click="onDeleteButtonClick" />
     </div>
 
     <form @submit.prevent>
