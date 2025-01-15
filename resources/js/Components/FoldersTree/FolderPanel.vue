@@ -8,34 +8,43 @@ import SaveButton from '@/Components/SaveButton.vue';
 import DeleteButton from '@/Components/DeleteButton.vue';
 import CreateFolderButton from '@/Components/CreateFolderButton.vue';
 import CreateFileButton from '@/Components/CreateFileButton.vue';
+import CreateFolderTab from '@/Components/FoldersTree/CreateFolderTab.vue';
+import CreateFileTab from '@/Components/FoldersTree/CreateFileTab.vue';
 
 const foldersStore = useFoldersStore();
 
 const folder = inject('currentItem');
 
-const updateFolderFormErrors = ref({});
+const errors = ref({});
 
-let isUpdateFolderNameInputChanged = false;
+const currentTab = ref('');
 
-async function onUpdateFolderFormSubmit() {
-    if (!isUpdateFolderNameInputChanged) { return; }
+const tabs = {
+    folder: CreateFolderTab,
+    file: CreateFileTab,
+};
 
-    updateFolderFormErrors.value = {};
+let isNameChanged = false;
+
+async function onSaveButtonClick() {
+    if (!isNameChanged) { return; }
+
+    errors.value = {};
 
     const data = await foldersStore.updateFolderById(folder.value.id, {
         name: folder.value.name,
     });
 
-    if (data.success === false) { updateFolderFormErrors.value = data.errors; }
+    if (data.success === false) { errors.value = data.errors; }
 
-    isUpdateFolderNameInputChanged = false;
+    isNameChanged = false;
 }
 </script>
 
 <template>
     <div class="flex flex-row justify-between items-center">
         <h3 class="h-9 text-3xl text-center truncate grow">{{ folder.name }}</h3>
-        <SaveButton class="shrink-0" @click="onUpdateFolderFormSubmit" />
+        <SaveButton class="shrink-0" @click="onSaveButtonClick" />
         <DeleteButton v-if="folder.folder_id" class="ml-2 shrink-0" />
     </div>
 
@@ -48,15 +57,17 @@ async function onUpdateFolderFormSubmit() {
             class="mt-1 block w-full"
             required
             autocomplete="name"
-            @update:model-value="isUpdateFolderNameInputChanged = true"
+            @update:model-value="isNameChanged = true"
         />
-        <InputError v-for="error in updateFolderFormErrors.name" class="mt-2" :message="error" />
+        <InputError v-for="error in errors.name" class="mt-2" :message="error" />
     </form>
 
     <div class="m-16 flex flex-col items-center">
         <div class="w-1/2 flex flex-row justify-between">
-            <CreateFolderButton />
-            <CreateFileButton />
+            <CreateFolderButton @click="currentTab = 'folder'" />
+            <CreateFileButton @click="currentTab = 'file'" />
         </div>
     </div>
+
+    <component :is="tabs[currentTab]" />
 </template>
