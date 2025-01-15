@@ -18,18 +18,6 @@ export const useFoldersStore = defineStore('folders', () => {
         }
     }
 
-    async function updateFolderById(id, payload) {
-        try {
-            const response = await axios.patch(`/api/folders/${id}`, {
-                name: payload.name,
-            });
-
-            if (response.status === 200) { return response.data; }
-        } catch (error) {
-            if (error.status === 422) { return error.response.data; }
-        }
-    }
-
     function findFolder(id, folders) {
         for (const folder of folders) {
             if (folder.id === id) { return folder; }
@@ -46,6 +34,5 @@ export const useFoldersStore = defineStore('folders', () => {
         folders,
         getFolderById,
         loadFolders,
-        updateFolderById,
     };
 });

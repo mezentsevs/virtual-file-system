@@ -1,7 +1,6 @@
 <script setup>
 import { inject, ref } from 'vue';
 import TextInput from '@/Components/TextInput.vue';
-import { useFoldersStore } from '@/Stores/Folders.js';
 import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
 import SaveButton from '@/Components/SaveButton.vue';
@@ -10,8 +9,6 @@ import CreateFolderButton from '@/Components/CreateFolderButton.vue';
 import CreateFileButton from '@/Components/CreateFileButton.vue';
 import CreateFolderTab from '@/Components/FoldersTree/CreateFolderTab.vue';
 import CreateFileTab from '@/Components/FoldersTree/CreateFileTab.vue';
-
-const foldersStore = useFoldersStore();
 
 const folder = inject('currentItem');
 
@@ -31,9 +28,17 @@ async function onSaveButtonClick() {
 
     errors.value = {};
 
-    const data = await foldersStore.updateFolderById(folder.value.id, {
-        name: folder.value.name,
-    });
+    let data = {};
+
+    try {
+        const response = await axios.patch(`/api/folders/${folder.value.id}`, {
+            name: folder.value.name,
+        });
+
+        if (response.status === 200) { data = response.data; }
+    } catch (error) {
+        if (error.status === 422) { data = error.response.data; }
+    }
 
     if (data.success === false) { errors.value = data.errors; }
 
