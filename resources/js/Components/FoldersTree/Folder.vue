@@ -23,7 +23,9 @@ const icons = {
 function onFolderIconClick(event) {
     toggleIcon();
 
-    toggleChildrenFolders(event.target.closest('.folder'));
+    if (props.folder.children_folders.length) {
+        toggleChildrenFolders(event.target.closest('.folder'));
+    }
 }
 
 function onFolderNameClick(event) {
