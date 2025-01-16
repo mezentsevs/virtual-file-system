@@ -20,24 +20,20 @@ class FolderController extends Controller
         ]);
     }
 
-    public function create()
+    public function store(StoreFolderRequest $request): JsonResponse
     {
-        //
-    }
+        $folder = new Folder;
 
-    public function store(StoreFolderRequest $request)
-    {
-        //
-    }
+        $folder->user_id = $request->user()->id;
+        $folder->folder_id = $request->integer('folder_id');
+        $folder->name = $request->string('name');
 
-    public function show(Folder $folder)
-    {
-        //
-    }
+        $folder->save();
 
-    public function edit(Folder $folder)
-    {
-        //
+        return response()->json([
+            'success' => true,
+            'folder' => $folder,
+        ]);
     }
 
     public function update(UpdateFolderRequest $request, Folder $folder): JsonResponse

@@ -13,14 +13,9 @@ class FolderPolicy
 
     }
 
-    public function view(User $user, Folder $folder): bool
+    public function create(): bool
     {
-        return false;
-    }
-
-    public function create(User $user): bool
-    {
-        return false;
+        return auth()->check();
     }
 
     public function update(User $user, Folder $folder): bool
@@ -31,15 +26,5 @@ class FolderPolicy
     public function delete(User $user, Folder $folder): bool
     {
         return $user->id === $folder->user_id;
-    }
-
-    public function restore(User $user, Folder $folder): bool
-    {
-        return false;
-    }
-
-    public function forceDelete(User $user, Folder $folder): bool
-    {
-        return false;
     }
 }

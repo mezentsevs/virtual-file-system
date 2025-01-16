@@ -24,11 +24,7 @@ const tabs = {
     file: CreateFileTab,
 };
 
-let isNameChanged = false;
-
 async function onSaveButtonClick() {
-    if (!isNameChanged) { return; }
-
     errors.value = {};
 
     let data = {};
@@ -44,12 +40,10 @@ async function onSaveButtonClick() {
     }
 
     if (data.success === false) { errors.value = data.errors; }
-
-    isNameChanged = false;
 }
 
 async function onDeleteButtonClick() {
-    await foldersStore.deleteFolderById()(folder.value.id);
+    await foldersStore.deleteFolderById()({ id: folder.value.id });
 }
 </script>
 
@@ -69,7 +63,6 @@ async function onDeleteButtonClick() {
             class="mt-1 block w-full"
             required
             autocomplete="name"
-            @update:model-value="isNameChanged = true"
         />
         <InputError v-for="error in errors.name" class="mt-2" :message="error" />
     </form>

@@ -3,23 +3,26 @@
 namespace App\Http\Requests\Api\Folder;
 
 use App\Http\Requests\Api\ApiRequest;
+use App\Models\Folder;
+use App\Rules\FolderUnique;
+use Illuminate\Contracts\Validation\ValidationRule;
 
 class StoreFolderRequest extends ApiRequest
 {
     public function authorize(): bool
     {
-        return false;
+        return $this->user()->can('create', Folder::class);
     }
 
     /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array|string>
      */
     public function rules(): array
     {
+        $parentFolder = Folder::find($this->request->get('folder_id'));
+
         return [
-            //
+            'name' => ['required', 'string', 'max:255', new FolderUnique($parentFolder)],
         ];
     }
 }

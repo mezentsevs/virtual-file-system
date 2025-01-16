@@ -5,7 +5,7 @@ export const useFoldersStore = defineStore('folders', () => {
     const folders = ref([]);
 
     function getFolderById() {
-        return id => findFolder(id, folders.value);
+        return payload => findFolder(payload.id, folders.value);
     }
 
     async function loadFolders() {
@@ -14,12 +14,34 @@ export const useFoldersStore = defineStore('folders', () => {
         if (response.status === 200 && response.data.success === true) { folders.value = response.data.folders; }
     }
 
+    function createFolder() {
+        return async payload => {
+            try {
+                const response = await axios.post('/api/folders', payload);
+
+                if (response.status === 200 && response.data.success === true) {
+                    const parentChildrenFolders = getFolderById()({ id: response.data.folder.folder_id }).children_folders;
+
+                    response.data.folder.children_folders = [];
+
+                    parentChildrenFolders.push(response.data.folder);
+
+                    parentChildrenFolders.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+
+                    return response.data;
+                }
+            } catch (error) {
+                if (error.status === 422) { return error.response.data; }
+            }
+        };
+    }
+
     function deleteFolderById() {
-        return async id => {
-            const response = await axios.delete(`/api/folders/${id}`);
+        return async payload => {
+            const response = await axios.delete(`/api/folders/${payload.id}`);
 
             if (response.status === 200 && response.data.success === true) {
-                const parentChildrenFolders = getFolderById()(response.data.folder.folder_id).children_folders;
+                const parentChildrenFolders = getFolderById()({ id: response.data.folder.folder_id }).children_folders;
                 const index = parentChildrenFolders.findIndex(folder => folder.id === response.data.folder.id);
 
                 if (index !== -1) { parentChildrenFolders.splice(index, 1); }
@@ -41,8 +63,8 @@ export const useFoldersStore = defineStore('folders', () => {
 
     return {
         folders,
-        getFolderById,
         loadFolders,
+        createFolder,
         deleteFolderById,
     };
 });

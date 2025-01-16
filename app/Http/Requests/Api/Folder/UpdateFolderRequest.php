@@ -5,6 +5,7 @@ namespace App\Http\Requests\Api\Folder;
 use App\Http\Requests\Api\ApiRequest;
 use App\Models\Folder;
 use App\Rules\FolderUnique;
+use Illuminate\Contracts\Validation\ValidationRule;
 
 class UpdateFolderRequest extends ApiRequest
 {
@@ -16,7 +17,7 @@ class UpdateFolderRequest extends ApiRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array|string>
      */
     public function rules(): array
     {
