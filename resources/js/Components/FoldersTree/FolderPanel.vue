@@ -49,11 +49,7 @@ async function onSaveButtonClick() {
 }
 
 async function onDeleteButtonClick() {
-    const response = await axios.delete(`/api/folders/${folder.value.id}`);
-
-    if (response.status === 200 && response.data.success === true) {
-        await foldersStore.loadFolders();
-    }
+    await foldersStore.deleteFolderById()(folder.value.id);
 }
 </script>
 

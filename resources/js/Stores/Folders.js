@@ -11,11 +11,20 @@ export const useFoldersStore = defineStore('folders', () => {
     async function loadFolders() {
         const response = await axios.get('/api/folders');
 
-        if (response.status === 200) {
-            if (response.data.success === true) { folders.value = response.data.folders; }
+        if (response.status === 200 && response.data.success === true) { folders.value = response.data.folders; }
+    }
 
-            return response.data;
-        }
+    function deleteFolderById() {
+        return async id => {
+            const response = await axios.delete(`/api/folders/${id}`);
+
+            if (response.status === 200 && response.data.success === true) {
+                const parentChildrenFolders = getFolderById()(response.data.folder.folder_id).children_folders;
+                const index = parentChildrenFolders.findIndex(folder => folder.id === response.data.folder.id);
+
+                if (index !== -1) { parentChildrenFolders.splice(index, 1); }
+            }
+        };
     }
 
     function findFolder(id, folders) {
@@ -34,5 +43,6 @@ export const useFoldersStore = defineStore('folders', () => {
         folders,
         getFolderById,
         loadFolders,
+        deleteFolderById,
     };
 });
