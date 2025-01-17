@@ -24,20 +24,15 @@ const tabs = {
     file: CreateFileTab,
 };
 
+let name = '';
+
 async function onSaveButtonClick() {
     errors.value = {};
 
-    let data = {};
-
-    try {
-        const response = await axios.patch(`/api/folders/${folder.value.id}`, {
-            name: folder.value.name,
-        });
-
-        if (response.status === 200) { data = response.data; }
-    } catch (error) {
-        if (error.status === 422) { data = error.response.data; }
-    }
+    const data = await foldersStore.updateFolderById()({
+        id: folder.value.id,
+        name,
+    });
 
     if (data.success === false) { errors.value = data.errors; }
 }
@@ -58,7 +53,7 @@ async function onDeleteButtonClick() {
         <InputLabel for="name" value="Name" />
         <TextInput
             id="name"
-            v-model="folder.name"
+            v-model="name"
             type="text"
             class="mt-1 block w-full"
             required

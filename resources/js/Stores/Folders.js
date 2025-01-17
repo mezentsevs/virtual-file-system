@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
+import { sortCompareFunction } from '@/Helpers/SortHelper.js';
 
 export const useFoldersStore = defineStore('folders', () => {
     const folders = ref([]);
@@ -26,7 +27,31 @@ export const useFoldersStore = defineStore('folders', () => {
 
                     parentChildrenFolders.push(response.data.folder);
 
-                    parentChildrenFolders.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                    parentChildrenFolders.sort(sortCompareFunction);
+
+                    return response.data;
+                }
+            } catch (error) {
+                if (error.status === 422) { return error.response.data; }
+            }
+        };
+    }
+
+    function updateFolderById() {
+        return async payload => {
+            try {
+                const response = await axios.patch(`/api/folders/${payload.id}`, {
+                    name: payload.name,
+                });
+
+                if (response.status === 200 && response.data.success === true) {
+                    const folder = getFolderById()({ id: response.data.folder.id });
+
+                    folder.name = response.data.folder.name;
+
+                    const parentChildrenFolders = getFolderById()({ id: folder.folder_id }).children_folders;
+
+                    parentChildrenFolders.sort(sortCompareFunction);
 
                     return response.data;
                 }
@@ -42,6 +67,7 @@ export const useFoldersStore = defineStore('folders', () => {
 
             if (response.status === 200 && response.data.success === true) {
                 const parentChildrenFolders = getFolderById()({ id: response.data.folder.folder_id }).children_folders;
+
                 const index = parentChildrenFolders.findIndex(folder => folder.id === response.data.folder.id);
 
                 if (index !== -1) { parentChildrenFolders.splice(index, 1); }
@@ -65,6 +91,7 @@ export const useFoldersStore = defineStore('folders', () => {
         folders,
         loadFolders,
         createFolder,
+        updateFolderById,
         deleteFolderById,
     };
 });
