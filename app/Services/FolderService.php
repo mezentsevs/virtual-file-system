@@ -31,4 +31,11 @@ class FolderService
 
         return $folder;
     }
+
+    public function delete(Folder $folder): Folder
+    {
+        $folder->delete();
+
+        return $folder;
+    }
 }
