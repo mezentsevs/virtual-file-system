@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Factories\FolderCreateDtoFactory;
+use App\Factories\FolderUpdateDtoFactory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Folder\DeleteFolderRequest;
 use App\Http\Requests\Api\Folder\IndexFolderRequest;
@@ -31,27 +32,24 @@ class FolderController extends Controller
 
     public function store(StoreFolderRequest $request): JsonResponse
     {
-        $folder = $this->folders->create(FolderCreateDtoFactory::fromArray([
-            'user_id' => $request->user()->id,
-            'folder_id' => $request->integer('folder_id'),
-            'name' => $request->string('name'),
-        ]));
-
         return response()->json([
             'success' => true,
-            'folder' => $folder,
+            'folder' => $this->folders->create(FolderCreateDtoFactory::fromArray([
+                'user_id' => $request->user()->id,
+                'folder_id' => $request->integer('folder_id'),
+                'name' => $request->string('name'),
+            ])),
         ]);
     }
 
     public function update(UpdateFolderRequest $request, Folder $folder): JsonResponse
     {
-        $folder->name = $request->string('name');
-
-        $folder->save();
-
         return response()->json([
             'success' => true,
-            'folder' => $folder,
+            'folder' => $this->folders->update(FolderUpdateDtoFactory::fromArray([
+                'folder' => $folder,
+                'name' => $request->string('name'),
+            ])),
         ]);
     }
 

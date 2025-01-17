@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Dtos\FolderCreateDto;
+use App\Dtos\FolderUpdateDto;
 use App\Models\Folder;
 
 class FolderService
@@ -13,6 +14,17 @@ class FolderService
 
         $folder->user_id = $dto->userId;
         $folder->folder_id = $dto->folderId;
+        $folder->name = $dto->name;
+
+        $folder->save();
+
+        return $folder;
+    }
+
+    public function update(FolderUpdateDto $dto): Folder
+    {
+        $folder = $dto->folder;
+
         $folder->name = $dto->name;
 
         $folder->save();
