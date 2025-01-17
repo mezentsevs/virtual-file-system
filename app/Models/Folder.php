@@ -13,8 +13,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
- * App\Models\Folder
- *
  * @property int $id
  * @property int $user_id
  * @property int|null $folder_id

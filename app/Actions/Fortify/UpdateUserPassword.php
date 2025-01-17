@@ -12,7 +12,7 @@ class UpdateUserPassword implements UpdatesUserPasswords
     use PasswordValidationRules;
 
     /**
-     * @param  array<string, string>  $input
+     * @param array<string, string> $input
      */
     public function update(User $user, array $input): void
     {

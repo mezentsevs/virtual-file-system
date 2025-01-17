@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api\File;
 
 use App\Http\Requests\Api\ApiRequest;
+use Illuminate\Contracts\Validation\ValidationRule;
 
 class StoreFileRequest extends ApiRequest
 {
@@ -12,9 +13,7 @@ class StoreFileRequest extends ApiRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array|string>
      */
     public function rules(): array
     {
