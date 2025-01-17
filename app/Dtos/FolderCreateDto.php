@@ -8,7 +8,7 @@ class FolderCreateDto implements DtoInterface
 {
     public int $userId;
 
-    public int $folderId;
+    public ?int $folderId;
 
     public string $name;
 

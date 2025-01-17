@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Factories\FolderCreateDtoFactory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Folder\DeleteFolderRequest;
 use App\Http\Requests\Api\Folder\IndexFolderRequest;
 use App\Http\Requests\Api\Folder\StoreFolderRequest;
 use App\Http\Requests\Api\Folder\UpdateFolderRequest;
 use App\Models\Folder;
+use App\Services\FolderService;
 use Illuminate\Http\JsonResponse;
 
 class FolderController extends Controller
 {
+    protected FolderService $folders;
+
+    public function __construct()
+    {
+        $this->folders = app(FolderService::class);
+    }
+
     public function index(IndexFolderRequest $request): JsonResponse
     {
         return response()->json([
@@ -22,13 +31,11 @@ class FolderController extends Controller
 
     public function store(StoreFolderRequest $request): JsonResponse
     {
-        $folder = new Folder;
-
-        $folder->user_id = $request->user()->id;
-        $folder->folder_id = $request->integer('folder_id');
-        $folder->name = $request->string('name');
-
-        $folder->save();
+        $folder = $this->folders->create(FolderCreateDtoFactory::fromArray([
+            'user_id' => $request->user()->id,
+            'folder_id' => $request->integer('folder_id'),
+            'name' => $request->string('name'),
+        ]));
 
         return response()->json([
             'success' => true,
