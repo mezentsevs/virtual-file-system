@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
-import { sortCompareFunction } from '@/Helpers/SortHelper.js';
+import { compareByName } from '@/Helpers/SortHelper.js';
 
 export const useFoldersStore = defineStore('folders', () => {
     const folders = ref([]);
@@ -31,7 +31,7 @@ export const useFoldersStore = defineStore('folders', () => {
 
                     parentChildrenFolders.push(response.data.folder);
 
-                    parentChildrenFolders.sort(sortCompareFunction);
+                    parentChildrenFolders.sort(compareByName);
 
                     return response.data;
                 }
@@ -56,7 +56,7 @@ export const useFoldersStore = defineStore('folders', () => {
                     if (folder.folder_id) {
                         const parentChildrenFolders = getFolderById()({ id: folder.folder_id }).children_folders;
 
-                        parentChildrenFolders.sort(sortCompareFunction);
+                        parentChildrenFolders.sort(compareByName);
                     }
 
                     return response.data;
@@ -97,7 +97,7 @@ export const useFoldersStore = defineStore('folders', () => {
         for (const folder of folders) {
             if (!folder.children_folders) { return; }
 
-            folder.children_folders.sort(sortCompareFunction);
+            folder.children_folders.sort(compareByName);
 
             sortChildrenFolders(folder.children_folders);
         }
