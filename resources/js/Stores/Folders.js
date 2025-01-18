@@ -77,6 +77,8 @@ export const useFoldersStore = defineStore('folders', () => {
                 const index = parentChildrenFolders.findIndex(folder => folder.id === response.data.folder.id);
 
                 if (index !== -1) { parentChildrenFolders.splice(index, 1); }
+
+                return response.data;
             }
         };
     }
@@ -105,6 +107,7 @@ export const useFoldersStore = defineStore('folders', () => {
 
     return {
         folders,
+        getFolderById,
         loadFolders,
         createFolder,
         updateFolderById,

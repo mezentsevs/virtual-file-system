@@ -13,6 +13,10 @@ import { useFoldersStore } from '@/Stores/Folders.js';
 
 const foldersStore = useFoldersStore();
 
+const emit = defineEmits([
+    'folderDeleted',
+]);
+
 const folder = inject('currentItem');
 
 const errors = ref({});
@@ -49,7 +53,9 @@ async function onSaveButtonClick() {
 }
 
 async function onDeleteButtonClick() {
-    await foldersStore.deleteFolderById()({ id: folder.value.id });
+    const data = await foldersStore.deleteFolderById()({ id: folder.value.id });
+
+    if (data.success === true) { emit('folderDeleted'); }
 }
 </script>
 

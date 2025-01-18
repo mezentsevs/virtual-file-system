@@ -3,6 +3,9 @@ import ChildFolder from '@/Components/FoldersTree/ChildFolder.vue';
 import Folder from '@/Components/FoldersTree/Folder.vue';
 import ItemPanel from '@/Components/FoldersTree/ItemPanel.vue';
 import { provide, ref } from 'vue';
+import { useFoldersStore } from '@/Stores/Folders.js';
+
+const foldersStore = useFoldersStore();
 
 const props = defineProps({
     folders: {
@@ -13,7 +16,7 @@ const props = defineProps({
 
 const isChildrenFoldersHidden = ref(true);
 
-const currentItem = ref([]);
+const currentItem = ref({});
 
 provide('currentItem', currentItem);
 
@@ -23,6 +26,10 @@ function setCurrentItem(item) {
 
 function onIconToggled(icon) {
     isChildrenFoldersHidden.value = (icon === 'closed');
+}
+
+function onFolderDeleted() {
+    setCurrentItem(foldersStore.getFolderById()({ id: currentItem.value.folder_id }));
 }
 
 setCurrentItem(props.folders.find(folder => folder.folder_id === null));
@@ -51,6 +58,6 @@ setCurrentItem(props.folders.find(folder => folder.folder_id === null));
             </ul>
         </ul>
 
-        <ItemPanel />
+        <ItemPanel @folder-deleted="onFolderDeleted" />
     </div>
 </template>
