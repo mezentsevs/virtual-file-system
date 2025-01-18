@@ -1,5 +1,5 @@
 <script setup>
-import { inject, ref } from 'vue';
+import { inject, ref, watch } from 'vue';
 import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
@@ -24,7 +24,16 @@ const tabs = {
     file: CreateFileTab,
 };
 
-let name = ref('');
+const name = ref('');
+
+watch(
+    () => folder.value.name,
+    newName => {
+        name.value = newName;
+
+        errors.value = {};
+    },
+);
 
 async function onSaveButtonClick() {
     errors.value = {};
