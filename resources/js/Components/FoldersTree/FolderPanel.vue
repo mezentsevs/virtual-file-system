@@ -24,17 +24,19 @@ const tabs = {
     file: CreateFileTab,
 };
 
-let name = '';
+let name = ref('');
 
 async function onSaveButtonClick() {
     errors.value = {};
 
     const data = await foldersStore.updateFolderById()({
         id: folder.value.id,
-        name,
+        name: name.value,
     });
 
     if (data.success === false) { errors.value = data.errors; }
+
+    if (data.success === true) { name.value = ''; }
 }
 
 async function onDeleteButtonClick() {
@@ -58,6 +60,7 @@ async function onDeleteButtonClick() {
             class="mt-1 block w-full"
             required
             autocomplete="name"
+            @focusin="name = folder.name"
         />
         <InputError v-for="error in errors.name" class="mt-2" :message="error" />
     </form>
