@@ -11,6 +11,8 @@ const props = defineProps({
     },
 });
 
+const isChildrenFoldersHidden = ref(true);
+
 const currentItem = ref([]);
 
 provide('currentItem', currentItem);
@@ -19,17 +21,27 @@ function setCurrentItem(item) {
     currentItem.value = item;
 }
 
-setCurrentItem(props.folders.find((folder) => folder.folder_id === null));
+function onIconToggled(icon) {
+    isChildrenFoldersHidden.value = (icon === 'closed');
+}
+
+setCurrentItem(props.folders.find(folder => folder.folder_id === null));
 </script>
 
 <template>
     <div class="flex flex-row items-top justify-between">
-        <ul class="folders-tree m-4 p-4 w-1/3 min-w-[300px] min-h-[600px] overflow-hidden text-gray-500 dark:text-gray-400 border-solid border-[1px] border-gray-500 dark:border-gray-400 rounded-lg"
+        <ul
             v-for="folder in folders"
             :key="folder.id"
+            class="folders-tree m-4 p-4 w-1/3 min-w-[300px] min-h-[600px] overflow-hidden text-gray-500 dark:text-gray-400 border-solid border-[1px] border-gray-500 dark:border-gray-400 rounded-lg"
         >
-            <Folder :folder @item-selected="setCurrentItem" />
-            <ul class="children-folders pl-4 hidden" v-if="folder.children_folders.length">
+            <Folder :folder @item-selected="setCurrentItem" @icon-toggled="onIconToggled" />
+
+            <ul
+                v-if="folder.children_folders.length"
+                class="children-folders pl-4"
+                :class="{ hidden: isChildrenFoldersHidden }"
+            >
                 <ChildFolder
                     v-for="childFolder in folder.children_folders"
                     :key="childFolder.id"

@@ -1,5 +1,4 @@
 <script setup>
-import { getNextSiblingBySelector } from '@/Helpers/QueryHelper.js';
 import FolderIcon from '@/Icons/FolderIcon.vue';
 import FolderOpenIcon from '@/Icons/FolderOpenIcon.vue';
 import { ref } from 'vue';
@@ -11,7 +10,10 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits(['itemSelected']);
+const emit = defineEmits([
+    'itemSelected',
+    'iconToggled',
+]);
 
 const currentIcon = ref('closed');
 
@@ -20,12 +22,10 @@ const icons = {
     opened: FolderOpenIcon,
 };
 
-function onFolderIconClick(event) {
+function onFolderIconClick() {
     toggleIcon();
 
-    if (props.folder.children_folders.length) {
-        toggleChildrenFolders(event.target.closest('.folder'));
-    }
+    emit('iconToggled', currentIcon.value);
 }
 
 function onFolderNameClick(event) {
@@ -36,14 +36,6 @@ function onFolderNameClick(event) {
 
 function toggleIcon() {
     currentIcon.value = currentIcon.value === 'closed' ? 'opened' : 'closed';
-}
-
-function toggleChildrenFolders($folder) {
-    const $childrenFolders = getNextSiblingBySelector($folder, '.children-folders');
-
-    if ($childrenFolders) {
-        $childrenFolders.classList.toggle('hidden');
-    }
 }
 
 function setSelected($folder) {
@@ -64,7 +56,13 @@ function setSelected($folder) {
         >
             <component :is="icons[currentIcon]" />
         </div>
-        <span class="inline-block ml-[5px] cursor-pointer select-none truncate" @click="onFolderNameClick">{{ folder.name }}</span>
+
+        <span
+            class="inline-block ml-[5px] cursor-pointer select-none truncate"
+            @click="onFolderNameClick"
+        >
+            {{ folder.name }}
+        </span>
     </li>
 </template>
 
