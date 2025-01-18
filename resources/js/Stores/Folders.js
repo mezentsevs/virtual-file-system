@@ -49,9 +49,11 @@ export const useFoldersStore = defineStore('folders', () => {
 
                     folder.name = response.data.folder.name;
 
-                    const parentChildrenFolders = getFolderById()({ id: folder.folder_id }).children_folders;
+                    if (folder.folder_id) {
+                        const parentChildrenFolders = getFolderById()({ id: folder.folder_id }).children_folders;
 
-                    parentChildrenFolders.sort(sortCompareFunction);
+                        parentChildrenFolders.sort(sortCompareFunction);
+                    }
 
                     return response.data;
                 }
