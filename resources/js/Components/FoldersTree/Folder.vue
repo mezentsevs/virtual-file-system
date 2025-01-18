@@ -29,7 +29,7 @@ function onFolderIconClick(event) {
 }
 
 function onFolderNameClick(event) {
-    setBackground(event.target.closest('.folder'));
+    setSelected(event.target.closest('.folder'));
 
     emit('itemSelected', props.folder);
 }
@@ -46,7 +46,7 @@ function toggleChildrenFolders($folder) {
     }
 }
 
-function setBackground($folder) {
+function setSelected($folder) {
     if (!$folder.classList.value.includes('selected')) {
         document.querySelectorAll('.folder')
             .forEach((folder) => folder.classList.remove('selected'));
