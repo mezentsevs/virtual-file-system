@@ -12,7 +12,11 @@ export const useFoldersStore = defineStore('folders', () => {
     async function loadFolders() {
         const response = await axios.get('/api/folders');
 
-        if (response.status === 200 && response.data.success === true) { folders.value = response.data.folders; }
+        if (response.status === 200 && response.data.success === true) {
+            folders.value = response.data.folders;
+
+            sortChildrenFolders(folders.value);
+        }
     }
 
     function createFolder() {
@@ -86,6 +90,16 @@ export const useFoldersStore = defineStore('folders', () => {
 
                 if (childFolder) { return childFolder; }
             }
+        }
+    }
+
+    function sortChildrenFolders(folders) {
+        for (const folder of folders) {
+            if (!folder.children_folders) { return; }
+
+            folder.children_folders.sort(sortCompareFunction);
+
+            sortChildrenFolders(folder.children_folders);
         }
     }
 
