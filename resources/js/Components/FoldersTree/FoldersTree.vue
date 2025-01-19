@@ -30,6 +30,19 @@ function onIconToggled(icon) {
 
 function onFolderDeleted() {
     setCurrentItem(foldersStore.getFolderById()({ id: currentItem.value.folder_id }));
+
+    const $folder = document.getElementById(`folder-${currentItem.value.id}`);
+
+    if ($folder) { setFolderSelected($folder) }
+}
+
+function setFolderSelected($folder) {
+    if (!$folder.classList.value.includes('selected')) {
+        document.querySelectorAll('.folder')
+            .forEach((folder) => folder.classList.remove('selected'));
+
+        $folder.classList.add('selected');
+    }
 }
 
 setCurrentItem(props.folders.find(folder => folder.folder_id === null));

@@ -49,7 +49,7 @@ function setSelected($folder) {
 </script>
 
 <template>
-    <li class="folder flex flex-row items-center">
+    <li :id="`folder-${folder.id}`" class="folder flex flex-row items-center">
         <div
             class="inline-block w-[25px] h-[25px] shrink-0 cursor-pointer fill-gray-500 dark:fill-gray-400 hover:fill-indigo-600"
             @click.exact="onFolderIconClick"
