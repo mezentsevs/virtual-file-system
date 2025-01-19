@@ -31,9 +31,9 @@ const tabs = {
 const name = ref('');
 
 watch(
-    () => folder.value.name,
-    newName => {
-        name.value = newName;
+    () => folder.value.id,
+    () => {
+        name.value = folder.value.name;
 
         errors.value = {};
     },
