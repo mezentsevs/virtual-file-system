@@ -29,6 +29,8 @@ export const useFoldersStore = defineStore('folders', () => {
 
                     response.data.folder.children_folders = [];
 
+                    response.data.folder.files = [];
+
                     parentChildrenFolders.push(response.data.folder);
 
                     parentChildrenFolders.sort(compareByName);
