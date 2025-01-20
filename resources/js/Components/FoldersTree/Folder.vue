@@ -43,6 +43,9 @@ function setSelected($folder) {
         document.querySelectorAll('.folder')
             .forEach((folder) => folder.classList.remove('selected'));
 
+        document.querySelectorAll('.file')
+            .forEach((file) => file.classList.remove('selected'));
+
         $folder.classList.add('selected');
     }
 }
@@ -52,7 +55,7 @@ function setSelected($folder) {
     <li :id="`folder-${folder.id}`" class="folder flex flex-row items-center">
         <div
             class="inline-block w-[25px] h-[25px] shrink-0 cursor-pointer fill-gray-500 dark:fill-gray-400 hover:fill-indigo-600"
-            @click.exact="onFolderIconClick"
+            @click="onFolderIconClick"
         >
             <component :is="icons[currentIcon]" />
         </div>

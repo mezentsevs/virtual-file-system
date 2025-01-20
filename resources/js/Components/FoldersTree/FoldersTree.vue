@@ -4,6 +4,7 @@ import Folder from '@/Components/FoldersTree/Folder.vue';
 import ItemPanel from '@/Components/FoldersTree/ItemPanel.vue';
 import { provide, ref } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
+import File from '@/Components/FoldersTree/File.vue';
 
 const foldersStore = useFoldersStore();
 
@@ -14,7 +15,7 @@ const props = defineProps({
     },
 });
 
-const isChildrenFoldersHidden = ref(true);
+const isChildrenHidden = ref(true);
 
 const currentItem = ref({});
 
@@ -25,7 +26,7 @@ function setCurrentItem(item) {
 }
 
 function onIconToggled(icon) {
-    isChildrenFoldersHidden.value = (icon === 'closed');
+    isChildrenHidden.value = (icon === 'closed');
 }
 
 function onFolderDeleted() {
@@ -61,12 +62,25 @@ setCurrentItem(props.folders.find(folder => folder.folder_id === null));
                 <ul
                     v-if="folder.children_folders.length"
                     class="children-folders pl-4"
-                    :class="{ hidden: isChildrenFoldersHidden }"
+                    :class="{ hidden: isChildrenHidden }"
                 >
                     <ChildFolder
                         v-for="childFolder in folder.children_folders"
                         :key="childFolder.id"
                         :child-folder
+                        @item-selected="setCurrentItem"
+                    />
+                </ul>
+
+                <ul
+                    v-if="folder.files.length"
+                    class="files pl-4"
+                    :class="{ hidden: isChildrenHidden }"
+                >
+                    <File
+                        v-for="file in folder.files"
+                        :key="file.id"
+                        :file
                         @item-selected="setCurrentItem"
                     />
                 </ul>
