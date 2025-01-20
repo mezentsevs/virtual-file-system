@@ -22,7 +22,7 @@ class StoreFolderRequest extends ApiRequest
         $parentFolder = Folder::find($this->request->get('folder_id'));
 
         return [
-            'name' => ['required', 'string', 'max:255', new FolderUnique($parentFolder)],
+            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z0-9\s\p{Pd}_.]+$/', new FolderUnique($parentFolder)],
         ];
     }
 }
