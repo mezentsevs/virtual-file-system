@@ -37,13 +37,6 @@ class DatabaseSeeder extends Seeder
                         'user_id' => $user->id,
                         'folder_id' => $secondLevelFolder->id,
                     ]);
-
-                    foreach ($thirdLevelFolders as $thirdLevelFolder) {
-                        Folder::factory(5)->hasFiles(6)->create([
-                            'user_id' => $user->id,
-                            'folder_id' => $thirdLevelFolder->id,
-                        ]);
-                    }
                 }
             }
         }

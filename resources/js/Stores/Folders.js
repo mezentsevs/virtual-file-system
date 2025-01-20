@@ -97,6 +97,8 @@ export const useFoldersStore = defineStore('folders', () => {
 
     function sortChildrenFolders(folders) {
         for (const folder of folders) {
+            if (folder.files) { folder.files.sort(compareByName); }
+
             if (!folder.children_folders) { return; }
 
             folder.children_folders.sort(compareByName);
