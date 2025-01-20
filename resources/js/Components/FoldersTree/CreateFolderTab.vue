@@ -3,7 +3,7 @@ import SaveButton from '@/Components/SaveButton.vue';
 import InputError from '@/Components/InputError.vue';
 import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
-import { inject, ref } from 'vue';
+import { inject, ref, watch } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
 
 const foldersStore = useFoldersStore();
@@ -13,6 +13,11 @@ const folder = inject('currentItem');
 const errors = ref({});
 
 let newFolderName = '';
+
+watch(
+    () => folder.value.id,
+    () => errors.value = {},
+);
 
 async function onSaveButtonClick() {
     errors.value = {};
