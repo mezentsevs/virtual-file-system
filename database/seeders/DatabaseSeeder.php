@@ -16,30 +16,30 @@ class DatabaseSeeder extends Seeder
         $users = User::factory(3)->create();
 
         foreach ($users as $user) {
-            $rootFolder = Folder::factory()->create([
+            $rootFolder = Folder::factory()->hasFiles(2)->create([
                 'user_id' => $user->id,
                 'name' => 'Root',
             ]);
 
-            $firstLevelFolders = Folder::factory(1)->hasFiles(1)->create([
+            $firstLevelFolders = Folder::factory(2)->hasFiles(3)->create([
                 'user_id' => $user->id,
                 'folder_id' => $rootFolder->id,
             ]);
 
             foreach ($firstLevelFolders as $firstLevelFolder) {
-                $secondLevelFolders = Folder::factory(2)->hasFiles(2)->create([
+                $secondLevelFolders = Folder::factory(3)->hasFiles(4)->create([
                     'user_id' => $user->id,
                     'folder_id' => $firstLevelFolder->id,
                 ]);
 
                 foreach ($secondLevelFolders as $secondLevelFolder) {
-                    $thirdLevelFolders = Folder::factory(3)->hasFiles(3)->create([
+                    $thirdLevelFolders = Folder::factory(4)->hasFiles(5)->create([
                         'user_id' => $user->id,
                         'folder_id' => $secondLevelFolder->id,
                     ]);
 
                     foreach ($thirdLevelFolders as $thirdLevelFolder) {
-                        Folder::factory(4)->hasFiles(4)->create([
+                        Folder::factory(5)->hasFiles(6)->create([
                             'user_id' => $user->id,
                             'folder_id' => $thirdLevelFolder->id,
                         ]);

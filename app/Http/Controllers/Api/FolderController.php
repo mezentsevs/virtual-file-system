@@ -26,7 +26,7 @@ class FolderController extends Controller
     {
         return response()->json([
             'success' => true,
-            'folders' => $request->user()->folders()->whereNull('folder_id')->with('childrenFolders')->get(),
+            'folders' => $request->user()->folders()->with('files')->whereNull('folder_id')->with('childrenFolders')->get(),
         ]);
     }
 

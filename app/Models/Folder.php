@@ -53,12 +53,12 @@ class Folder extends Model
 
     public function folders(): HasMany
     {
-        return $this->hasMany(self::class);
+        return $this->hasMany(self::class)->with('files');
     }
 
     public function childrenFolders(): HasMany
     {
-        return $this->folders()->with('childrenFolders');
+        return $this->folders()->with('childrenFolders.files');
     }
 
     public function folder(): BelongsTo
