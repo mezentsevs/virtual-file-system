@@ -31,7 +31,7 @@ class UpdateFileRequest extends ApiRequest
         }
 
         if ($file->content !== $this->input('content')) {
-            $rules['content'] = 'nullable|string';
+            $rules['content'] = 'nullable|string|max:10000';
         }
 
         return $rules;
