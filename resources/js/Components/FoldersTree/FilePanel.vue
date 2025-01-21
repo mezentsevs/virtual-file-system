@@ -82,7 +82,7 @@ setUp();
             id="content"
             v-model="content"
             class="mt-1 block w-full"
-            rows="15"
+            rows="10"
             cols="100"
             autocomplete="content"
             @focusin="content = file.content"
