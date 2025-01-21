@@ -69,6 +69,10 @@ export const useFoldersStore = defineStore('folders', () => {
         };
     }
 
+    function updateFileById() {
+        //
+    }
+
     function deleteFolderById() {
         return async payload => {
             const response = await axios.delete(`/api/folders/${payload.id}`);
@@ -83,6 +87,10 @@ export const useFoldersStore = defineStore('folders', () => {
                 return response.data;
             }
         };
+    }
+
+    function deleteFileById() {
+        //
     }
 
     function findFolder(id, folders) {
@@ -115,6 +123,8 @@ export const useFoldersStore = defineStore('folders', () => {
         loadFolders,
         createFolder,
         updateFolderById,
+        updateFileById,
         deleteFolderById,
+        deleteFileById,
     };
 });
