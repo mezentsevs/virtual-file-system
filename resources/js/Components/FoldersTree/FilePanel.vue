@@ -35,8 +35,6 @@ async function onSaveButtonClick() {
     });
 
     if (data.success === false) { errors.value = data.errors; }
-
-    if (data.success === true) { name.value = ''; }
 }
 
 async function onDeleteButtonClick() {
