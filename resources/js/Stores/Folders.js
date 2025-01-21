@@ -9,6 +9,10 @@ export const useFoldersStore = defineStore('folders', () => {
         return payload => findFolder(payload.id, folders.value);
     }
 
+    function getFileById() {
+        return payload => findFile(payload.id, folders.value);
+    }
+
     async function loadFolders() {
         const response = await axios.get('/api/folders');
 
@@ -101,6 +105,22 @@ export const useFoldersStore = defineStore('folders', () => {
                 const childFolder = findFolder(id, folder.children_folders);
 
                 if (childFolder) { return childFolder; }
+            }
+        }
+    }
+
+    function findFile(id, folders) {
+        for (const folder of folders) {
+            if (folder.files) {
+                const file = folder.files.find(file => file.id === id);
+
+                if (file) { return file; }
+            }
+
+            if (folder.children_folders) {
+                const childFile = findFile(id, folder.children_folders);
+
+                if (childFile) { return childFile; }
             }
         }
     }
