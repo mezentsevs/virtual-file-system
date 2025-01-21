@@ -32,7 +32,6 @@ async function onSaveButtonClick() {
         id: file.value.id,
         name: name.value,
         content: content.value,
-        size: content.value.length,
     });
 
     if (data.success === false) { errors.value = data.errors; }

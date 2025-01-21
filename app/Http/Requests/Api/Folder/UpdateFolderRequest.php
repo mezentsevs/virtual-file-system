@@ -20,12 +20,12 @@ class UpdateFolderRequest extends ApiRequest
     public function rules(): array
     {
         /**
-         * @var Folder $currentFolder
+         * @var Folder $folder
          */
-        $currentFolder = $this->route('folder');
+        $folder = $this->route('folder');
 
         return [
-            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z0-9\s\p{Pd}_.]+$/', new FolderUnique($currentFolder->folder)],
+            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z0-9\s\p{Pd}_.]+$/', new FolderUnique($folder->folder)],
         ];
     }
 }
