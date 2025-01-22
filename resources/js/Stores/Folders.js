@@ -47,6 +47,10 @@ export const useFoldersStore = defineStore('folders', () => {
         };
     }
 
+    function createFile() {
+        //
+    }
+
     function updateFolderById() {
         return async payload => {
             try {
@@ -177,6 +181,7 @@ export const useFoldersStore = defineStore('folders', () => {
         getFolderById,
         loadFolders,
         createFolder,
+        createFile,
         updateFolderById,
         updateFileById,
         deleteFolderById,
