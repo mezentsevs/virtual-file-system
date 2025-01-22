@@ -48,7 +48,23 @@ export const useFoldersStore = defineStore('folders', () => {
     }
 
     function createFile() {
-        //
+        return async payload => {
+            try {
+                const response = await axios.post('/api/files', payload);
+
+                if (response.status === 200 && response.data.success === true) {
+                    const parentFiles = getFolderById()({ id: response.data.file.folder_id }).files;
+
+                    parentFiles.push(response.data.file);
+
+                    parentFiles.sort(compareByName);
+
+                    return response.data;
+                }
+            } catch (error) {
+                if (error.status === 422) { return error.response.data; }
+            }
+        };
     }
 
     function updateFolderById() {
