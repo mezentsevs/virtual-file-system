@@ -12,6 +12,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/folders/{folder}', [FolderController::class, 'destroy'])->name('folders.delete');
 
     Route::patch('/files/{file}', [FileController::class, 'update'])->name('files.update');
+    Route::delete('/files/{file}', [FileController::class, 'destroy'])->name('files.delete');
 
     Route::get('/user', function (Request $request) {
         return $request->user();

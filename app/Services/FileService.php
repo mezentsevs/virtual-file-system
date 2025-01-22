@@ -19,4 +19,11 @@ class FileService
 
         return $file;
     }
+
+    public function delete(File $file): File
+    {
+        $file->delete();
+
+        return $file;
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Factories\FileUpdateDtoFactory;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\File\DeleteFileRequest;
 use App\Http\Requests\Api\File\StoreFileRequest;
 use App\Http\Requests\Api\File\UpdateFileRequest;
 use App\Models\File;
@@ -56,8 +57,11 @@ class FileController extends Controller
         ]);
     }
 
-    public function destroy(File $file)
+    public function destroy(DeleteFileRequest $request, File $file): JsonResponse
     {
-        //
+        return response()->json([
+            'success' => true,
+            'file' => $this->files->delete($file),
+        ]);
     }
 }
