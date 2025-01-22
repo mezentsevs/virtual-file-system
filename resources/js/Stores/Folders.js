@@ -117,7 +117,19 @@ export const useFoldersStore = defineStore('folders', () => {
     }
 
     function deleteFileById() {
-        //
+        return async payload => {
+            const response = await axios.delete(`/api/files/${payload.id}`);
+
+            if (response.status === 200 && response.data.success === true) {
+                const parentFiles = getFolderById()({ id: response.data.file.folder_id }).files;
+
+                const index = parentFiles.findIndex(file => file.id === response.data.file.id);
+
+                if (index !== -1) { parentFiles.splice(index, 1); }
+
+                return response.data;
+            }
+        };
     }
 
     function findFolder(id, folders) {
