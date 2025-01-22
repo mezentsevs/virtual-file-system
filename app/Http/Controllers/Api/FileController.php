@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Factories\FileCreateDtoFactory;
 use App\Factories\FileUpdateDtoFactory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\File\DeleteFileRequest;
@@ -20,29 +21,16 @@ class FileController extends Controller
         $this->files = app(FileService::class);
     }
 
-    public function index()
+    public function store(StoreFileRequest $request): JsonResponse
     {
-        //
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(StoreFileRequest $request)
-    {
-        //
-    }
-
-    public function show(File $file)
-    {
-        //
-    }
-
-    public function edit(File $file)
-    {
-        //
+        return response()->json([
+            'success' => true,
+            'file' => $this->files->create(FileCreateDtoFactory::fromArray([
+                'folder_id' => $request->integer('folder_id'),
+                'name' => $request->string('name'),
+                'content' => $request->string('content'),
+            ])),
+        ]);
     }
 
     public function update(UpdateFileRequest $request, File $file): JsonResponse
