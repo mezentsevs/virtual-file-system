@@ -29,7 +29,7 @@ function onIconToggled(icon) {
     isChildrenHidden.value = (icon === 'closed');
 }
 
-function onFolderDeleted() {
+function onCurrentItemDeleted() {
     setCurrentItem(foldersStore.getFolderById()({ id: currentItem.value.folder_id }));
 
     const $folder = document.getElementById(`folder-${currentItem.value.id}`);
@@ -87,6 +87,6 @@ setCurrentItem(props.folders.find(folder => folder.folder_id === null));
             </ul>
         </div>
 
-        <ItemPanel @folder-deleted="onFolderDeleted" />
+        <ItemPanel @folder-deleted="onCurrentItemDeleted" @file-deleted="onCurrentItemDeleted" />
     </div>
 </template>
