@@ -82,7 +82,6 @@ setUp();
             rows="10"
             cols="100"
             autocomplete="content"
-            @focusin="content = file.content"
         />
         <InputError v-for="error in errors.content" class="mt-2" :message="error" />
     </form>
