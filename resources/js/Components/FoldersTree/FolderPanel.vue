@@ -66,6 +66,10 @@ setUp();
         <DeleteButton v-if="folder.folder_id" class="ml-2 shrink-0" @click="onDeleteButtonClick" />
     </div>
 
+    <div class="my-2 text-sm text-gray-400 dark:text-gray-600">
+        Folders: {{ folder.folders_count }} Files: {{ folder.files_count }} Size: {{ folder.size }}
+    </div>
+
     <form @submit.prevent>
         <InputLabel for="name" value="Name" />
         <TextInput

@@ -26,7 +26,8 @@ use Illuminate\Support\Carbon;
  * @property-read Collection<int, Folder> $folders
  * @property-read int|null $folders_count
  * @property-read Folder $folder
- * @property-read mixed $type
+ * @property-read int $size
+ * @property-read string $type
  * @property-read User $user
  * @method static FolderFactory factory($count = null, $state = [])
  * @method static Builder<static>|Folder newModelQuery()
@@ -44,7 +45,12 @@ class Folder extends Model
     /** @use HasFactory<FolderFactory> */
     use HasFactory;
 
-    protected $appends = ['type'];
+    protected $appends = [
+        'type',
+        'size',
+    ];
+
+    protected $withCount = ['files'];
 
     public function user(): BelongsTo
     {
@@ -58,7 +64,7 @@ class Folder extends Model
 
     public function childrenFolders(): HasMany
     {
-        return $this->folders()->with('childrenFolders.files');
+        return $this->folders()->with('childrenFolders.files')->withCount('folders');
     }
 
     public function folder(): BelongsTo
@@ -74,7 +80,18 @@ class Folder extends Model
     protected function type(): Attribute
     {
         return Attribute::make(
-            get: fn () => 'folder',
+            get: fn (): string => 'folder',
+        );
+    }
+
+    protected function size(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): int => $this->folders->reduce(function (?int $acc, self $folder) {
+                    return $acc + $folder->size;
+                }) + $this->files->reduce(function (?int $acc, File $file) {
+                    return $acc + $file->size;
+                }),
         );
     }
 }
