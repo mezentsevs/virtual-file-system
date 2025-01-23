@@ -54,11 +54,11 @@ export const useFoldersStore = defineStore('folders', () => {
                 const response = await axios.post('/api/files', payload);
 
                 if (response.status === 200 && response.data.success === true) {
-                    const parentFiles = getFolderById()({ id: response.data.file.folder_id }).files;
+                    const parent = getFolderById()({ id: response.data.file.folder_id });
 
-                    parentFiles.push(response.data.file);
-
-                    parentFiles.sort(compareByName);
+                    parent.files.push(response.data.file);
+                    parent.files.sort(compareByName);
+                    parent.files_count++;
 
                     return response.data;
                 }
@@ -144,11 +144,13 @@ export const useFoldersStore = defineStore('folders', () => {
             const response = await axios.delete(`/api/files/${payload.id}`);
 
             if (response.status === 200 && response.data.success === true) {
-                const parentFiles = getFolderById()({ id: response.data.file.folder_id }).files;
+                const parent = getFolderById()({ id: response.data.file.folder_id });
 
-                const index = parentFiles.findIndex(file => file.id === response.data.file.id);
+                const index = parent.files.findIndex(file => file.id === response.data.file.id);
 
-                if (index !== -1) { parentFiles.splice(index, 1); }
+                if (index !== -1) { parent.files.splice(index, 1); }
+
+                parent.files_count--;
 
                 return response.data;
             }
