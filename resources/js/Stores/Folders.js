@@ -19,7 +19,7 @@ export const useFoldersStore = defineStore('folders', () => {
         if (response.status === 200 && response.data.success === true) {
             folders.value = response.data.folders;
 
-            sortChildrenFolders(folders.value);
+            sortChildren(folders.value);
         }
     }
 
@@ -185,7 +185,7 @@ export const useFoldersStore = defineStore('folders', () => {
         }
     }
 
-    function sortChildrenFolders(folders) {
+    function sortChildren(folders) {
         for (const folder of folders) {
             if (folder.files) { folder.files.sort(compareByName); }
 
@@ -193,7 +193,7 @@ export const useFoldersStore = defineStore('folders', () => {
 
             folder.children_folders.sort(compareByName);
 
-            sortChildrenFolders(folder.children_folders);
+            sortChildren(folder.children_folders);
         }
     }
 
