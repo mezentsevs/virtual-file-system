@@ -29,15 +29,16 @@ export const useFoldersStore = defineStore('folders', () => {
                 const response = await axios.post('/api/folders', payload);
 
                 if (response.status === 200 && response.data.success === true) {
-                    const parentChildrenFolders = getFolderById()({ id: response.data.folder.folder_id }).children_folders;
+                    const parent = getFolderById()({ id: response.data.folder.folder_id });
 
                     response.data.folder.children_folders = [];
-
                     response.data.folder.files = [];
+                    response.data.folder.folders_count = 0;
+                    response.data.folder.files_count = 0;
 
-                    parentChildrenFolders.push(response.data.folder);
-
-                    parentChildrenFolders.sort(compareByName);
+                    parent.children_folders.push(response.data.folder);
+                    parent.children_folders.sort(compareByName);
+                    parent.folders_count++;
 
                     return response.data;
                 }
@@ -125,11 +126,13 @@ export const useFoldersStore = defineStore('folders', () => {
             const response = await axios.delete(`/api/folders/${payload.id}`);
 
             if (response.status === 200 && response.data.success === true) {
-                const parentChildrenFolders = getFolderById()({ id: response.data.folder.folder_id }).children_folders;
+                const parent = getFolderById()({ id: response.data.folder.folder_id });
 
-                const index = parentChildrenFolders.findIndex(folder => folder.id === response.data.folder.id);
+                const index = parent.children_folders.findIndex(folder => folder.id === response.data.folder.id);
 
-                if (index !== -1) { parentChildrenFolders.splice(index, 1); }
+                if (index !== -1) { parent.children_folders.splice(index, 1); }
+
+                parent.folders_count--;
 
                 return response.data;
             }
