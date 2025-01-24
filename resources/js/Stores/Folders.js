@@ -60,6 +60,8 @@ export const useFoldersStore = defineStore('folders', () => {
                     parent.files.sort(compareByName);
                     parent.files_count++;
 
+                    updateParentsSize(response.data.file.type, response.data.file.id, folders.value, response.data.file.size);
+
                     return response.data;
                 }
             } catch (error) {
@@ -105,6 +107,8 @@ export const useFoldersStore = defineStore('folders', () => {
                 if (response.status === 200 && response.data.success === true) {
                     const file = getFileById()({ id: response.data.file.id });
 
+                    updateParentsSize(response.data.file.type, response.data.file.id, folders.value, response.data.file.size - file.size);
+
                     file.name = response.data.file.name;
                     file.content = response.data.file.content;
                     file.size = response.data.file.size;
@@ -126,10 +130,11 @@ export const useFoldersStore = defineStore('folders', () => {
             const response = await axios.delete(`/api/folders/${payload.id}`);
 
             if (response.status === 200 && response.data.success === true) {
+                const size = getFolderById()({ id: response.data.folder.id }).size;
+                updateParentsSize(response.data.folder.type, response.data.folder.id, folders.value, -size);
+
                 const parent = getFolderById()({ id: response.data.folder.folder_id });
-
                 const index = parent.children_folders.findIndex(folder => folder.id === response.data.folder.id);
-
                 if (index !== -1) { parent.children_folders.splice(index, 1); }
 
                 parent.folders_count--;
@@ -144,10 +149,10 @@ export const useFoldersStore = defineStore('folders', () => {
             const response = await axios.delete(`/api/files/${payload.id}`);
 
             if (response.status === 200 && response.data.success === true) {
+                updateParentsSize(response.data.file.type, response.data.file.id, folders.value, -response.data.file.size);
+
                 const parent = getFolderById()({ id: response.data.file.folder_id });
-
                 const index = parent.files.findIndex(file => file.id === response.data.file.id);
-
                 if (index !== -1) { parent.files.splice(index, 1); }
 
                 parent.files_count--;
@@ -195,6 +200,20 @@ export const useFoldersStore = defineStore('folders', () => {
 
             sortChildren(folder.children_folders);
         }
+    }
+
+    function updateParentsSize(type, id, folders, correction) {
+        if (correction === 0) { return; }
+
+        const currentItem = (type === 'folder') ? findFolder(id, folders) : findFile(id, folders);
+
+        const parent = findFolder(currentItem.folder_id, folders);
+
+        if (!parent) { return; }
+
+        parent.size += correction;
+
+        updateParentsSize(parent.type, parent.id, folders, correction);
     }
 
     return {
