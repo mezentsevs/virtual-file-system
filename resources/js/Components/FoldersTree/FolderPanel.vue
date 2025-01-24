@@ -10,6 +10,7 @@ import CreateFileButton from '@/Components/CreateFileButton.vue';
 import CreateFolderTab from '@/Components/FoldersTree/CreateFolderTab.vue';
 import CreateFileTab from '@/Components/FoldersTree/CreateFileTab.vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
+import { formatBytes } from '@/Helpers/FormatHelper.js';
 
 const foldersStore = useFoldersStore();
 
@@ -67,7 +68,7 @@ setUp();
     </div>
 
     <div class="my-2 text-sm text-gray-400 dark:text-gray-600">
-        Folders: {{ folder.folders_count }} Files: {{ folder.files_count }} Size: {{ folder.size }}
+        Folders: {{ folder.folders_count }} Files: {{ folder.files_count }} Size: {{ formatBytes(folder.size) }}
     </div>
 
     <form @submit.prevent>

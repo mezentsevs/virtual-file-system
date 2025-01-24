@@ -7,6 +7,7 @@ import SaveButton from '@/Components/SaveButton.vue';
 import DeleteButton from '@/Components/DeleteButton.vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
 import TextArea from '@/Components/TextArea.vue';
+import { formatBytes } from '@/Helpers/FormatHelper.js';
 
 const foldersStore = useFoldersStore();
 
@@ -62,7 +63,7 @@ setUp();
     </div>
 
     <div class="my-2 text-sm text-gray-400 dark:text-gray-600">
-        Size: {{ file.size }}
+        Size: {{ formatBytes(file.size) }}
     </div>
 
     <form @submit.prevent>
