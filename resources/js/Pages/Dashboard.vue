@@ -5,17 +5,24 @@ import { useFoldersStore } from '@/Stores/Folders.js';
 import { ref } from 'vue';
 
 const foldersStore = useFoldersStore();
+
+defineProps({
+    appName: {
+        type: String,
+        required: true,
+    },
+});
+
 const isLoaded = ref(false);
 
-foldersStore.loadFolders()
-    .then(() => isLoaded.value = true);
+foldersStore.loadFolders().then(() => isLoaded.value = true);
 </script>
 
 <template>
     <AppLayout title="Dashboard">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                Virtual file system
+                {{ appName }}
             </h2>
         </template>
 
