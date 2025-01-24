@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
                 ]);
 
                 foreach ($secondLevelFolders as $secondLevelFolder) {
-                    $thirdLevelFolders = Folder::factory(4)->hasFiles(5)->create([
+                    Folder::factory(4)->hasFiles(5)->create([
                         'user_id' => $user->id,
                         'folder_id' => $secondLevelFolder->id,
                     ]);
