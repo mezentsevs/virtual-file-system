@@ -1,4 +1,4 @@
-<p style="text-align: center; font-size: 50px">Virtual file system</p>
+# Virtual file system
 
 ## About 'Virtual file system'
 
