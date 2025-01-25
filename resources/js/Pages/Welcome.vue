@@ -76,8 +76,8 @@ function handleImageError() {
                 <main class="min-h-96 mt-6 text-center text-black dark:text-white/70 flex flex-col justify-center">
                     <p>
                         This is a
-                        <span class="font-medium text-[#818DF8]">virtual</span>
-                        file system written in and for educational purposes.
+                        <span class="font-medium text-[#818DF8]">virtual file system</span>
+                        written in and for educational purposes.
                     </p>
                 </main>
 
