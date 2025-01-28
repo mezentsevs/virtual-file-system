@@ -5,14 +5,20 @@
 This is a virtual file system written in and for educational purposes.
 
 Based on tech stack:
-- [PHP](https://www.php.net/),
-- [Laravel](https://laravel.com/),
-- [MySQL](https://www.mysql.com/),
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript),
-- [Vue](https://vuejs.org/),
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML),
+- [PHP](https://www.php.net),
+- [Laravel](https://laravel.com),
 - [Jetstream](https://jetstream.laravel.com/introduction.html),
-- [TailwindCss](https://tailwindcss.com/),
-- [Docker](https://www.docker.com/),
+- [Sanctum](https://github.com/laravel/sanctum),
+- [Inertia](https://inertiajs.com),
+- [MySQL](https://www.mysql.com),
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript),
+- [Vue](https://vuejs.org),
+- [Pinia](https://pinia.vuejs.org),
+- [Axios](https://axios-http.com),
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS),
+- [TailwindCss](https://tailwindcss.com),
+- [Docker](https://www.docker.com),
 - [Sail](https://github.com/laravel/sail).
 
 ## Getting Started
