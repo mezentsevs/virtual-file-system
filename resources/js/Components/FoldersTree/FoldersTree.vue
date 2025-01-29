@@ -34,7 +34,7 @@ function onCurrentItemDeleted() {
 
     const $folder = document.getElementById(`folder-${currentItem.value.id}`);
 
-    if ($folder) { setFolderSelected($folder) }
+    if ($folder) { setFolderSelected($folder); }
 }
 
 function setFolderSelected($folder) {
