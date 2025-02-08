@@ -25,7 +25,7 @@ watch(
 async function onSaveButtonClick() {
     errors.value = {};
 
-    const data = await foldersStore.createFile()({
+    const data = await foldersStore.createFile({
         folder_id: folder.value.id,
         name: newFileName,
         content: newFileContent,

@@ -22,7 +22,7 @@ watch(
 async function onSaveButtonClick() {
     errors.value = {};
 
-    const data = await foldersStore.createFolder()({
+    const data = await foldersStore.createFolder({
         folder_id: folder.value.id,
         name: newFolderName,
     });

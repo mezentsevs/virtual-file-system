@@ -37,7 +37,7 @@ watch(
 async function onSaveButtonClick() {
     errors.value = {};
 
-    const data = await foldersStore.updateFolderById()({
+    const data = await foldersStore.updateFolderById({
         id: folder.value.id,
         name: name.value,
     });
@@ -46,7 +46,7 @@ async function onSaveButtonClick() {
 }
 
 async function onDeleteButtonClick() {
-    const data = await foldersStore.deleteFolderById()({ id: folder.value.id });
+    const data = await foldersStore.deleteFolderById({ id: folder.value.id });
 
     if (data.success === true) { emit('folderDeleted'); }
 }

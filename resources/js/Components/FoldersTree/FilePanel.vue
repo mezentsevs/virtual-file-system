@@ -29,7 +29,7 @@ watch(
 async function onSaveButtonClick() {
     errors.value = {};
 
-    const data = await foldersStore.updateFileById()({
+    const data = await foldersStore.updateFileById({
         id: file.value.id,
         name: name.value,
         content: content.value,
@@ -39,7 +39,7 @@ async function onSaveButtonClick() {
 }
 
 async function onDeleteButtonClick() {
-    const data = await foldersStore.deleteFileById()({ id: file.value.id });
+    const data = await foldersStore.deleteFileById({ id: file.value.id });
 
     if (data.success === true) { emit('fileDeleted'); }
 }

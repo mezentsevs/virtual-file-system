@@ -23,143 +23,131 @@ export const useFoldersStore = defineStore('folders', () => {
         }
     }
 
-    function createFolder() {
-        return async payload => {
-            try {
-                const response = await axios.post('/api/folders', payload);
-
-                if (response.status === 200 && response.data.success === true) {
-                    const parent = getFolderById()({ id: response.data.folder.folder_id });
-
-                    response.data.folder.children_folders = [];
-                    response.data.folder.files = [];
-                    response.data.folder.folders_count = 0;
-                    response.data.folder.files_count = 0;
-
-                    parent.children_folders.push(response.data.folder);
-                    parent.children_folders.sort(compareByName);
-                    parent.folders_count++;
-
-                    return response.data;
-                }
-            } catch (error) {
-                if (error.status === 422) { return error.response.data; }
-            }
-        };
-    }
-
-    function createFile() {
-        return async payload => {
-            try {
-                const response = await axios.post('/api/files', payload);
-
-                if (response.status === 200 && response.data.success === true) {
-                    const parent = getFolderById()({ id: response.data.file.folder_id });
-
-                    parent.files.push(response.data.file);
-                    parent.files.sort(compareByName);
-                    parent.files_count++;
-
-                    updateParentsSize(response.data.file.type, response.data.file.id, folders.value, response.data.file.size);
-
-                    return response.data;
-                }
-            } catch (error) {
-                if (error.status === 422) { return error.response.data; }
-            }
-        };
-    }
-
-    function updateFolderById() {
-        return async payload => {
-            try {
-                const response = await axios.patch(`/api/folders/${payload.id}`, {
-                    name: payload.name,
-                });
-
-                if (response.status === 200 && response.data.success === true) {
-                    const folder = getFolderById()({ id: response.data.folder.id });
-
-                    folder.name = response.data.folder.name;
-
-                    if (folder.folder_id) {
-                        const parentChildrenFolders = getFolderById()({ id: folder.folder_id }).children_folders;
-
-                        parentChildrenFolders.sort(compareByName);
-                    }
-
-                    return response.data;
-                }
-            } catch (error) {
-                if (error.status === 422) { return error.response.data; }
-            }
-        };
-    }
-
-    function updateFileById() {
-        return async payload => {
-            try {
-                const response = await axios.patch(`/api/files/${payload.id}`, {
-                    name: payload.name,
-                    content: payload.content,
-                });
-
-                if (response.status === 200 && response.data.success === true) {
-                    const file = getFileById()({ id: response.data.file.id });
-
-                    updateParentsSize(response.data.file.type, response.data.file.id, folders.value, response.data.file.size - file.size);
-
-                    file.name = response.data.file.name;
-                    file.content = response.data.file.content;
-                    file.size = response.data.file.size;
-
-                    const parentFiles = getFolderById()({ id: file.folder_id }).files;
-
-                    parentFiles.sort(compareByName);
-
-                    return response.data;
-                }
-            } catch (error) {
-                if (error.status === 422) { return error.response.data; }
-            }
-        };
-    }
-
-    function deleteFolderById() {
-        return async payload => {
-            const response = await axios.delete(`/api/folders/${payload.id}`);
+    async function createFolder(payload) {
+        try {
+            const response = await axios.post('/api/folders', payload);
 
             if (response.status === 200 && response.data.success === true) {
-                const size = getFolderById()({ id: response.data.folder.id }).size;
-                updateParentsSize(response.data.folder.type, response.data.folder.id, folders.value, -size);
-
                 const parent = getFolderById()({ id: response.data.folder.folder_id });
-                const index = parent.children_folders.findIndex(folder => folder.id === response.data.folder.id);
-                if (index !== -1) { parent.children_folders.splice(index, 1); }
 
-                parent.folders_count--;
+                response.data.folder.children_folders = [];
+                response.data.folder.files = [];
+                response.data.folder.folders_count = 0;
+                response.data.folder.files_count = 0;
+
+                parent.children_folders.push(response.data.folder);
+                parent.children_folders.sort(compareByName);
+                parent.folders_count++;
 
                 return response.data;
             }
-        };
+        } catch (error) {
+            if (error.status === 422) { return error.response.data; }
+        }
     }
 
-    function deleteFileById() {
-        return async payload => {
-            const response = await axios.delete(`/api/files/${payload.id}`);
+    async function createFile(payload) {
+        try {
+            const response = await axios.post('/api/files', payload);
 
             if (response.status === 200 && response.data.success === true) {
-                updateParentsSize(response.data.file.type, response.data.file.id, folders.value, -response.data.file.size);
-
                 const parent = getFolderById()({ id: response.data.file.folder_id });
-                const index = parent.files.findIndex(file => file.id === response.data.file.id);
-                if (index !== -1) { parent.files.splice(index, 1); }
 
-                parent.files_count--;
+                parent.files.push(response.data.file);
+                parent.files.sort(compareByName);
+                parent.files_count++;
+
+                updateParentsSize(response.data.file.type, response.data.file.id, folders.value, response.data.file.size);
 
                 return response.data;
             }
-        };
+        } catch (error) {
+            if (error.status === 422) { return error.response.data; }
+        }
+    }
+
+    async function updateFolderById(payload) {
+        try {
+            const response = await axios.patch(`/api/folders/${payload.id}`, {
+                name: payload.name,
+            });
+
+            if (response.status === 200 && response.data.success === true) {
+                const folder = getFolderById()({ id: response.data.folder.id });
+
+                folder.name = response.data.folder.name;
+
+                if (folder.folder_id) {
+                    const parentChildrenFolders = getFolderById()({ id: folder.folder_id }).children_folders;
+
+                    parentChildrenFolders.sort(compareByName);
+                }
+
+                return response.data;
+            }
+        } catch (error) {
+            if (error.status === 422) { return error.response.data; }
+        }
+    }
+
+    async function updateFileById(payload) {
+        try {
+            const response = await axios.patch(`/api/files/${payload.id}`, {
+                name: payload.name,
+                content: payload.content,
+            });
+
+            if (response.status === 200 && response.data.success === true) {
+                const file = getFileById()({ id: response.data.file.id });
+
+                updateParentsSize(response.data.file.type, response.data.file.id, folders.value, response.data.file.size - file.size);
+
+                file.name = response.data.file.name;
+                file.content = response.data.file.content;
+                file.size = response.data.file.size;
+
+                const parentFiles = getFolderById()({ id: file.folder_id }).files;
+
+                parentFiles.sort(compareByName);
+
+                return response.data;
+            }
+        } catch (error) {
+            if (error.status === 422) { return error.response.data; }
+        }
+    }
+
+    async function deleteFolderById(payload) {
+        const response = await axios.delete(`/api/folders/${payload.id}`);
+
+        if (response.status === 200 && response.data.success === true) {
+            const size = getFolderById()({ id: response.data.folder.id }).size;
+            updateParentsSize(response.data.folder.type, response.data.folder.id, folders.value, -size);
+
+            const parent = getFolderById()({ id: response.data.folder.folder_id });
+            const index = parent.children_folders.findIndex(folder => folder.id === response.data.folder.id);
+            if (index !== -1) { parent.children_folders.splice(index, 1); }
+
+            parent.folders_count--;
+
+            return response.data;
+        }
+    }
+
+    async function deleteFileById(payload) {
+        const response = await axios.delete(`/api/files/${payload.id}`);
+
+        if (response.status === 200 && response.data.success === true) {
+            updateParentsSize(response.data.file.type, response.data.file.id, folders.value, -response.data.file.size);
+
+            const parent = getFolderById()({ id: response.data.file.folder_id });
+            const index = parent.files.findIndex(file => file.id === response.data.file.id);
+            if (index !== -1) { parent.files.splice(index, 1); }
+
+            parent.files_count--;
+
+            return response.data;
+        }
     }
 
     function findFolder(id, folders) {
