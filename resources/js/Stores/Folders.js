@@ -1,17 +1,13 @@
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { compareByName } from '@/Helpers/SortHelper.js';
 
 export const useFoldersStore = defineStore('folders', () => {
     const folders = ref([]);
 
-    function getFolderById() {
-        return payload => findFolder(payload.id, folders.value);
-    }
+    const getFolderById = computed(() => payload => findFolder(payload.id, folders.value));
 
-    function getFileById() {
-        return payload => findFile(payload.id, folders.value);
-    }
+    const getFileById = computed(() => payload => findFile(payload.id, folders.value));
 
     async function loadFolders() {
         const response = await axios.get('/api/folders');
@@ -28,7 +24,7 @@ export const useFoldersStore = defineStore('folders', () => {
             const response = await axios.post('/api/folders', payload);
 
             if (response.status === 200 && response.data.success === true) {
-                const parent = getFolderById()({ id: response.data.folder.folder_id });
+                const parent = getFolderById.value({ id: response.data.folder.folder_id });
 
                 response.data.folder.children_folders = [];
                 response.data.folder.files = [];
@@ -51,7 +47,7 @@ export const useFoldersStore = defineStore('folders', () => {
             const response = await axios.post('/api/files', payload);
 
             if (response.status === 200 && response.data.success === true) {
-                const parent = getFolderById()({ id: response.data.file.folder_id });
+                const parent = getFolderById.value({ id: response.data.file.folder_id });
 
                 parent.files.push(response.data.file);
                 parent.files.sort(compareByName);
@@ -73,12 +69,12 @@ export const useFoldersStore = defineStore('folders', () => {
             });
 
             if (response.status === 200 && response.data.success === true) {
-                const folder = getFolderById()({ id: response.data.folder.id });
+                const folder = getFolderById.value({ id: response.data.folder.id });
 
                 folder.name = response.data.folder.name;
 
                 if (folder.folder_id) {
-                    const parentChildrenFolders = getFolderById()({ id: folder.folder_id }).children_folders;
+                    const parentChildrenFolders = getFolderById.value({ id: folder.folder_id }).children_folders;
 
                     parentChildrenFolders.sort(compareByName);
                 }
@@ -98,7 +94,7 @@ export const useFoldersStore = defineStore('folders', () => {
             });
 
             if (response.status === 200 && response.data.success === true) {
-                const file = getFileById()({ id: response.data.file.id });
+                const file = getFileById.value({ id: response.data.file.id });
 
                 updateParentsSize(response.data.file.type, response.data.file.id, folders.value, response.data.file.size - file.size);
 
@@ -106,7 +102,7 @@ export const useFoldersStore = defineStore('folders', () => {
                 file.content = response.data.file.content;
                 file.size = response.data.file.size;
 
-                const parentFiles = getFolderById()({ id: file.folder_id }).files;
+                const parentFiles = getFolderById.value({ id: file.folder_id }).files;
 
                 parentFiles.sort(compareByName);
 
@@ -121,10 +117,10 @@ export const useFoldersStore = defineStore('folders', () => {
         const response = await axios.delete(`/api/folders/${payload.id}`);
 
         if (response.status === 200 && response.data.success === true) {
-            const size = getFolderById()({ id: response.data.folder.id }).size;
+            const size = getFolderById.value({ id: response.data.folder.id }).size;
             updateParentsSize(response.data.folder.type, response.data.folder.id, folders.value, -size);
 
-            const parent = getFolderById()({ id: response.data.folder.folder_id });
+            const parent = getFolderById.value({ id: response.data.folder.folder_id });
             const index = parent.children_folders.findIndex(folder => folder.id === response.data.folder.id);
             if (index !== -1) { parent.children_folders.splice(index, 1); }
 
@@ -140,7 +136,7 @@ export const useFoldersStore = defineStore('folders', () => {
         if (response.status === 200 && response.data.success === true) {
             updateParentsSize(response.data.file.type, response.data.file.id, folders.value, -response.data.file.size);
 
-            const parent = getFolderById()({ id: response.data.file.folder_id });
+            const parent = getFolderById.value({ id: response.data.file.folder_id });
             const index = parent.files.findIndex(file => file.id === response.data.file.id);
             if (index !== -1) { parent.files.splice(index, 1); }
 

@@ -30,7 +30,7 @@ function onIconToggled(icon) {
 }
 
 function onCurrentItemDeleted() {
-    setCurrentItem(foldersStore.getFolderById()({ id: currentItem.value.folder_id }));
+    setCurrentItem(foldersStore.getFolderById({ id: currentItem.value.folder_id }));
 
     const $folder = document.getElementById(`folder-${currentItem.value.id}`);
 
