@@ -57,7 +57,9 @@ function setSelected($folder) {
             class="inline-block w-[25px] h-[25px] shrink-0 cursor-pointer fill-gray-500 dark:fill-gray-400 hover:fill-indigo-600 transition-[fill]"
             @click="onFolderIconClick"
         >
-            <component :is="icons[currentIcon]" />
+            <Transition name="icon" mode="out-in">
+                <component :is="icons[currentIcon]" />
+            </Transition>
         </div>
 
         <span
@@ -84,6 +86,31 @@ function setSelected($folder) {
         top: 0;
         background: #E0E7FF;
         z-index: -1;
+    }
+}
+
+.icon-enter-active,
+.icon-leave-active {
+    transition: opacity 0.25s ease-in-out;
+    animation: bounce 0.25s ease-in-out;
+}
+
+.icon-enter-from,
+.icon-leave-to {
+    opacity: 0;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
 </style>

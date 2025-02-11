@@ -62,7 +62,7 @@ setCurrentItem(props.folders.find(folder => folder.folder_id === null));
                 <ul
                     v-if="folder.children_folders.length"
                     class="children-folders pl-4"
-                    :class="{ hidden: isChildrenHidden }"
+                    :class="[isChildrenHidden ? 'hidden' : 'shown']"
                 >
                     <ChildFolder
                         v-for="childFolder in folder.children_folders"
@@ -75,7 +75,7 @@ setCurrentItem(props.folders.find(folder => folder.folder_id === null));
                 <ul
                     v-if="folder.files.length"
                     class="files pl-4"
-                    :class="{ hidden: isChildrenHidden }"
+                    :class="[isChildrenHidden ? 'hidden' : 'shown']"
                 >
                     <File
                         v-for="file in folder.files"
@@ -90,3 +90,19 @@ setCurrentItem(props.folders.find(folder => folder.folder_id === null));
         <ItemPanel @folder-deleted="onCurrentItemDeleted" @file-deleted="onCurrentItemDeleted" />
     </div>
 </template>
+
+<style scoped>
+.shown {
+    animation: show 0.25s ease-in-out;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+</style>

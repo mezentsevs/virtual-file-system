@@ -6,7 +6,7 @@
 
 <style scoped>
 .image-button:active {
-    animation: bounce 0.5s;
+    animation: bounce 0.5s ease-in-out;
 }
 
 @keyframes bounce {

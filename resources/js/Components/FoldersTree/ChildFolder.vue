@@ -30,7 +30,7 @@ function onIconToggled(icon) {
     <ul
         v-if="childFolder.children_folders.length"
         class="children-folders pl-4"
-        :class="{ hidden: isChildrenHidden }"
+        :class="[isChildrenHidden ? 'hidden' : 'shown']"
     >
         <ChildFolder
             v-for="childFolder in childFolder.children_folders"
@@ -43,7 +43,7 @@ function onIconToggled(icon) {
     <ul
         v-if="childFolder.files.length"
         class="files pl-4"
-        :class="{ hidden: isChildrenHidden }"
+        :class="[isChildrenHidden ? 'hidden' : 'shown']"
     >
         <File
             v-for="file in childFolder.files"
@@ -53,3 +53,19 @@ function onIconToggled(icon) {
         />
     </ul>
 </template>
+
+<style scoped>
+.shown {
+    animation: show 0.25s ease-in-out;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+</style>
