@@ -97,11 +97,11 @@ setCurrentItem(props.folders.find(folder => folder.folder_id === null));
 }
 
 @keyframes appearance {
-    0% {
+    from {
         opacity: 0;
     }
 
-    100% {
+    to {
         opacity: 1;
     }
 }

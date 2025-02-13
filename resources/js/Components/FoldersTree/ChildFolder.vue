@@ -60,11 +60,11 @@ function onIconToggled(icon) {
 }
 
 @keyframes appearance {
-    0% {
+    from {
         opacity: 0;
     }
 
-    100% {
+    to {
         opacity: 1;
     }
 }
