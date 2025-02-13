@@ -93,10 +93,10 @@ setCurrentItem(props.folders.find(folder => folder.folder_id === null));
 
 <style scoped>
 .shown {
-    animation: show 0.25s ease-in-out;
+    animation: appearance 0.25s ease-in-out;
 }
 
-@keyframes show {
+@keyframes appearance {
     0% {
         opacity: 0;
     }
