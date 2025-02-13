@@ -87,8 +87,8 @@ setUp();
 
     <div class="m-16 flex flex-col items-center">
         <div class="w-1/2 flex flex-row justify-between">
-            <CreateFolderButton :class="{ 'fill-indigo-500': currentTab === 'folder' }" @click="currentTab = 'folder'" />
-            <CreateFileButton :class="{ 'fill-indigo-500': currentTab === 'file' }" @click="currentTab = 'file'" />
+            <CreateFolderButton :class="{ 'current-tab': currentTab === 'folder' }" @click="currentTab = 'folder'" />
+            <CreateFileButton :class="{ 'current-tab': currentTab === 'file' }" @click="currentTab = 'file'" />
         </div>
     </div>
 
@@ -96,3 +96,9 @@ setUp();
         <component :is="tabs[currentTab]" />
     </KeepAlive>
 </template>
+
+<style scoped>
+.image-button.current-tab {
+    fill: #6366f1;
+}
+</style>
