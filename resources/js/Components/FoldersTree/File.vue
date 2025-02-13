@@ -49,6 +49,7 @@ function setSelected($file) {
 
 <style scoped>
 .selected {
+    font-weight: bold;
     position: relative;
     z-index: 0;
 

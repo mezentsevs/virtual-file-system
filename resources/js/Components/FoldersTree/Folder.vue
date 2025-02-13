@@ -73,6 +73,7 @@ function setSelected($folder) {
 
 <style scoped>
 .selected {
+    font-weight: bold;
     position: relative;
     z-index: 0;
 
