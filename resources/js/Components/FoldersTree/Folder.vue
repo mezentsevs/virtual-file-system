@@ -86,6 +86,7 @@ function setSelected($folder) {
         top: 0;
         background: #E0E7FF;
         z-index: -1;
+        animation: appearance 0.25s ease-in-out, bounce 0.25s ease-in-out;
     }
 }
 
@@ -98,6 +99,16 @@ function setSelected($folder) {
 .icon-enter-from,
 .icon-leave-to {
     opacity: 0;
+}
+
+@keyframes appearance {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes bounce {
