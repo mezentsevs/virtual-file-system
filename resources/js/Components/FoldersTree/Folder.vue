@@ -80,7 +80,7 @@ function setSelected($folder) {
 
     svg {
         fill: #1F2937;
-        transition: fill cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+        transition: fill 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 
         &:hover {
             fill: #4F46E5;
