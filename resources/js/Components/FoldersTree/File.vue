@@ -49,9 +49,19 @@ function setSelected($file) {
 
 <style scoped>
 .selected {
+    color: #1F2937;
     font-weight: bold;
     position: relative;
     z-index: 0;
+
+    svg {
+        fill: #1F2937;
+        transition: fill cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+
+        &:hover {
+            fill: #4F46E5;
+        }
+    }
 
     ::after {
         content: '';
