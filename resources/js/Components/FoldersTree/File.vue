@@ -39,7 +39,7 @@ function setSelected($file) {
         </div>
 
         <span
-            class="inline-block ml-[5px] cursor-pointer select-none truncate"
+            class="inline-block ml-[5px] cursor-pointer select-none truncate hover:text-indigo-600 transition-colors"
             @click="onFileClick"
         >
             {{ file.name }}
