@@ -63,7 +63,7 @@ function setSelected($file) {
         }
     }
 
-    ::after {
+    &:after {
         content: '';
         position: absolute;
         display: block;

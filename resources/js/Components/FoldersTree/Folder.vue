@@ -87,7 +87,7 @@ function setSelected($folder) {
         }
     }
 
-    ::after {
+    &:after {
         content: '';
         position: absolute;
         display: block;
