@@ -8,6 +8,7 @@ import DeleteButton from '@/Components/DeleteButton.vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
 import TextArea from '@/Components/TextArea.vue';
 import { formatBytes } from '@/Helpers/FormatHelper.js';
+import CustomHeader from '@/Components/CustomHeader.vue';
 
 const foldersStore = useFoldersStore();
 
@@ -57,7 +58,7 @@ setUp();
 
 <template>
     <div class="flex flex-row justify-between items-center">
-        <h3 class="h-9 text-3xl text-center truncate grow">{{ file.name }}</h3>
+        <CustomHeader :level="3" class="h-9 text-3xl">{{ file.name }}</CustomHeader>
         <SaveButton class="shrink-0" @click="onSaveButtonClick" />
         <DeleteButton class="ml-2 shrink-0" @click="onDeleteButtonClick" />
     </div>

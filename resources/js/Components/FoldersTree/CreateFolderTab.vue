@@ -5,6 +5,7 @@ import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import { inject, ref, watch } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
+import CustomHeader from '@/Components/CustomHeader.vue';
 
 const foldersStore = useFoldersStore();
 
@@ -33,7 +34,7 @@ async function onSaveButtonClick() {
 
 <template>
     <div class="flex flex-row justify-between items-center">
-        <h4 class="h-8 text-2xl text-center truncate grow">Create folder</h4>
+        <CustomHeader :level="4" class="h-8 text-2xl">Create folder</CustomHeader>
         <SaveButton class="shrink-0" @click="onSaveButtonClick" />
     </div>
 
