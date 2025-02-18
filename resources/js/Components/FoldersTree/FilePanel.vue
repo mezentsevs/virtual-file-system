@@ -80,7 +80,7 @@ setUp();
         />
         <InputError v-for="error in errors.name" class="mt-2" :message="error" />
 
-        <InputLabel for="content" value="Content" />
+        <InputLabel for="content" value="Content" class="mt-1" />
         <TextArea
             id="content"
             v-model="content"

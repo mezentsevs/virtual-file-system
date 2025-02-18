@@ -54,7 +54,7 @@ async function onSaveButtonClick() {
         />
         <InputError v-for="error in errors.name" class="mt-2" :message="error" />
 
-        <InputLabel for="new-file-content" value="New file content" />
+        <InputLabel for="new-file-content" value="New file content" class="mt-1" />
         <TextArea
             id="new-file-content"
             v-model="newFileContent"
