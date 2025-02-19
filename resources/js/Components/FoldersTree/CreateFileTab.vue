@@ -48,7 +48,7 @@ async function onSaveButtonClick() {
             id="new-file-name"
             v-model="newFileName"
             type="text"
-            class="mt-1 block w-full"
+            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200"
             required
             autocomplete="new-file-name"
         />
@@ -58,7 +58,7 @@ async function onSaveButtonClick() {
         <TextArea
             id="new-file-content"
             v-model="newFileContent"
-            class="mt-1 block w-full"
+            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200"
             rows="10"
             cols="100"
             autocomplete="new-file-content"

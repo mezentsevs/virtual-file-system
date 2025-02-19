@@ -79,7 +79,7 @@ setUp();
             id="name"
             v-model="name"
             type="text"
-            class="mt-1 block w-full"
+            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200"
             required
             autocomplete="name"
             @focusin="name = folder.name"
