@@ -72,7 +72,7 @@ setUp();
             id="name"
             v-model="name"
             type="text"
-            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200"
+            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
             required
             autocomplete="name"
             @focusin="name = file.name"
@@ -83,7 +83,7 @@ setUp();
         <TextArea
             id="content"
             v-model="content"
-            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200"
+            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
             rows="10"
             cols="100"
             autocomplete="content"

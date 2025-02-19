@@ -44,7 +44,7 @@ async function onSaveButtonClick() {
             id="new-folder-name"
             v-model="newFolderName"
             type="text"
-            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200"
+            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
             required
             autocomplete="new-folder-name"
         />
