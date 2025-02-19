@@ -12,6 +12,7 @@ import CreateFileTab from '@/Components/FoldersTree/CreateFileTab.vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
 import { formatBytes } from '@/Helpers/FormatHelper.js';
 import CustomHeading from '@/Components/CustomHeading.vue';
+import Statistics from '@/Components/FoldersTree/Statistics.vue';
 
 const foldersStore = useFoldersStore();
 
@@ -68,9 +69,9 @@ setUp();
         <DeleteButton v-if="folder.folder_id" class="ml-2 shrink-0" @click="onDeleteButtonClick" />
     </div>
 
-    <div class="my-2 text-sm text-gray-400 dark:text-gray-600">
-        Folders: {{ folder.folders_count }} Files: {{ folder.files_count }} Size: {{ formatBytes(folder.size) }}
-    </div>
+    <Statistics>
+        Folders: {{ folder.folders_count }}, Files: {{ folder.files_count }}, Size: {{ formatBytes(folder.size) }}
+    </Statistics>
 
     <form @submit.prevent>
         <InputLabel for="name" value="Name" />

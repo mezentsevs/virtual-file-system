@@ -9,6 +9,7 @@ import { useFoldersStore } from '@/Stores/Folders.js';
 import TextArea from '@/Components/TextArea.vue';
 import { formatBytes } from '@/Helpers/FormatHelper.js';
 import CustomHeading from '@/Components/CustomHeading.vue';
+import Statistics from '@/Components/FoldersTree/Statistics.vue';
 
 const foldersStore = useFoldersStore();
 
@@ -63,9 +64,7 @@ setUp();
         <DeleteButton class="ml-2 shrink-0" @click="onDeleteButtonClick" />
     </div>
 
-    <div class="my-2 text-sm text-gray-400 dark:text-gray-600">
-        Size: {{ formatBytes(file.size) }}
-    </div>
+    <Statistics>Size: {{ formatBytes(file.size) }}</Statistics>
 
     <form @submit.prevent>
         <InputLabel for="name" value="Name" />
