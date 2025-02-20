@@ -10,6 +10,7 @@ import TextArea from '@/Components/TextArea.vue';
 import { formatBytes } from '@/Helpers/FormatHelper.js';
 import CustomHeading from '@/Components/CustomHeading.vue';
 import Statistics from '@/Components/FoldersTree/Statistics.vue';
+import CustomHeader from '@/Components/CustomHeader.vue';
 
 const foldersStore = useFoldersStore();
 
@@ -58,11 +59,11 @@ setUp();
 </script>
 
 <template>
-    <div class="flex flex-row justify-between items-center">
+    <CustomHeader>
         <CustomHeading :level="3" class="h-9 text-3xl">{{ file.name }}</CustomHeading>
         <SaveButton class="shrink-0" @click="onSaveButtonClick" />
         <DeleteButton class="ml-2 shrink-0" @click="onDeleteButtonClick" />
-    </div>
+    </CustomHeader>
 
     <Statistics>Size: {{ formatBytes(file.size) }}</Statistics>
 

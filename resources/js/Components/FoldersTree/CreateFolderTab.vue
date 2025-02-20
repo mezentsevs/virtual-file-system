@@ -6,6 +6,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import { inject, ref, watch } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
 import CustomHeading from '@/Components/CustomHeading.vue';
+import CustomHeader from '@/Components/CustomHeader.vue';
 
 const foldersStore = useFoldersStore();
 
@@ -33,10 +34,10 @@ async function onSaveButtonClick() {
 </script>
 
 <template>
-    <div class="flex flex-row justify-between items-center">
+    <CustomHeader>
         <CustomHeading :level="4" class="h-8 text-2xl">Create folder</CustomHeading>
         <SaveButton class="shrink-0" @click="onSaveButtonClick" />
-    </div>
+    </CustomHeader>
 
     <form @submit.prevent>
         <InputLabel for="new-folder-name" value="New folder name" />
