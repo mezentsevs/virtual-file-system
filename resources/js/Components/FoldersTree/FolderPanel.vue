@@ -95,9 +95,11 @@ setUp();
         </div>
     </div>
 
-    <KeepAlive>
-        <component :is="tabs[currentTab]" />
-    </KeepAlive>
+    <section>
+        <KeepAlive>
+            <component :is="tabs[currentTab]" />
+        </KeepAlive>
+    </section>
 </template>
 
 <style scoped>
