@@ -51,7 +51,7 @@ setCurrentItem(props.folders.find(folder => folder.folder_id === null));
 
 <template>
     <div class="flex flex-row items-top justify-between">
-        <div class="folders-tree m-4 w-1/3 min-w-[300px] min-h-[600px] overflow-hidden text-gray-500 dark:text-gray-400 border-solid border-[1px] border-gray-500 dark:border-gray-400 rounded-lg">
+        <nav class="folders-tree m-4 w-1/3 min-w-[300px] min-h-[600px] overflow-hidden text-gray-500 dark:text-gray-400 border-solid border-[1px] border-gray-500 dark:border-gray-400 rounded-lg">
             <ul
                 v-for="folder in folders"
                 :key="folder.id"
@@ -85,7 +85,7 @@ setCurrentItem(props.folders.find(folder => folder.folder_id === null));
                     />
                 </ul>
             </ul>
-        </div>
+        </nav>
 
         <ItemPanel @folder-deleted="onCurrentItemDeleted" @file-deleted="onCurrentItemDeleted" />
     </div>
