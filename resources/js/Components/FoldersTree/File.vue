@@ -64,16 +64,16 @@ function setSelected($file) {
     }
 
     &:after {
+        animation: appearance 0.25s ease-in-out, bounce 0.25s ease-in-out;
+        background: #E0E7FF;
         content: '';
-        position: absolute;
         display: block;
-        width: 3840px;
         height: 25px;
         left: -1920px;
+        position: absolute;
         top: 0;
-        background: #E0E7FF;
+        width: 3840px;
         z-index: -1;
-        animation: appearance 0.25s ease-in-out, bounce 0.25s ease-in-out;
     }
 }
 
