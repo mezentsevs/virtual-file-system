@@ -1,6 +1,6 @@
 <script setup>
-import TrashIcon from '@/Icons/TrashIcon.vue';
 import BaseImageButton from '@/Components/BaseImageButton.vue';
+import TrashIcon from '@/Icons/TrashIcon.vue';
 </script>
 
 <template>

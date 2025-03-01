@@ -1,8 +1,8 @@
 <script setup>
 import ChildFolder from '@/Components/FoldersTree/ChildFolder.vue';
+import File from '@/Components/FoldersTree/File.vue';
 import Folder from '@/Components/FoldersTree/Folder.vue';
 import { ref } from 'vue';
-import File from '@/Components/FoldersTree/File.vue';
 
 defineProps({
     childFolder: {

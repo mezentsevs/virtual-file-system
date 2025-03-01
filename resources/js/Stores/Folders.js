@@ -1,6 +1,6 @@
-import { defineStore } from 'pinia';
-import { computed, ref } from 'vue';
 import { compareByName } from '@/Helpers/SortHelper.js';
+import { computed, ref } from 'vue';
+import { defineStore } from 'pinia';
 
 export const useFoldersStore = defineStore('folders', () => {
     const folders = ref([]);

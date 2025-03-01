@@ -1,12 +1,12 @@
 <script setup>
-import SaveButton from '@/Components/SaveButton.vue';
+import CustomHeader from '@/Components/CustomHeader.vue';
+import CustomHeading from '@/Components/CustomHeading.vue';
 import InputError from '@/Components/InputError.vue';
-import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
+import SaveButton from '@/Components/SaveButton.vue';
+import TextInput from '@/Components/TextInput.vue';
 import { inject, ref, watch } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
-import CustomHeading from '@/Components/CustomHeading.vue';
-import CustomHeader from '@/Components/CustomHeader.vue';
 
 const foldersStore = useFoldersStore();
 

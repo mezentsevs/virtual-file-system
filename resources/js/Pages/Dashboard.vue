@@ -1,8 +1,8 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import FoldersTree from '@/Components/FoldersTree/FoldersTree.vue';
-import { useFoldersStore } from '@/Stores/Folders.js';
 import { ref } from 'vue';
+import { useFoldersStore } from '@/Stores/Folders.js';
 
 const foldersStore = useFoldersStore();
 

@@ -1,6 +1,6 @@
 <script setup>
-import SaveFloppyIcon from '@/Icons/SaveFloppyIcon.vue';
 import BaseImageButton from '@/Components/BaseImageButton.vue';
+import SaveFloppyIcon from '@/Icons/SaveFloppyIcon.vue';
 </script>
 
 <template>

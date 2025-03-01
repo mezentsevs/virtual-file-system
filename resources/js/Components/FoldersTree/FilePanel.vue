@@ -1,16 +1,16 @@
 <script setup>
-import { inject, ref, watch } from 'vue';
-import TextInput from '@/Components/TextInput.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import InputError from '@/Components/InputError.vue';
-import SaveButton from '@/Components/SaveButton.vue';
-import DeleteButton from '@/Components/DeleteButton.vue';
-import { useFoldersStore } from '@/Stores/Folders.js';
-import TextArea from '@/Components/TextArea.vue';
-import { formatBytes } from '@/Helpers/FormatHelper.js';
-import CustomHeading from '@/Components/CustomHeading.vue';
-import Statistics from '@/Components/FoldersTree/Statistics.vue';
 import CustomHeader from '@/Components/CustomHeader.vue';
+import CustomHeading from '@/Components/CustomHeading.vue';
+import DeleteButton from '@/Components/DeleteButton.vue';
+import InputError from '@/Components/InputError.vue';
+import InputLabel from '@/Components/InputLabel.vue';
+import SaveButton from '@/Components/SaveButton.vue';
+import Statistics from '@/Components/FoldersTree/Statistics.vue';
+import TextArea from '@/Components/TextArea.vue';
+import TextInput from '@/Components/TextInput.vue';
+import { formatBytes } from '@/Helpers/FormatHelper.js';
+import { inject, ref, watch } from 'vue';
+import { useFoldersStore } from '@/Stores/Folders.js';
 
 const foldersStore = useFoldersStore();
 

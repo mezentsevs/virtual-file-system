@@ -1,19 +1,19 @@
 <script setup>
-import { inject, ref, watch } from 'vue';
-import TextInput from '@/Components/TextInput.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import InputError from '@/Components/InputError.vue';
-import SaveButton from '@/Components/SaveButton.vue';
-import DeleteButton from '@/Components/DeleteButton.vue';
-import CreateFolderButton from '@/Components/CreateFolderButton.vue';
 import CreateFileButton from '@/Components/CreateFileButton.vue';
-import CreateFolderTab from '@/Components/FoldersTree/CreateFolderTab.vue';
 import CreateFileTab from '@/Components/FoldersTree/CreateFileTab.vue';
-import { useFoldersStore } from '@/Stores/Folders.js';
-import { formatBytes } from '@/Helpers/FormatHelper.js';
-import CustomHeading from '@/Components/CustomHeading.vue';
-import Statistics from '@/Components/FoldersTree/Statistics.vue';
+import CreateFolderButton from '@/Components/CreateFolderButton.vue';
+import CreateFolderTab from '@/Components/FoldersTree/CreateFolderTab.vue';
 import CustomHeader from '@/Components/CustomHeader.vue';
+import CustomHeading from '@/Components/CustomHeading.vue';
+import DeleteButton from '@/Components/DeleteButton.vue';
+import InputError from '@/Components/InputError.vue';
+import InputLabel from '@/Components/InputLabel.vue';
+import SaveButton from '@/Components/SaveButton.vue';
+import Statistics from '@/Components/FoldersTree/Statistics.vue';
+import TextInput from '@/Components/TextInput.vue';
+import { formatBytes } from '@/Helpers/FormatHelper.js';
+import { inject, ref, watch } from 'vue';
+import { useFoldersStore } from '@/Stores/Folders.js';
 
 const foldersStore = useFoldersStore();
 

@@ -1,10 +1,10 @@
 <script setup>
 import ChildFolder from '@/Components/FoldersTree/ChildFolder.vue';
+import File from '@/Components/FoldersTree/File.vue';
 import Folder from '@/Components/FoldersTree/Folder.vue';
 import ItemPanel from '@/Components/FoldersTree/ItemPanel.vue';
 import { provide, ref } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
-import File from '@/Components/FoldersTree/File.vue';
 
 const foldersStore = useFoldersStore();
 

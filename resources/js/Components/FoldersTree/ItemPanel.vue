@@ -1,7 +1,7 @@
 <script setup>
-import { inject } from 'vue';
-import FolderPanel from '@/Components/FoldersTree/FolderPanel.vue';
 import FilePanel from '@/Components/FoldersTree/FilePanel.vue';
+import FolderPanel from '@/Components/FoldersTree/FolderPanel.vue';
+import { inject } from 'vue';
 
 defineEmits([
     'folderDeleted',
