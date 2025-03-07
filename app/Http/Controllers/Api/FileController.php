@@ -14,12 +14,7 @@ use Illuminate\Http\JsonResponse;
 
 class FileController extends Controller
 {
-    protected FileService $files;
-
-    public function __construct()
-    {
-        $this->files = app(FileService::class);
-    }
+    public function __construct(protected FileService $files) {}
 
     public function store(StoreFileRequest $request): JsonResponse
     {
