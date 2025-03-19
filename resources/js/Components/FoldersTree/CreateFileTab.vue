@@ -24,7 +24,7 @@ watch(
     () => errors.value = {},
 );
 
-async function onSaveButtonClick() {
+async function onSave(event) {
     errors.value = {};
 
     const data = await foldersStore.createFile({
@@ -34,16 +34,22 @@ async function onSaveButtonClick() {
     });
 
     if (data.success === false) { errors.value = data.errors; }
+
+    if (event instanceof SubmitEvent) {
+        const $input = document.getElementById('new-file-name');
+
+        if ($input) { $input.blur(); }
+    }
 }
 </script>
 
 <template>
     <CustomHeader>
         <CustomHeading :level="4" class="h-8 text-2xl">Create file</CustomHeading>
-        <SaveButton class="shrink-0" @click="onSaveButtonClick" />
+        <SaveButton class="shrink-0" @click="onSave" />
     </CustomHeader>
 
-    <form @submit.prevent>
+    <form @submit.prevent="onSave">
         <InputLabel for="new-file-name" value="New file name" />
         <TextInput
             id="new-file-name"

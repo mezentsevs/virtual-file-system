@@ -29,7 +29,7 @@ watch(
     () => setUp(),
 );
 
-async function onSaveButtonClick() {
+async function onSave(event) {
     errors.value = {};
 
     const data = await foldersStore.updateFileById({
@@ -39,6 +39,12 @@ async function onSaveButtonClick() {
     });
 
     if (data.success === false) { errors.value = data.errors; }
+
+    if (event instanceof SubmitEvent) {
+        const $input = document.getElementById('name');
+
+        if ($input) { $input.blur(); }
+    }
 }
 
 async function onDeleteButtonClick() {
@@ -61,13 +67,13 @@ setUp();
 <template>
     <CustomHeader>
         <CustomHeading :level="3" class="h-9 text-3xl">{{ file.name }}</CustomHeading>
-        <SaveButton class="shrink-0" @click="onSaveButtonClick" />
+        <SaveButton class="shrink-0" @click="onSave" />
         <DeleteButton class="ml-2 shrink-0" @click="onDeleteButtonClick" />
     </CustomHeader>
 
     <Statistics>Size: {{ formatBytes(file.size) }}</Statistics>
 
-    <form @submit.prevent>
+    <form @submit.prevent="onSave">
         <InputLabel for="name" value="Name" />
         <TextInput
             id="name"
