@@ -5,6 +5,7 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import SaveButton from '@/Components/SaveButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import { blurAfterSubmit } from '@/Helpers/DomHelper.js';
 import { inject, ref, watch } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
 
@@ -31,11 +32,7 @@ async function onSave(event) {
 
     if (data.success === false) { errors.value = data.errors; }
 
-    if (event instanceof SubmitEvent) {
-        const $input = document.getElementById('new-folder-name');
-
-        if ($input) { $input.blur(); }
-    }
+    blurAfterSubmit(event, 'new-folder-name');
 }
 </script>
 

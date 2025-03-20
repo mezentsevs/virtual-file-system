@@ -11,6 +11,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import SaveButton from '@/Components/SaveButton.vue';
 import Statistics from '@/Components/FoldersTree/Statistics.vue';
 import TextInput from '@/Components/TextInput.vue';
+import { blurAfterSubmit } from '@/Helpers/DomHelper.js';
 import { formatBytes } from '@/Helpers/FormatHelper.js';
 import { inject, ref, watch } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
@@ -47,11 +48,7 @@ async function onSave(event) {
 
     if (data.success === false) { errors.value = data.errors; }
 
-    if (event instanceof SubmitEvent) {
-        const $input = document.getElementById('name');
-
-        if ($input) { $input.blur(); }
-    }
+    blurAfterSubmit(event, 'name');
 }
 
 async function onDeleteButtonClick() {
