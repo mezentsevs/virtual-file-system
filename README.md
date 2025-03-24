@@ -2,7 +2,7 @@
 
 ## About 'Virtual file system'
 
-This is a virtual file system written in and for educational purposes.
+This is a virtual file system, written in and for educational and demonstrational purposes.
 
 Based on tech stack:
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML),
