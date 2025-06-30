@@ -2,9 +2,9 @@
 
 namespace App\Dtos;
 
-use App\Interfaces\DtoInterface;
+use App\Interfaces\Dto;
 
-class FolderCreateDto implements DtoInterface
+class FolderCreateDto implements Dto
 {
     public int $userId;
 

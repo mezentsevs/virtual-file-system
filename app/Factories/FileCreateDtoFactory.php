@@ -3,9 +3,9 @@
 namespace App\Factories;
 
 use App\Dtos\FileCreateDto;
-use App\Interfaces\DtoFromArrayFactoryInterface;
+use App\Interfaces\DtoFromArrayFactory;
 
-class FileCreateDtoFactory implements DtoFromArrayFactoryInterface
+class FileCreateDtoFactory implements DtoFromArrayFactory
 {
     public static function fromArray(array $data): FileCreateDto
     {

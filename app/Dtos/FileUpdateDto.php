@@ -2,10 +2,10 @@
 
 namespace App\Dtos;
 
-use App\Interfaces\DtoInterface;
+use App\Interfaces\Dto;
 use App\Models\File;
 
-class FileUpdateDto implements DtoInterface
+class FileUpdateDto implements Dto
 {
     public File $file;
 

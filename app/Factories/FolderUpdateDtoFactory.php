@@ -3,9 +3,9 @@
 namespace App\Factories;
 
 use App\Dtos\FolderUpdateDto;
-use App\Interfaces\DtoFromArrayFactoryInterface;
+use App\Interfaces\DtoFromArrayFactory;
 
-class FolderUpdateDtoFactory implements DtoFromArrayFactoryInterface
+class FolderUpdateDtoFactory implements DtoFromArrayFactory
 {
     public static function fromArray(array $data): FolderUpdateDto
     {
