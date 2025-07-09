@@ -1,28 +1,3 @@
-<script setup>
-import Modal from './Modal.vue';
-
-const emit = defineEmits(['close']);
-
-defineProps({
-    show: {
-        type: Boolean,
-        default: false,
-    },
-    maxWidth: {
-        type: String,
-        default: '2xl',
-    },
-    closeable: {
-        type: Boolean,
-        default: true,
-    },
-});
-
-const close = () => {
-    emit('close');
-};
-</script>
-
 <template>
     <Modal
         :show="show"
@@ -55,3 +30,28 @@ const close = () => {
         </div>
     </Modal>
 </template>
+
+<script setup>
+import Modal from './Modal.vue';
+
+const emit = defineEmits(['close']);
+
+defineProps({
+    show: {
+        type: Boolean,
+        default: false,
+    },
+    maxWidth: {
+        type: String,
+        default: '2xl',
+    },
+    closeable: {
+        type: Boolean,
+        default: true,
+    },
+});
+
+const close = () => {
+    emit('close');
+};
+</script>

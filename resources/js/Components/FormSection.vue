@@ -1,12 +1,3 @@
-<script setup>
-import SectionTitle from './SectionTitle.vue';
-import { computed, useSlots } from 'vue';
-
-defineEmits(['submitted']);
-
-const hasActions = computed(() => !! useSlots().actions);
-</script>
-
 <template>
     <div class="md:grid md:grid-cols-3 md:gap-6">
         <SectionTitle>
@@ -36,3 +27,12 @@ const hasActions = computed(() => !! useSlots().actions);
         </div>
     </div>
 </template>
+
+<script setup>
+import SectionTitle from './SectionTitle.vue';
+import { computed, useSlots } from 'vue';
+
+defineEmits(['submitted']);
+
+const hasActions = computed(() => !! useSlots().actions);
+</script>

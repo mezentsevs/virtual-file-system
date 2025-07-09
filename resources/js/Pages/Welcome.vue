@@ -1,39 +1,3 @@
-<script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Head, Link } from '@inertiajs/vue3';
-
-defineProps({
-    canLogin: {
-        type: Boolean,
-    },
-    canRegister: {
-        type: Boolean,
-    },
-    appName: {
-        type: String,
-        required: true,
-    },
-    appVersion: {
-        type: String,
-        required: true,
-    },
-    laravelVersion: {
-        type: String,
-        required: true,
-    },
-    phpVersion: {
-        type: String,
-        required: true,
-    },
-});
-
-function handleImageError() {
-    document.getElementById('screenshot-container')?.classList.add('!hidden');
-    document.getElementById('docs-card')?.classList.add('!row-span-1');
-    document.getElementById('docs-card-content')?.classList.add('!flex-row');
-}
-</script>
-
 <template>
     <Head title="Welcome" />
     <div class="bg-gray-100 text-black/50 dark:bg-gray-900 dark:text-white/50">
@@ -96,3 +60,39 @@ function handleImageError() {
         </div>
     </div>
 </template>
+
+<script setup>
+import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import { Head, Link } from '@inertiajs/vue3';
+
+defineProps({
+    canLogin: {
+        type: Boolean,
+    },
+    canRegister: {
+        type: Boolean,
+    },
+    appName: {
+        type: String,
+        required: true,
+    },
+    appVersion: {
+        type: String,
+        required: true,
+    },
+    laravelVersion: {
+        type: String,
+        required: true,
+    },
+    phpVersion: {
+        type: String,
+        required: true,
+    },
+});
+
+function handleImageError() {
+    document.getElementById('screenshot-container')?.classList.add('!hidden');
+    document.getElementById('docs-card')?.classList.add('!row-span-1');
+    document.getElementById('docs-card-content')?.classList.add('!flex-row');
+}
+</script>

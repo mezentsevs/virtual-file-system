@@ -1,3 +1,34 @@
+<template>
+    <CustomHeader>
+        <CustomHeading :level="4" class="h-8 text-2xl">Create file</CustomHeading>
+        <SaveButton class="shrink-0" @click="onSave" />
+    </CustomHeader>
+
+    <form @submit.prevent="onSave">
+        <InputLabel for="new-file-name" value="New file name" />
+        <TextInput
+            id="new-file-name"
+            v-model="newFileName"
+            type="text"
+            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
+            required
+            autocomplete="new-file-name"
+        />
+        <InputError v-for="error in errors.name" class="mt-2" :message="error" />
+
+        <InputLabel for="new-file-content" value="New file content" class="mt-1" />
+        <TextArea
+            id="new-file-content"
+            v-model="newFileContent"
+            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
+            rows="10"
+            cols="100"
+            autocomplete="new-file-content"
+        />
+        <InputError v-for="error in errors.content" class="mt-2" :message="error" />
+    </form>
+</template>
+
 <script setup>
 import CustomHeader from '@/Components/CustomHeader.vue';
 import CustomHeading from '@/Components/CustomHeading.vue';
@@ -39,34 +70,3 @@ async function onSave(event) {
     blurAfterSubmit(event, 'new-file-name');
 }
 </script>
-
-<template>
-    <CustomHeader>
-        <CustomHeading :level="4" class="h-8 text-2xl">Create file</CustomHeading>
-        <SaveButton class="shrink-0" @click="onSave" />
-    </CustomHeader>
-
-    <form @submit.prevent="onSave">
-        <InputLabel for="new-file-name" value="New file name" />
-        <TextInput
-            id="new-file-name"
-            v-model="newFileName"
-            type="text"
-            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
-            required
-            autocomplete="new-file-name"
-        />
-        <InputError v-for="error in errors.name" class="mt-2" :message="error" />
-
-        <InputLabel for="new-file-content" value="New file content" class="mt-1" />
-        <TextArea
-            id="new-file-content"
-            v-model="newFileContent"
-            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
-            rows="10"
-            cols="100"
-            autocomplete="new-file-content"
-        />
-        <InputError v-for="error in errors.content" class="mt-2" :message="error" />
-    </form>
-</template>

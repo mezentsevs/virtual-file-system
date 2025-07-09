@@ -1,3 +1,23 @@
+<template>
+    <li :id="`folder-${folder.id}`" class="folder flex flex-row items-center">
+        <div
+            class="inline-block w-[25px] h-[25px] shrink-0 cursor-pointer fill-gray-500 dark:fill-gray-400 hover:fill-indigo-600 transition-[fill]"
+            @click="onFolderIconClick"
+        >
+            <Transition name="icon" mode="out-in">
+                <component :is="icons[currentIcon]" />
+            </Transition>
+        </div>
+
+        <span
+            class="inline-block ml-[5px] cursor-pointer select-none truncate hover:text-indigo-600 transition-colors"
+            @click="onFolderNameClick"
+        >
+            {{ folder.name }}
+        </span>
+    </li>
+</template>
+
 <script setup>
 import FolderIcon from '@/Icons/FolderIcon.vue';
 import FolderOpenIcon from '@/Icons/FolderOpenIcon.vue';
@@ -50,26 +70,6 @@ function setSelected($folder) {
     }
 }
 </script>
-
-<template>
-    <li :id="`folder-${folder.id}`" class="folder flex flex-row items-center">
-        <div
-            class="inline-block w-[25px] h-[25px] shrink-0 cursor-pointer fill-gray-500 dark:fill-gray-400 hover:fill-indigo-600 transition-[fill]"
-            @click="onFolderIconClick"
-        >
-            <Transition name="icon" mode="out-in">
-                <component :is="icons[currentIcon]" />
-            </Transition>
-        </div>
-
-        <span
-            class="inline-block ml-[5px] cursor-pointer select-none truncate hover:text-indigo-600 transition-colors"
-            @click="onFolderNameClick"
-        >
-            {{ folder.name }}
-        </span>
-    </li>
-</template>
 
 <style scoped>
 .selected {

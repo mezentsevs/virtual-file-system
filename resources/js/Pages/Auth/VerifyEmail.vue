@@ -1,23 +1,3 @@
-<script setup>
-import AuthenticationCard from '@/Components/AuthenticationCard.vue';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
-import { computed } from 'vue';
-
-const props = defineProps({
-    status: String,
-});
-
-const form = useForm({});
-
-const submit = () => {
-    form.post(route('verification.send'));
-};
-
-const verificationLinkSent = computed(() => props.status === 'verification-link-sent');
-</script>
-
 <template>
     <Head title="Email Verification" />
 
@@ -60,3 +40,23 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
         </form>
     </AuthenticationCard>
 </template>
+
+<script setup>
+import AuthenticationCard from '@/Components/AuthenticationCard.vue';
+import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+import { Head, Link, useForm } from '@inertiajs/vue3';
+import { computed } from 'vue';
+
+const props = defineProps({
+    status: String,
+});
+
+const form = useForm({});
+
+const submit = () => {
+    form.post(route('verification.send'));
+};
+
+const verificationLinkSent = computed(() => props.status === 'verification-link-sent');
+</script>

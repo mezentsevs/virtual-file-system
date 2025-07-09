@@ -1,3 +1,9 @@
+<template>
+    <component :is="heading" class="text-center text-gray-800 dark:text-gray-200 truncate grow">
+        <slot />
+    </component>
+</template>
+
 <script setup>
 import { computed } from 'vue';
 
@@ -18,9 +24,3 @@ const heading = computed(() => {
     }
 });
 </script>
-
-<template>
-    <component :is="heading" class="text-center text-gray-800 dark:text-gray-200 truncate grow">
-        <slot />
-    </component>
-</template>

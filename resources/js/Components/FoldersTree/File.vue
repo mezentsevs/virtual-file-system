@@ -1,3 +1,21 @@
+<template>
+    <li :id="`file-${file.id}`" class="file flex flex-row items-center">
+        <div
+            class="inline-block w-[25px] h-[25px] shrink-0 cursor-pointer fill-gray-500 dark:fill-gray-400 hover:fill-indigo-600 transition-[fill]"
+            @click="onFileClick"
+        >
+            <FileIcon />
+        </div>
+
+        <span
+            class="inline-block ml-[5px] cursor-pointer select-none truncate hover:text-indigo-600 transition-colors"
+            @click="onFileClick"
+        >
+            {{ file.name }}
+        </span>
+    </li>
+</template>
+
 <script setup>
 import FileIcon from '@/Icons/FileIcon.vue';
 
@@ -28,24 +46,6 @@ function setSelected($file) {
     }
 }
 </script>
-
-<template>
-    <li :id="`file-${file.id}`" class="file flex flex-row items-center">
-        <div
-            class="inline-block w-[25px] h-[25px] shrink-0 cursor-pointer fill-gray-500 dark:fill-gray-400 hover:fill-indigo-600 transition-[fill]"
-            @click="onFileClick"
-        >
-            <FileIcon />
-        </div>
-
-        <span
-            class="inline-block ml-[5px] cursor-pointer select-none truncate hover:text-indigo-600 transition-colors"
-            @click="onFileClick"
-        >
-            {{ file.name }}
-        </span>
-    </li>
-</template>
 
 <style scoped>
 .selected {

@@ -1,25 +1,3 @@
-<script setup>
-import ChildFolder from '@/Components/FoldersTree/ChildFolder.vue';
-import File from '@/Components/FoldersTree/File.vue';
-import Folder from '@/Components/FoldersTree/Folder.vue';
-import { ref } from 'vue';
-
-defineProps({
-    childFolder: {
-        type: Object,
-        default: {},
-    },
-});
-
-defineEmits(['itemSelected']);
-
-const isChildrenHidden = ref(true);
-
-function onIconToggled(icon) {
-    isChildrenHidden.value = (icon === 'closed');
-}
-</script>
-
 <template>
     <Folder
         :folder="childFolder"
@@ -53,6 +31,28 @@ function onIconToggled(icon) {
         />
     </ul>
 </template>
+
+<script setup>
+import ChildFolder from '@/Components/FoldersTree/ChildFolder.vue';
+import File from '@/Components/FoldersTree/File.vue';
+import Folder from '@/Components/FoldersTree/Folder.vue';
+import { ref } from 'vue';
+
+defineProps({
+    childFolder: {
+        type: Object,
+        default: {},
+    },
+});
+
+defineEmits(['itemSelected']);
+
+const isChildrenHidden = ref(true);
+
+function onIconToggled(icon) {
+    isChildrenHidden.value = (icon === 'closed');
+}
+</script>
 
 <style scoped>
 .shown {

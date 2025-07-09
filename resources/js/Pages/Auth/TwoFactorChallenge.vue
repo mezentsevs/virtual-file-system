@@ -1,42 +1,3 @@
-<script setup>
-import AuthenticationCard from '@/Components/AuthenticationCard.vue';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import { Head, useForm } from '@inertiajs/vue3';
-import { nextTick, ref } from 'vue';
-
-const recovery = ref(false);
-
-const form = useForm({
-    code: '',
-    recovery_code: '',
-});
-
-const recoveryCodeInput = ref(null);
-const codeInput = ref(null);
-
-const toggleRecovery = async () => {
-    recovery.value ^= true;
-
-    await nextTick();
-
-    if (recovery.value) {
-        recoveryCodeInput.value.focus();
-        form.code = '';
-    } else {
-        codeInput.value.focus();
-        form.recovery_code = '';
-    }
-};
-
-const submit = () => {
-    form.post(route('two-factor.login'));
-};
-</script>
-
 <template>
     <Head title="Two-factor Confirmation" />
 
@@ -102,3 +63,42 @@ const submit = () => {
         </form>
     </AuthenticationCard>
 </template>
+
+<script setup>
+import AuthenticationCard from '@/Components/AuthenticationCard.vue';
+import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
+import InputError from '@/Components/InputError.vue';
+import InputLabel from '@/Components/InputLabel.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+import TextInput from '@/Components/TextInput.vue';
+import { Head, useForm } from '@inertiajs/vue3';
+import { nextTick, ref } from 'vue';
+
+const recovery = ref(false);
+
+const form = useForm({
+    code: '',
+    recovery_code: '',
+});
+
+const recoveryCodeInput = ref(null);
+const codeInput = ref(null);
+
+const toggleRecovery = async () => {
+    recovery.value ^= true;
+
+    await nextTick();
+
+    if (recovery.value) {
+        recoveryCodeInput.value.focus();
+        form.code = '';
+    } else {
+        codeInput.value.focus();
+        form.recovery_code = '';
+    }
+};
+
+const submit = () => {
+    form.post(route('two-factor.login'));
+};
+</script>

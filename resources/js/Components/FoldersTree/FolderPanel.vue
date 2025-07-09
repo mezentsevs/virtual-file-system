@@ -1,3 +1,42 @@
+<template>
+    <CustomHeader>
+        <CustomHeading :level="3" class="h-9 text-3xl">{{ folder.name }}</CustomHeading>
+        <SaveButton class="shrink-0" @click="onSave" />
+        <DeleteButton v-if="folder.folder_id" class="ml-2 shrink-0" @click="onDeleteButtonClick" />
+    </CustomHeader>
+
+    <Statistics>
+        Folders: {{ folder.folders_count }}, Files: {{ folder.files_count }}, Size: {{ formatBytes(folder.size) }}
+    </Statistics>
+
+    <form @submit.prevent="onSave">
+        <InputLabel for="name" value="Name" />
+        <TextInput
+            id="name"
+            v-model="name"
+            type="text"
+            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
+            required
+            autocomplete="name"
+            @focusin="name = folder.name"
+        />
+        <InputError v-for="error in errors.name" class="mt-2" :message="error" />
+    </form>
+
+    <div class="m-16 flex flex-col items-center">
+        <div class="w-1/2 flex flex-row justify-between">
+            <CreateFolderButton :class="{ 'current-tab': currentTab === 'folder' }" @click="currentTab = 'folder'" />
+            <CreateFileButton :class="{ 'current-tab': currentTab === 'file' }" @click="currentTab = 'file'" />
+        </div>
+    </div>
+
+    <section>
+        <KeepAlive>
+            <component :is="tabs[currentTab]" />
+        </KeepAlive>
+    </section>
+</template>
+
 <script setup>
 import CreateFileButton from '@/Components/CreateFileButton.vue';
 import CreateFileTab from '@/Components/FoldersTree/CreateFileTab.vue';
@@ -65,45 +104,6 @@ function setUp() {
 
 setUp();
 </script>
-
-<template>
-    <CustomHeader>
-        <CustomHeading :level="3" class="h-9 text-3xl">{{ folder.name }}</CustomHeading>
-        <SaveButton class="shrink-0" @click="onSave" />
-        <DeleteButton v-if="folder.folder_id" class="ml-2 shrink-0" @click="onDeleteButtonClick" />
-    </CustomHeader>
-
-    <Statistics>
-        Folders: {{ folder.folders_count }}, Files: {{ folder.files_count }}, Size: {{ formatBytes(folder.size) }}
-    </Statistics>
-
-    <form @submit.prevent="onSave">
-        <InputLabel for="name" value="Name" />
-        <TextInput
-            id="name"
-            v-model="name"
-            type="text"
-            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
-            required
-            autocomplete="name"
-            @focusin="name = folder.name"
-        />
-        <InputError v-for="error in errors.name" class="mt-2" :message="error" />
-    </form>
-
-    <div class="m-16 flex flex-col items-center">
-        <div class="w-1/2 flex flex-row justify-between">
-            <CreateFolderButton :class="{ 'current-tab': currentTab === 'folder' }" @click="currentTab = 'folder'" />
-            <CreateFileButton :class="{ 'current-tab': currentTab === 'file' }" @click="currentTab = 'file'" />
-        </div>
-    </div>
-
-    <section>
-        <KeepAlive>
-            <component :is="tabs[currentTab]" />
-        </KeepAlive>
-    </section>
-</template>
 
 <style scoped>
 .image-button.current-tab {
