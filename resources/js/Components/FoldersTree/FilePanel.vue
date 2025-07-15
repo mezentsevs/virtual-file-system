@@ -13,7 +13,7 @@
             id="name"
             v-model="name"
             type="text"
-            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
+            class="block w-full mt-1 focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
             required
             autocomplete="name"
             @focusin="name = file.name"
@@ -24,7 +24,7 @@
         <TextArea
             id="content"
             v-model="content"
-            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
+            class="block w-full mt-1 focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
             rows="10"
             cols="100"
             autocomplete="content"
