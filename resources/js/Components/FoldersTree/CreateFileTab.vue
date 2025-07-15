@@ -10,7 +10,7 @@
             id="new-file-name"
             v-model="newFileName"
             type="text"
-            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
+            class="block w-full mt-1 focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
             required
             autocomplete="new-file-name"
         />
@@ -20,7 +20,7 @@
         <TextArea
             id="new-file-content"
             v-model="newFileContent"
-            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
+            class="block w-full mt-1 focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
             rows="10"
             cols="100"
             autocomplete="new-file-content"
