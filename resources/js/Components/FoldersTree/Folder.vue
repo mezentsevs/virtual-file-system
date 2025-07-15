@@ -1,7 +1,7 @@
 <template>
     <li :id="`folder-${folder.id}`" class="folder flex flex-row items-center">
         <div
-            class="inline-block w-[25px] h-[25px] shrink-0 cursor-pointer fill-gray-500 dark:fill-gray-400 hover:fill-indigo-600 transition-[fill]"
+            class="inline-block w-6 h-6 shrink-0 fill-gray-500 dark:fill-gray-400 hover:fill-indigo-600 cursor-pointer transition-[fill]"
             @click="onFolderIconClick"
         >
             <Transition name="icon" mode="out-in">
@@ -10,7 +10,7 @@
         </div>
 
         <span
-            class="inline-block ml-[5px] cursor-pointer select-none truncate hover:text-indigo-600 transition-colors"
+            class="inline-block ml-1 hover:text-indigo-600 truncate cursor-pointer select-none transition-colors"
             @click="onFolderNameClick"
         >
             {{ folder.name }}
