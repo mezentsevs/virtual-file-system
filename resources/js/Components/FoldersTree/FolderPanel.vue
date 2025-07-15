@@ -15,7 +15,7 @@
             id="name"
             v-model="name"
             type="text"
-            class="mt-1 block w-full focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
+            class="block w-full mt-1 focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
             required
             autocomplete="name"
             @focusin="name = folder.name"
