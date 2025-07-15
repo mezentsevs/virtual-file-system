@@ -1,12 +1,16 @@
 <template>
     <div class="flex flex-row items-top justify-between">
-        <nav class="folders-tree m-4 w-1/3 min-w-[300px] min-h-[600px] overflow-hidden text-gray-500 dark:text-gray-400 border-solid border-[1px] border-gray-500 dark:border-gray-400 rounded-lg">
+        <nav class="folders-tree w-1/3 min-w-[300px] min-h-[600px] m-4 border border-solid border-gray-500 dark:border-gray-400 text-gray-500 dark:text-gray-400 overflow-hidden rounded-lg">
             <ul
                 v-for="folder in folders"
                 :key="folder.id"
-                class="p-4 max-h-screen overflow-x-hidden overflow-y-auto"
+                class="max-h-screen p-4 overflow-x-hidden overflow-y-auto"
             >
-                <Folder :folder @item-selected="setCurrentItem" @icon-toggled="onIconToggled" />
+                <Folder
+                    :folder
+                    @item-selected="setCurrentItem"
+                    @icon-toggled="onIconToggled"
+                />
 
                 <ul
                     v-if="folder.children_folders.length"
@@ -36,7 +40,10 @@
             </ul>
         </nav>
 
-        <ItemPanel @folder-deleted="onCurrentItemDeleted" @file-deleted="onCurrentItemDeleted" />
+        <ItemPanel
+            @folder-deleted="onCurrentItemDeleted"
+            @file-deleted="onCurrentItemDeleted"
+        />
     </div>
 </template>
 
