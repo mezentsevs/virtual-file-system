@@ -1,5 +1,5 @@
 <template>
-    <component :is="heading" class="text-center text-gray-800 dark:text-gray-200 truncate grow">
+    <component :is="heading" class="grow text-gray-800 dark:text-gray-200 text-center truncate">
         <slot />
     </component>
 </template>
