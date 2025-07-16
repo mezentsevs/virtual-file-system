@@ -1,5 +1,5 @@
 <template>
-    <BaseImageButton class="w-[32px] h-[32px]" title="Save">
+    <BaseImageButton class="w-8 h-8" title="Save">
         <SaveFloppyIcon />
     </BaseImageButton>
 </template>
