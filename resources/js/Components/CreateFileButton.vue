@@ -1,5 +1,5 @@
 <template>
-    <BaseImageButton class="w-[96px] h-[96px]" title="Create file">
+    <BaseImageButton class="w-24 h-24" title="Create file">
         <FilePlusIcon />
     </BaseImageButton>
 </template>
