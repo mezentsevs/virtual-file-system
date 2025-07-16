@@ -1,5 +1,5 @@
 <template>
-    <BaseImageButton class="w-[32px] h-[32px]" title="Delete">
+    <BaseImageButton class="w-8 h-8" title="Delete">
         <TrashIcon />
     </BaseImageButton>
 </template>
