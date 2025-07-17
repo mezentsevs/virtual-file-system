@@ -45,15 +45,15 @@
                     </nav>
                 </header>
 
-                <main class="min-h-96 mt-6 text-center text-black dark:text-white/70 flex flex-col justify-center">
+                <main class="min-h-96 mt-6 text-black dark:text-white/70 text-center flex flex-col justify-center">
                     <p>
                         This is a
-                        <span class="font-medium text-indigo-400">virtual file system</span>,
+                        <span class="text-indigo-400 font-medium">virtual file system</span>,
                         written in and for educational and demonstrational purposes.
                     </p>
                 </main>
 
-                <footer class="py-16 text-center text-sm">
+                <footer class="py-16 text-sm text-center">
                     <small>&copy; {{ new Date().getFullYear() }} {{ appName }} All rights reserved | Laravel v{{ laravelVersion }} | PHP v{{ phpVersion }}</small>
                 </footer>
             </div>
