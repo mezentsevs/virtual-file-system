@@ -12,8 +12,8 @@
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')" class="inline-block w-[70px] h-[70px]">
-                                    <ApplicationLogo class="p-[10px]" />
+                                <Link :href="route('dashboard')" class="inline-block w-16 h-16">
+                                    <ApplicationLogo class="p-2" />
                                 </Link>
                             </div>
 
