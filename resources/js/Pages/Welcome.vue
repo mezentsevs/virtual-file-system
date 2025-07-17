@@ -13,7 +13,7 @@
                             <Link :href="'/'" class="inline-block shrink-0 w-12 h-12 m-2">
                                 <ApplicationLogo />
                             </Link>
-                            <span class="inline-block text-xl lg:text-3xl font-black text-gray-700 dark:text-gray-200">{{ appName }}</span>
+                            <span class="inline-block text-gray-700 dark:text-gray-200 text-xl lg:text-3xl font-black">{{ appName }}</span>
                         </h1>
                     </div>
 
