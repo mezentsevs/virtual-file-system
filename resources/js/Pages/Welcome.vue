@@ -8,16 +8,14 @@
         <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-indigo-400 selection:text-white">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <header class="min-w-[460px] grid grid-cols-2 items-center gap-2 py-2 lg:grid-cols-3 bg-white dark:bg-gray-800 rounded-lg shadow">
-                    <div class="flex lg:justify-center lg:col-start-2">
-                        <h1 class="flex flex-row items-center">
-                            <Link :href="'/'" class="inline-block shrink-0 w-12 h-12 m-2">
-                                <ApplicationLogo />
-                            </Link>
-                            <span class="inline-block text-gray-700 dark:text-gray-200 text-xl lg:text-3xl font-black">
-                                {{ appName }}
-                            </span>
-                        </h1>
-                    </div>
+                    <h1 class="flex flex-row items-center lg:justify-center lg:col-start-2">
+                        <Link :href="'/'" class="inline-block w-12 h-12 shrink-0 m-2">
+                            <ApplicationLogo />
+                        </Link>
+                        <span class="inline-block text-gray-700 dark:text-gray-200 text-xl lg:text-3xl font-black">
+                            {{ appName }}
+                        </span>
+                    </h1>
 
                     <nav v-if="canLogin" class="-mx-1 flex flex-1 justify-end">
                         <Link
