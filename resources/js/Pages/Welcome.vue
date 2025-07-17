@@ -10,8 +10,8 @@
                 <header class="min-w-[460px] grid grid-cols-2 items-center gap-2 py-2 lg:grid-cols-3 bg-white dark:bg-gray-800 rounded-lg shadow">
                     <div class="flex lg:justify-center lg:col-start-2">
                         <h1 class="flex flex-row items-center">
-                            <Link :href="'/'" class="inline-block shrink-0 w-16 h-16">
-                                <ApplicationLogo class="p-2" />
+                            <Link :href="'/'" class="inline-block shrink-0 w-12 h-12 m-2">
+                                <ApplicationLogo />
                             </Link>
                             <span class="inline-block text-xl lg:text-3xl font-black text-gray-700 dark:text-gray-200">{{ appName }}</span>
                         </h1>
