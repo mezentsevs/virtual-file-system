@@ -40,7 +40,7 @@
             </ul>
         </nav>
 
-        <ItemPanel
+        <FoldersTreeItemPanel
             @folder-deleted="onCurrentItemDeleted"
             @file-deleted="onCurrentItemDeleted"
         />
@@ -48,10 +48,10 @@
 </template>
 
 <script setup>
-import ChildFolder from '@/Components/FoldersTree/ChildFolder.vue';
-import File from '@/Components/FoldersTree/File.vue';
-import Folder from '@/Components/FoldersTree/Folder.vue';
-import ItemPanel from '@/Components/FoldersTree/ItemPanel.vue';
+import ChildFolder from '@/Components/FileBrowser/FoldersTree/Items/ChildFolder.vue';
+import File from '@/Components/FileBrowser/FoldersTree/Items/File.vue';
+import Folder from '@/Components/FileBrowser/FoldersTree/Items/Folder.vue';
+import FoldersTreeItemPanel from '@/Components/FileBrowser/Panels/FoldersTreeItemPanel.vue';
 import { provide, ref } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
 

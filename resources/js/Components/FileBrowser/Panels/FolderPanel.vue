@@ -5,9 +5,9 @@
         <DeleteButton v-if="folder.folder_id" class="ml-2 shrink-0" @click="onDeleteButtonClick" />
     </CustomHeader>
 
-    <Statistics>
+    <FoldersTreeItemStatistics>
         Folders: {{ folder.folders_count }}, Files: {{ folder.files_count }}, Size: {{ formatBytes(folder.size) }}
-    </Statistics>
+    </FoldersTreeItemStatistics>
 
     <form @submit.prevent="onSave">
         <InputLabel for="name" value="Name" />
@@ -39,16 +39,16 @@
 
 <script setup>
 import CreateFileButton from '@/Components/CreateFileButton.vue';
-import CreateFileTab from '@/Components/FoldersTree/CreateFileTab.vue';
+import CreateFileTab from '@/Components/FileBrowser/Panels/Tabs/CreateFileTab.vue';
 import CreateFolderButton from '@/Components/CreateFolderButton.vue';
-import CreateFolderTab from '@/Components/FoldersTree/CreateFolderTab.vue';
+import CreateFolderTab from '@/Components/FileBrowser/Panels/Tabs/CreateFolderTab.vue';
 import CustomHeader from '@/Components/CustomHeader.vue';
 import CustomHeading from '@/Components/CustomHeading.vue';
 import DeleteButton from '@/Components/DeleteButton.vue';
+import FoldersTreeItemStatistics from '@/Components/FileBrowser/Panels/Statistics/FoldersTreeItemStatistics.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import SaveButton from '@/Components/SaveButton.vue';
-import Statistics from '@/Components/FoldersTree/Statistics.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { blurAfterSubmit } from '@/Helpers/DomHelper.js';
 import { formatBytes } from '@/Helpers/FormatHelper.js';

@@ -5,7 +5,7 @@
         <DeleteButton class="ml-2 shrink-0" @click="onDeleteButtonClick" />
     </CustomHeader>
 
-    <Statistics>Size: {{ formatBytes(file.size) }}</Statistics>
+    <FoldersTreeItemStatistics>Size: {{ formatBytes(file.size) }}</FoldersTreeItemStatistics>
 
     <form @submit.prevent="onSave">
         <InputLabel for="name" value="Name" />
@@ -37,10 +37,10 @@
 import CustomHeader from '@/Components/CustomHeader.vue';
 import CustomHeading from '@/Components/CustomHeading.vue';
 import DeleteButton from '@/Components/DeleteButton.vue';
+import FoldersTreeItemStatistics from '@/Components/FileBrowser/Panels/Statistics/FoldersTreeItemStatistics.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import SaveButton from '@/Components/SaveButton.vue';
-import Statistics from '@/Components/FoldersTree/Statistics.vue';
 import TextArea from '@/Components/TextArea.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { blurAfterSubmit } from '@/Helpers/DomHelper.js';

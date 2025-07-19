@@ -9,7 +9,7 @@
         <div class="py-12" v-if="isLoaded">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden sm:rounded-lg shadow-xl">
-                    <FoldersTree :folders="foldersStore.folders" />
+                    <FileBrowser :folders="foldersStore.folders" />
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
 
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import FoldersTree from '@/Components/FoldersTree/FoldersTree.vue';
+import FileBrowser from '@/Components/FileBrowser/FileBrowser.vue';
 import { ref } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
 
