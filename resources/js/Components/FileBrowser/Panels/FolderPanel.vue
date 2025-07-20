@@ -107,6 +107,6 @@ setUp();
 
 <style scoped>
 .image-button.current-tab {
-    fill: #6366f1;
+    @apply fill-indigo-500;
 }
 </style>
