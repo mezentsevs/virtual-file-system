@@ -87,8 +87,8 @@
 </template>
 
 <script setup>
-import AuthenticationCard from '@/Components/AuthenticationCard.vue';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
+import AuthenticationCard from '@/Components/Auth/AuthenticationCard.vue';
+import AuthenticationCardLogo from '@/Components/Auth/AuthenticationCardLogo.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';

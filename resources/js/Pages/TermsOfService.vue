@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
+import AuthenticationCardLogo from '@/Components/Auth/AuthenticationCardLogo.vue';
 import { Head } from '@inertiajs/vue3';
 
 defineProps({
