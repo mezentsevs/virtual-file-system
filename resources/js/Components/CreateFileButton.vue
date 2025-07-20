@@ -6,5 +6,5 @@
 
 <script setup>
 import BaseImageButton from '@/Components/BaseImageButton.vue';
-import FilePlusIcon from '@/Icons/FilePlusIcon.vue';
+import FilePlusIcon from '@/Components/Icons/FilePlusIcon.vue';
 </script>

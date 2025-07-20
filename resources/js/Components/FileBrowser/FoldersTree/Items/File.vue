@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import FileIcon from '@/Icons/FileIcon.vue';
+import FileIcon from '@/Components/Icons/FileIcon.vue';
 
 const props = defineProps({
     file: {

@@ -6,5 +6,5 @@
 
 <script setup>
 import BaseImageButton from '@/Components/BaseImageButton.vue';
-import SaveFloppyIcon from '@/Icons/SaveFloppyIcon.vue';
+import SaveFloppyIcon from '@/Components/Icons/SaveFloppyIcon.vue';
 </script>

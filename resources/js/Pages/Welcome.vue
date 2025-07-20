@@ -10,7 +10,7 @@
                 <header class="min-w-[460px] grid grid-cols-2 items-center gap-2 py-2 lg:grid-cols-3 bg-white dark:bg-gray-800 rounded-lg shadow">
                     <h1 class="flex flex-row items-center lg:justify-center lg:col-start-2">
                         <Link :href="'/'" class="inline-block w-12 h-12 shrink-0 m-2 text-indigo-500 dark:text-indigo-600">
-                            <ApplicationLogo />
+                            <LogoIcon />
                         </Link>
                         <span class="inline-block text-gray-700 dark:text-white text-xl lg:text-3xl font-black">
                             {{ appName }}
@@ -62,7 +62,7 @@
 </template>
 
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import LogoIcon from '@/Components/Icons/LogoIcon.vue';
 import { Head, Link } from '@inertiajs/vue3';
 
 defineProps({

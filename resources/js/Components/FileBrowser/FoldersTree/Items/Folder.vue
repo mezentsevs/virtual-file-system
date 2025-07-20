@@ -17,8 +17,8 @@
 </template>
 
 <script setup>
-import FolderIcon from '@/Icons/FolderIcon.vue';
-import FolderOpenIcon from '@/Icons/FolderOpenIcon.vue';
+import FolderIcon from '@/Components/Icons/FolderIcon.vue';
+import FolderOpenIcon from '@/Components/Icons/FolderOpenIcon.vue';
 import { ref } from 'vue';
 
 const props = defineProps({

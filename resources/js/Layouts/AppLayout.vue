@@ -13,7 +13,7 @@
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')" class="inline-block w-12 h-12 m-2 text-indigo-500 dark:text-indigo-600">
-                                    <ApplicationLogo />
+                                    <LogoIcon />
                                 </Link>
                             </div>
 
@@ -260,10 +260,10 @@
 </template>
 
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import Banner from '@/Components/Banner.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
+import LogoIcon from '@/Components/Icons/LogoIcon.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Head, Link, router } from '@inertiajs/vue3';
