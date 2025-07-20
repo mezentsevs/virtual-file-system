@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
+import AppLayout from '@/Components/Layouts/AppLayout.vue';
 import FileBrowser from '@/Components/FileBrowser/FileBrowser.vue';
 import { ref } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
