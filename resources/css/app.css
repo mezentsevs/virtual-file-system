@@ -1,4 +1,5 @@
 @import 'animation.css';
+@import 'selection.css';
 
 @tailwind base;
 @tailwind components;

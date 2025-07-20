@@ -68,33 +68,3 @@ function setSelected($folder) {
     }
 }
 </script>
-
-<style scoped>
-.selected {
-    color: #1F2937;
-    font-weight: bold;
-    position: relative;
-    z-index: 0;
-
-    svg {
-        fill: #1F2937;
-        transition: fill 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-
-        &:hover {
-            fill: #4F46E5;
-        }
-    }
-
-    &:after {
-        background: #E0E7FF;
-        content: '';
-        display: block;
-        height: 25px;
-        left: -1920px;
-        position: absolute;
-        top: 0;
-        width: 3840px;
-        z-index: -1;
-    }
-}
-</style>

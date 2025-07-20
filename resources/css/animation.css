@@ -1,7 +1,3 @@
-.selected::after {
-    animation: appearance 0.25s ease-in-out, regular-bounce 0.25s ease-in-out;
-}
-
 .shown {
     animation: appearance 0.25s ease-in-out;
 }
