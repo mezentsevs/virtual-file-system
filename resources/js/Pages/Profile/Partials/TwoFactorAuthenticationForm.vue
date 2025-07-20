@@ -147,14 +147,14 @@
 </template>
 
 <script setup>
-import ActionSection from '@/Components/ActionSection.vue';
-import ConfirmsPassword from '@/Components/ConfirmsPassword.vue';
-import DangerButton from '@/Components/DangerButton.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import ActionSection from '@/Components/Uikit/ActionSection.vue';
+import ConfirmsPassword from '@/Components/Uikit/ConfirmsPassword.vue';
+import DangerButton from '@/Components/Uikit/DangerButton.vue';
+import InputError from '@/Components/Uikit/InputError.vue';
+import InputLabel from '@/Components/Uikit/InputLabel.vue';
+import PrimaryButton from '@/Components/Uikit/PrimaryButton.vue';
+import SecondaryButton from '@/Components/Uikit/SecondaryButton.vue';
+import TextInput from '@/Components/Uikit/TextInput.vue';
 import { ref, computed, watch } from 'vue';
 import { router, useForm, usePage } from '@inertiajs/vue3';
 

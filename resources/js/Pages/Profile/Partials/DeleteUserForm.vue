@@ -63,12 +63,12 @@
 </template>
 
 <script setup>
-import ActionSection from '@/Components/ActionSection.vue';
-import DangerButton from '@/Components/DangerButton.vue';
-import DialogModal from '@/Components/DialogModal.vue';
-import InputError from '@/Components/InputError.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import ActionSection from '@/Components/Uikit/ActionSection.vue';
+import DangerButton from '@/Components/Uikit/DangerButton.vue';
+import DialogModal from '@/Components/Uikit/DialogModal.vue';
+import InputError from '@/Components/Uikit/InputError.vue';
+import SecondaryButton from '@/Components/Uikit/SecondaryButton.vue';
+import TextInput from '@/Components/Uikit/TextInput.vue';
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
 

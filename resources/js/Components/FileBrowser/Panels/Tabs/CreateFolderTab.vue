@@ -19,12 +19,12 @@
 </template>
 
 <script setup>
-import CustomHeader from '@/Components/CustomHeader.vue';
-import CustomHeading from '@/Components/CustomHeading.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import SaveButton from '@/Components/SaveButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import CustomHeader from '@/Components/Uikit/CustomHeader.vue';
+import CustomHeading from '@/Components/Uikit/CustomHeading.vue';
+import InputError from '@/Components/Uikit/InputError.vue';
+import InputLabel from '@/Components/Uikit/InputLabel.vue';
+import SaveButton from '@/Components/Uikit/SaveButton.vue';
+import TextInput from '@/Components/Uikit/TextInput.vue';
 import { blurAfterSubmit } from '@/Helpers/DomHelper.js';
 import { inject, ref, watch } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';

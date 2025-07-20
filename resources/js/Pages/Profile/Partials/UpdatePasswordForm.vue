@@ -61,12 +61,12 @@
 </template>
 
 <script setup>
-import ActionMessage from '@/Components/ActionMessage.vue';
-import FormSection from '@/Components/FormSection.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import ActionMessage from '@/Components/Uikit/ActionMessage.vue';
+import FormSection from '@/Components/Uikit/FormSection.vue';
+import InputError from '@/Components/Uikit/InputError.vue';
+import InputLabel from '@/Components/Uikit/InputLabel.vue';
+import PrimaryButton from '@/Components/Uikit/PrimaryButton.vue';
+import TextInput from '@/Components/Uikit/TextInput.vue';
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
 

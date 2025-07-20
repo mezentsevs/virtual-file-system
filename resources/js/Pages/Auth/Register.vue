@@ -89,11 +89,11 @@
 <script setup>
 import AuthenticationCard from '@/Components/Auth/AuthenticationCard.vue';
 import AuthenticationCardLogo from '@/Components/Auth/AuthenticationCardLogo.vue';
-import Checkbox from '@/Components/Checkbox.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import Checkbox from '@/Components/Uikit/Checkbox.vue';
+import InputError from '@/Components/Uikit/InputError.vue';
+import InputLabel from '@/Components/Uikit/InputLabel.vue';
+import PrimaryButton from '@/Components/Uikit/PrimaryButton.vue';
+import TextInput from '@/Components/Uikit/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
 const form = useForm({

@@ -181,19 +181,19 @@
 </template>
 
 <script setup>
-import ActionMessage from '@/Components/ActionMessage.vue';
-import ActionSection from '@/Components/ActionSection.vue';
-import Checkbox from '@/Components/Checkbox.vue';
-import ConfirmationModal from '@/Components/ConfirmationModal.vue';
-import DangerButton from '@/Components/DangerButton.vue';
-import DialogModal from '@/Components/DialogModal.vue';
-import FormSection from '@/Components/FormSection.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
-import SectionBorder from '@/Components/SectionBorder.vue';
-import TextInput from '@/Components/TextInput.vue';
+import ActionMessage from '@/Components/Uikit/ActionMessage.vue';
+import ActionSection from '@/Components/Uikit/ActionSection.vue';
+import Checkbox from '@/Components/Uikit/Checkbox.vue';
+import ConfirmationModal from '@/Components/Uikit/ConfirmationModal.vue';
+import DangerButton from '@/Components/Uikit/DangerButton.vue';
+import DialogModal from '@/Components/Uikit/DialogModal.vue';
+import FormSection from '@/Components/Uikit/FormSection.vue';
+import InputError from '@/Components/Uikit/InputError.vue';
+import InputLabel from '@/Components/Uikit/InputLabel.vue';
+import PrimaryButton from '@/Components/Uikit/PrimaryButton.vue';
+import SecondaryButton from '@/Components/Uikit/SecondaryButton.vue';
+import SectionBorder from '@/Components/Uikit/SectionBorder.vue';
+import TextInput from '@/Components/Uikit/TextInput.vue';
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
 

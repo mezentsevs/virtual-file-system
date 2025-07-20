@@ -44,7 +44,7 @@
 <script setup>
 import AuthenticationCard from '@/Components/Auth/AuthenticationCard.vue';
 import AuthenticationCardLogo from '@/Components/Auth/AuthenticationCardLogo.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
+import PrimaryButton from '@/Components/Uikit/PrimaryButton.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import { computed } from 'vue';
 

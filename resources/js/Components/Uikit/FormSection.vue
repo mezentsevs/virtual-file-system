@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import SectionTitle from '@/Components/SectionTitle.vue';
+import SectionTitle from '@/Components/Uikit/SectionTitle.vue';
 import { computed, useSlots } from 'vue';
 
 defineEmits(['submitted']);

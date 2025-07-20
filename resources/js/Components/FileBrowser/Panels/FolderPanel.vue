@@ -38,18 +38,18 @@
 </template>
 
 <script setup>
-import CreateFileButton from '@/Components/CreateFileButton.vue';
+import CreateFileButton from '@/Components/Uikit/CreateFileButton.vue';
 import CreateFileTab from '@/Components/FileBrowser/Panels/Tabs/CreateFileTab.vue';
-import CreateFolderButton from '@/Components/CreateFolderButton.vue';
+import CreateFolderButton from '@/Components/Uikit/CreateFolderButton.vue';
 import CreateFolderTab from '@/Components/FileBrowser/Panels/Tabs/CreateFolderTab.vue';
-import CustomHeader from '@/Components/CustomHeader.vue';
-import CustomHeading from '@/Components/CustomHeading.vue';
-import DeleteButton from '@/Components/DeleteButton.vue';
+import CustomHeader from '@/Components/Uikit/CustomHeader.vue';
+import CustomHeading from '@/Components/Uikit/CustomHeading.vue';
+import DeleteButton from '@/Components/Uikit/DeleteButton.vue';
 import FoldersTreeItemStatistics from '@/Components/FileBrowser/Panels/Statistics/FoldersTreeItemStatistics.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import SaveButton from '@/Components/SaveButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import InputError from '@/Components/Uikit/InputError.vue';
+import InputLabel from '@/Components/Uikit/InputLabel.vue';
+import SaveButton from '@/Components/Uikit/SaveButton.vue';
+import TextInput from '@/Components/Uikit/TextInput.vue';
 import { blurAfterSubmit } from '@/Helpers/DomHelper.js';
 import { formatBytes } from '@/Helpers/FormatHelper.js';
 import { inject, ref, watch } from 'vue';

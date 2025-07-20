@@ -5,6 +5,6 @@
 </template>
 
 <script setup>
-import BaseImageButton from '@/Components/BaseImageButton.vue';
+import BaseImageButton from '@/Components/Uikit/BaseImageButton.vue';
 import FolderPlusIcon from '@/Components/Icons/FolderPlusIcon.vue';
 </script>

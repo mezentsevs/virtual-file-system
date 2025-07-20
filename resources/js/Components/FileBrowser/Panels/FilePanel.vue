@@ -34,15 +34,15 @@
 </template>
 
 <script setup>
-import CustomHeader from '@/Components/CustomHeader.vue';
-import CustomHeading from '@/Components/CustomHeading.vue';
-import DeleteButton from '@/Components/DeleteButton.vue';
+import CustomHeader from '@/Components/Uikit/CustomHeader.vue';
+import CustomHeading from '@/Components/Uikit/CustomHeading.vue';
+import DeleteButton from '@/Components/Uikit/DeleteButton.vue';
 import FoldersTreeItemStatistics from '@/Components/FileBrowser/Panels/Statistics/FoldersTreeItemStatistics.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import SaveButton from '@/Components/SaveButton.vue';
-import TextArea from '@/Components/TextArea.vue';
-import TextInput from '@/Components/TextInput.vue';
+import InputError from '@/Components/Uikit/InputError.vue';
+import InputLabel from '@/Components/Uikit/InputLabel.vue';
+import SaveButton from '@/Components/Uikit/SaveButton.vue';
+import TextArea from '@/Components/Uikit/TextArea.vue';
+import TextInput from '@/Components/Uikit/TextInput.vue';
 import { blurAfterSubmit } from '@/Helpers/DomHelper.js';
 import { formatBytes } from '@/Helpers/FormatHelper.js';
 import { inject, ref, watch } from 'vue';
