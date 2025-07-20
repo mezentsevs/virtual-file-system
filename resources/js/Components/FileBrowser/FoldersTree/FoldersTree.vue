@@ -1,0 +1,105 @@
+<template>
+    <nav class="folders-tree w-1/3 min-w-[300px] min-h-[600px] m-4 border border-solid border-gray-500 dark:border-gray-400 text-gray-500 dark:text-gray-400 overflow-hidden rounded-lg">
+        <ul
+            v-for="folder in folders"
+            :key="folder.id"
+            class="max-h-screen p-4 overflow-x-hidden overflow-y-auto"
+        >
+            <Folder
+                :folder
+                @item-selected="onItemSelected"
+                @icon-toggled="onIconToggled"
+            />
+
+            <ul
+                v-if="folder.children_folders.length"
+                class="children-folders pl-4"
+                :class="[isChildrenHidden ? 'hidden' : 'shown']"
+            >
+                <ChildFolder
+                    v-for="childFolder in folder.children_folders"
+                    :key="childFolder.id"
+                    :child-folder
+                    @item-selected="onItemSelected"
+                />
+            </ul>
+
+            <ul
+                v-if="folder.files.length"
+                class="files pl-4"
+                :class="[isChildrenHidden ? 'hidden' : 'shown']"
+            >
+                <File
+                    v-for="file in folder.files"
+                    :key="file.id"
+                    :file
+                    @item-selected="onItemSelected"
+                />
+            </ul>
+        </ul>
+    </nav>
+</template>
+
+<script setup>
+import ChildFolder from '@/Components/FileBrowser/FoldersTree/Items/ChildFolder.vue';
+import File from '@/Components/FileBrowser/FoldersTree/Items/File.vue';
+import Folder from '@/Components/FileBrowser/FoldersTree/Items/Folder.vue';
+import { ref, defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
+    folders: {
+        type: Array,
+        default: [],
+    },
+});
+
+const emit = defineEmits(['item-selected']);
+
+const isChildrenHidden = ref(true);
+
+function onItemSelected(item) {
+    setSelectedItem(item);
+    emit('item-selected', item);
+}
+
+function onIconToggled(icon) {
+    isChildrenHidden.value = (icon === 'closed');
+}
+
+function setSelectedItem(item) {
+    const selector = item.type === 'folder'
+        ? `#folder-${item.id}`
+        : `#file-${item.id}`;
+
+    const $element = document.querySelector(selector);
+    if ($element) {
+        clearSelection();
+        $element.classList.add('selected');
+    }
+}
+
+function clearSelection() {
+    document.querySelectorAll('.folder, .file')
+        .forEach(el => el.classList.remove('selected'));
+}
+
+defineExpose({
+    setSelectedItem,
+});
+</script>
+
+<style scoped>
+.shown {
+    animation: appearance 0.25s ease-in-out;
+}
+
+@keyframes appearance {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+</style>
