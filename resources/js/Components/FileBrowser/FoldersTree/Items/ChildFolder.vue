@@ -53,19 +53,3 @@ function onIconToggled(icon) {
     isChildrenHidden.value = (icon === 'closed');
 }
 </script>
-
-<style scoped>
-.shown {
-    animation: appearance 0.25s ease-in-out;
-}
-
-@keyframes appearance {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-</style>

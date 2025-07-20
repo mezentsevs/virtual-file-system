@@ -6,24 +6,6 @@
 
 <style scoped>
 .image-button:active {
-    animation: bounce 0.5s ease-in-out;
-}
-
-@keyframes bounce {
-    0% {
-        transform: scale(0);
-    }
-
-    25% {
-        transform: scale(1.1);
-    }
-
-    50% {
-        transform: scale(1.25);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+    animation: expressive-bounce 0.5s ease-in-out;
 }
 </style>

@@ -64,7 +64,6 @@ function setSelected($file) {
     }
 
     &:after {
-        animation: appearance 0.25s ease-in-out, bounce 0.25s ease-in-out;
         background: #E0E7FF;
         content: '';
         display: block;
@@ -74,30 +73,6 @@ function setSelected($file) {
         top: 0;
         width: 3840px;
         z-index: -1;
-    }
-}
-
-@keyframes appearance {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes bounce {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.1);
-    }
-
-    100% {
-        transform: scale(1);
     }
 }
 </style>
