@@ -46,11 +46,11 @@
 </template>
 
 <script setup>
-import DialogModal from './DialogModal.vue';
-import InputError from './InputError.vue';
-import PrimaryButton from './PrimaryButton.vue';
-import SecondaryButton from './SecondaryButton.vue';
-import TextInput from './TextInput.vue';
+import DialogModal from '@/Components/DialogModal.vue';
+import InputError from '@/Components/InputError.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+import SecondaryButton from '@/Components/SecondaryButton.vue';
+import TextInput from '@/Components/TextInput.vue';
 import { ref, reactive, nextTick } from 'vue';
 
 const emit = defineEmits(['confirmed']);
