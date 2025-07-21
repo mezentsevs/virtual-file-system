@@ -41,9 +41,9 @@
 </template>
 
 <script setup>
-import ChildFolder from '@/Components/FileBrowser/FoldersTree/Items/ChildFolder.vue';
-import File from '@/Components/FileBrowser/FoldersTree/Items/File.vue';
-import Folder from '@/Components/FileBrowser/FoldersTree/Items/Folder.vue';
+import ChildFolder from '@/Components/FileBrowser/FoldersTree/Partials/Items/ChildFolder.vue';
+import File from '@/Components/FileBrowser/FoldersTree/Partials/Items/File.vue';
+import Folder from '@/Components/FileBrowser/FoldersTree/Partials/Items/Folder.vue';
 import { ref, defineProps, defineEmits } from 'vue';
 
 const props = defineProps({

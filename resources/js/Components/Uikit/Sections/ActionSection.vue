@@ -18,5 +18,5 @@
 </template>
 
 <script setup>
-import SectionTitle from '@/Components/Uikit/SectionTitle.vue';
+import SectionTitle from '@/Components/Uikit/Sections/Partials/SectionTitle.vue';
 </script>

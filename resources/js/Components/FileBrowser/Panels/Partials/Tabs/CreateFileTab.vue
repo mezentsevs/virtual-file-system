@@ -1,8 +1,8 @@
 <template>
-    <CustomHeader>
-        <CustomHeading :level="4" class="h-8 text-2xl">Create file</CustomHeading>
+    <Header>
+        <Heading :level="4" class="h-8 text-2xl">Create file</Heading>
         <SaveButton class="shrink-0" @click="onSave" />
-    </CustomHeader>
+    </Header>
 
     <form @submit.prevent="onSave">
         <InputLabel for="new-file-name" value="New file name" />
@@ -30,13 +30,13 @@
 </template>
 
 <script setup>
-import CustomHeader from '@/Components/Uikit/CustomHeader.vue';
-import CustomHeading from '@/Components/Uikit/CustomHeading.vue';
-import InputError from '@/Components/Uikit/InputError.vue';
-import InputLabel from '@/Components/Uikit/InputLabel.vue';
-import SaveButton from '@/Components/Uikit/SaveButton.vue';
-import TextArea from '@/Components/Uikit/TextArea.vue';
-import TextInput from '@/Components/Uikit/TextInput.vue';
+import Header from '@/Components/Uikit/Headers/Header.vue';
+import Heading from '@/Components/Uikit/Headings/Heading.vue';
+import InputError from '@/Components/Uikit/Inputs/Partials/InputError.vue';
+import InputLabel from '@/Components/Uikit/Inputs/Partials/InputLabel.vue';
+import SaveButton from '@/Components/Uikit/Buttons/SaveButton.vue';
+import TextArea from '@/Components/Uikit/Inputs/TextArea.vue';
+import TextInput from '@/Components/Uikit/Inputs/TextInput.vue';
 import { blurAfterSubmit } from '@/Helpers/DomHelper.js';
 import { inject, ref, watch } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';

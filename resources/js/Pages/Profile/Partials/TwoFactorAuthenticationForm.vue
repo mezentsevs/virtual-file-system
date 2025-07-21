@@ -83,15 +83,15 @@
 
             <div class="mt-5">
                 <div v-if="! twoFactorEnabled">
-                    <ConfirmsPassword @confirmed="enableTwoFactorAuthentication">
+                    <PasswordConfirm @confirmed="enableTwoFactorAuthentication">
                         <PrimaryButton type="button" :class="{ 'opacity-25': enabling }" :disabled="enabling">
                             Enable
                         </PrimaryButton>
-                    </ConfirmsPassword>
+                    </PasswordConfirm>
                 </div>
 
                 <div v-else>
-                    <ConfirmsPassword @confirmed="confirmTwoFactorAuthentication">
+                    <PasswordConfirm @confirmed="confirmTwoFactorAuthentication">
                         <PrimaryButton
                             v-if="confirming"
                             type="button"
@@ -101,27 +101,27 @@
                         >
                             Confirm
                         </PrimaryButton>
-                    </ConfirmsPassword>
+                    </PasswordConfirm>
 
-                    <ConfirmsPassword @confirmed="regenerateRecoveryCodes">
+                    <PasswordConfirm @confirmed="regenerateRecoveryCodes">
                         <SecondaryButton
                             v-if="recoveryCodes.length > 0 && ! confirming"
                             class="me-3"
                         >
                             Regenerate Recovery Codes
                         </SecondaryButton>
-                    </ConfirmsPassword>
+                    </PasswordConfirm>
 
-                    <ConfirmsPassword @confirmed="showRecoveryCodes">
+                    <PasswordConfirm @confirmed="showRecoveryCodes">
                         <SecondaryButton
                             v-if="recoveryCodes.length === 0 && ! confirming"
                             class="me-3"
                         >
                             Show Recovery Codes
                         </SecondaryButton>
-                    </ConfirmsPassword>
+                    </PasswordConfirm>
 
-                    <ConfirmsPassword @confirmed="disableTwoFactorAuthentication">
+                    <PasswordConfirm @confirmed="disableTwoFactorAuthentication">
                         <SecondaryButton
                             v-if="confirming"
                             :class="{ 'opacity-25': disabling }"
@@ -129,9 +129,9 @@
                         >
                             Cancel
                         </SecondaryButton>
-                    </ConfirmsPassword>
+                    </PasswordConfirm>
 
-                    <ConfirmsPassword @confirmed="disableTwoFactorAuthentication">
+                    <PasswordConfirm @confirmed="disableTwoFactorAuthentication">
                         <DangerButton
                             v-if="! confirming"
                             :class="{ 'opacity-25': disabling }"
@@ -139,7 +139,7 @@
                         >
                             Disable
                         </DangerButton>
-                    </ConfirmsPassword>
+                    </PasswordConfirm>
                 </div>
             </div>
         </template>
@@ -147,14 +147,14 @@
 </template>
 
 <script setup>
-import ActionSection from '@/Components/Uikit/ActionSection.vue';
-import ConfirmsPassword from '@/Components/Uikit/ConfirmsPassword.vue';
-import DangerButton from '@/Components/Uikit/DangerButton.vue';
-import InputError from '@/Components/Uikit/InputError.vue';
-import InputLabel from '@/Components/Uikit/InputLabel.vue';
-import PrimaryButton from '@/Components/Uikit/PrimaryButton.vue';
-import SecondaryButton from '@/Components/Uikit/SecondaryButton.vue';
-import TextInput from '@/Components/Uikit/TextInput.vue';
+import ActionSection from '@/Components/Uikit/Sections/ActionSection.vue';
+import DangerButton from '@/Components/Uikit/Buttons/DangerButton.vue';
+import InputError from '@/Components/Uikit/Inputs/Partials/InputError.vue';
+import InputLabel from '@/Components/Uikit/Inputs/Partials/InputLabel.vue';
+import PasswordConfirm from '@/Components/Uikit/Confirms/PasswordConfirm.vue';
+import PrimaryButton from '@/Components/Uikit/Buttons/PrimaryButton.vue';
+import SecondaryButton from '@/Components/Uikit/Buttons/SecondaryButton.vue';
+import TextInput from '@/Components/Uikit/Inputs/TextInput.vue';
 import { ref, computed, watch } from 'vue';
 import { router, useForm, usePage } from '@inertiajs/vue3';
 

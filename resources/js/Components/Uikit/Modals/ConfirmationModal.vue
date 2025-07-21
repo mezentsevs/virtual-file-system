@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import Modal from '@/Components/Uikit/Modal.vue';
+import Modal from '@/Components/Uikit/Modals/Modal.vue';
 
 const emit = defineEmits(['close']);
 

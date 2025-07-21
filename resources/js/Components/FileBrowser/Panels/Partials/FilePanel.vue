@@ -1,9 +1,9 @@
 <template>
-    <CustomHeader>
-        <CustomHeading :level="3" class="h-9 text-3xl">{{ file.name }}</CustomHeading>
+    <Header>
+        <Heading :level="3" class="h-9 text-3xl">{{ file.name }}</Heading>
         <SaveButton class="shrink-0" @click="onSave" />
         <DeleteButton class="ml-2 shrink-0" @click="onDeleteButtonClick" />
-    </CustomHeader>
+    </Header>
 
     <FoldersTreeItemStatistics>Size: {{ formatBytes(file.size) }}</FoldersTreeItemStatistics>
 
@@ -34,15 +34,15 @@
 </template>
 
 <script setup>
-import CustomHeader from '@/Components/Uikit/CustomHeader.vue';
-import CustomHeading from '@/Components/Uikit/CustomHeading.vue';
-import DeleteButton from '@/Components/Uikit/DeleteButton.vue';
-import FoldersTreeItemStatistics from '@/Components/FileBrowser/Panels/Statistics/FoldersTreeItemStatistics.vue';
-import InputError from '@/Components/Uikit/InputError.vue';
-import InputLabel from '@/Components/Uikit/InputLabel.vue';
-import SaveButton from '@/Components/Uikit/SaveButton.vue';
-import TextArea from '@/Components/Uikit/TextArea.vue';
-import TextInput from '@/Components/Uikit/TextInput.vue';
+import DeleteButton from '@/Components/Uikit/Buttons/DeleteButton.vue';
+import FoldersTreeItemStatistics from '@/Components/FileBrowser/Panels/Partials/Statistics/FoldersTreeItemStatistics.vue';
+import Header from '@/Components/Uikit/Headers/Header.vue';
+import Heading from '@/Components/Uikit/Headings/Heading.vue';
+import InputError from '@/Components/Uikit/Inputs/Partials/InputError.vue';
+import InputLabel from '@/Components/Uikit/Inputs/Partials/InputLabel.vue';
+import SaveButton from '@/Components/Uikit/Buttons/SaveButton.vue';
+import TextArea from '@/Components/Uikit/Inputs/TextArea.vue';
+import TextInput from '@/Components/Uikit/Inputs/TextInput.vue';
 import { blurAfterSubmit } from '@/Helpers/DomHelper.js';
 import { formatBytes } from '@/Helpers/FormatHelper.js';
 import { inject, ref, watch } from 'vue';

@@ -12,8 +12,8 @@
 </template>
 
 <script setup>
-import FilePanel from '@/Components/FileBrowser/Panels/FilePanel.vue';
-import FolderPanel from '@/Components/FileBrowser/Panels/FolderPanel.vue';
+import FilePanel from '@/Components/FileBrowser/Panels/Partials/FilePanel.vue';
+import FolderPanel from '@/Components/FileBrowser/Panels/Partials/FolderPanel.vue';
 import { inject } from 'vue';
 
 defineEmits([

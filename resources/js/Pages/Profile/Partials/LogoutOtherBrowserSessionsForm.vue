@@ -97,13 +97,13 @@
 </template>
 
 <script setup>
-import ActionMessage from '@/Components/Uikit/ActionMessage.vue';
-import ActionSection from '@/Components/Uikit/ActionSection.vue';
-import DialogModal from '@/Components/Uikit/DialogModal.vue';
-import InputError from '@/Components/Uikit/InputError.vue';
-import PrimaryButton from '@/Components/Uikit/PrimaryButton.vue';
-import SecondaryButton from '@/Components/Uikit/SecondaryButton.vue';
-import TextInput from '@/Components/Uikit/TextInput.vue';
+import ActionMessage from '@/Components/Uikit/Messages/ActionMessage.vue';
+import ActionSection from '@/Components/Uikit/Sections/ActionSection.vue';
+import DialogModal from '@/Components/Uikit/Modals/DialogModal.vue';
+import InputError from '@/Components/Uikit/Inputs/Partials/InputError.vue';
+import PrimaryButton from '@/Components/Uikit/Buttons/PrimaryButton.vue';
+import SecondaryButton from '@/Components/Uikit/Buttons/SecondaryButton.vue';
+import TextInput from '@/Components/Uikit/Inputs/TextInput.vue';
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
 

@@ -260,12 +260,12 @@
 </template>
 
 <script setup>
-import Banner from '@/Components/Uikit/Banner.vue';
-import Dropdown from '@/Components/Uikit/Dropdown.vue';
-import DropdownLink from '@/Components/Uikit/DropdownLink.vue';
+import Banner from '@/Components/Uikit/Banners/Banner.vue';
+import Dropdown from '@/Components/Uikit/Dropdowns/Dropdown.vue';
+import DropdownLink from '@/Components/Uikit/Links/DropdownLink.vue';
 import LogoIcon from '@/Components/Icons/LogoIcon.vue';
-import NavLink from '@/Components/Uikit/NavLink.vue';
-import ResponsiveNavLink from '@/Components/Uikit/ResponsiveNavLink.vue';
+import NavLink from '@/Components/Uikit/Links/NavLink.vue';
+import ResponsiveNavLink from '@/Components/Uikit/Links/ResponsiveNavLink.vue';
 import { Head, Link, router } from '@inertiajs/vue3';
 import { ref } from 'vue';
 

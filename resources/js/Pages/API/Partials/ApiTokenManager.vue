@@ -181,19 +181,19 @@
 </template>
 
 <script setup>
-import ActionMessage from '@/Components/Uikit/ActionMessage.vue';
-import ActionSection from '@/Components/Uikit/ActionSection.vue';
-import Checkbox from '@/Components/Uikit/Checkbox.vue';
-import ConfirmationModal from '@/Components/Uikit/ConfirmationModal.vue';
-import DangerButton from '@/Components/Uikit/DangerButton.vue';
-import DialogModal from '@/Components/Uikit/DialogModal.vue';
-import FormSection from '@/Components/Uikit/FormSection.vue';
-import InputError from '@/Components/Uikit/InputError.vue';
-import InputLabel from '@/Components/Uikit/InputLabel.vue';
-import PrimaryButton from '@/Components/Uikit/PrimaryButton.vue';
-import SecondaryButton from '@/Components/Uikit/SecondaryButton.vue';
-import SectionBorder from '@/Components/Uikit/SectionBorder.vue';
-import TextInput from '@/Components/Uikit/TextInput.vue';
+import ActionMessage from '@/Components/Uikit/Messages/ActionMessage.vue';
+import ActionSection from '@/Components/Uikit/Sections/ActionSection.vue';
+import Checkbox from '@/Components/Uikit/Inputs/Checkbox.vue';
+import ConfirmationModal from '@/Components/Uikit/Modals/ConfirmationModal.vue';
+import DangerButton from '@/Components/Uikit/Buttons/DangerButton.vue';
+import DialogModal from '@/Components/Uikit/Modals/DialogModal.vue';
+import FormSection from '@/Components/Uikit/Sections/FormSection.vue';
+import InputError from '@/Components/Uikit/Inputs/Partials/InputError.vue';
+import InputLabel from '@/Components/Uikit/Inputs/Partials/InputLabel.vue';
+import PrimaryButton from '@/Components/Uikit/Buttons/PrimaryButton.vue';
+import SecondaryButton from '@/Components/Uikit/Buttons/SecondaryButton.vue';
+import SectionBorder from '@/Components/Uikit/Sections/Partials/SectionBorder.vue';
+import TextInput from '@/Components/Uikit/Inputs/TextInput.vue';
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
 
