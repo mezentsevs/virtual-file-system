@@ -1,5 +1,5 @@
 <template>
-    <nav class="folders-tree w-1/3 min-w-[300px] min-h-[600px] m-4 border border-solid border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 overflow-hidden rounded-lg">
+    <nav class="folders-tree w-1/3 min-w-[300px] min-h-[600px] m-4 border border-solid border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 overflow-hidden rounded-lg">
         <ul
             v-for="folder in folders"
             :key="folder.id"

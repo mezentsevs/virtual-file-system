@@ -1,7 +1,7 @@
 <template>
     <li :id="`folder-${folder.id}`" class="folder flex flex-row items-center">
         <div
-            class="inline-block w-6 h-6 shrink-0 fill-gray-500 dark:fill-gray-400 hover:fill-indigo-600 cursor-pointer transition-[fill]"
+            class="inline-block w-6 h-6 shrink-0 fill-gray-800 dark:fill-gray-200 hover:fill-indigo-600 cursor-pointer transition-[fill]"
             @click="onFolderIconClick"
         >
             <component :is="icons[currentIcon]" />
