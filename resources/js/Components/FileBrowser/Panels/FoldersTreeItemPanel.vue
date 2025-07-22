@@ -1,5 +1,5 @@
 <template>
-    <section class="item-panel w-2/3 min-w-[400px] min-h-[600px] m-4 ml-0 p-4 border border-solid border-gray-500 dark:border-gray-400 text-gray-500 dark:text-gray-400 rounded-lg">
+    <section class="item-panel w-2/3 min-w-[400px] min-h-[600px] m-4 ml-0 p-4 border border-solid border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 rounded-lg">
         <FolderPanel
             v-if="item.type === 'folder'"
             @folder-deleted="$emit('folderDeleted')"
