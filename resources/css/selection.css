@@ -2,11 +2,11 @@
     @apply relative text-gray-800 font-bold z-0;
 
     svg {
-        @apply fill-gray-800 transition-colors duration-150 ease-in-out;
+        @apply fill-gray-800 hover:fill-indigo-600 dark:hover:fill-indigo-700 transition-colors duration-150 ease-in-out;
+    }
 
-        &:hover {
-            @apply fill-indigo-600;
-        }
+    span {
+        @apply dark:hover:text-indigo-700;
     }
 
     &:after {

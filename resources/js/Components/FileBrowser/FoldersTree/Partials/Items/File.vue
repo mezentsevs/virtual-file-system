@@ -1,14 +1,14 @@
 <template>
     <li :id="`file-${file.id}`" class="file flex flex-row items-center">
         <div
-            class="inline-block w-6 h-6 shrink-0 fill-gray-800 dark:fill-gray-200 hover:fill-indigo-600 cursor-pointer transition-[fill]"
+            class="inline-block w-6 h-6 shrink-0 fill-gray-800 dark:fill-gray-200 hover:fill-indigo-600 dark:hover:fill-indigo-400 cursor-pointer transition-[fill]"
             @click="onFileClick"
         >
             <FileIcon />
         </div>
 
         <span
-            class="inline-block ml-1 hover:text-indigo-600 truncate cursor-pointer select-none transition-colors"
+            class="inline-block ml-1 hover:text-indigo-600 dark:hover:text-indigo-400 truncate cursor-pointer select-none transition-colors"
             @click="onFileClick"
         >
             {{ file.name }}
