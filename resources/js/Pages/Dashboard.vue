@@ -16,12 +16,12 @@
                     Failed to load data. Please try again later.
                 </ErrorMessage>
 
-                <SecondaryButton
+                <PrimaryButton
                     @click="loadFolders"
                     class="mt-4"
                 >
                     Retry
-                </SecondaryButton>
+                </PrimaryButton>
             </div>
         </section>
     </AppLayout>
@@ -31,7 +31,7 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ErrorMessage from '@/Components/Uikit/Messages/ErrorMessage.vue';
 import FileBrowser from '@/Components/FileBrowser/FileBrowser.vue';
-import SecondaryButton from '@/Components/Uikit/Buttons/SecondaryButton.vue';
+import PrimaryButton from '@/Components/Uikit/Buttons/PrimaryButton.vue';
 import { ref } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
 
