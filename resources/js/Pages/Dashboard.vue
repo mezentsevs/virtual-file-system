@@ -1,18 +1,14 @@
 <template>
-    <AppLayout title="Dashboard">
+    <AppLayout title="Dashboard" class="min-w-[1024px]">
         <template #header>
             <h2 class="text-gray-800 dark:text-gray-200 text-xl font-semibold leading-tight">
                 {{ appName }}
             </h2>
         </template>
 
-        <div class="py-12" v-if="isLoaded">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden sm:rounded-lg shadow-xl">
-                    <FileBrowser :folders="foldersStore.folders" />
-                </div>
-            </div>
-        </div>
+        <section v-if="isLoaded" class="flex justify-center">
+            <FileBrowser :folders="foldersStore.folders" class="w-full max-w-5xl m-12 bg-white dark:bg-gray-800 overflow-hidden rounded-none sm:rounded-2xl shadow-md" />
+        </section>
     </AppLayout>
 </template>
 
