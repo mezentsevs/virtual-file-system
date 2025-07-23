@@ -9,7 +9,7 @@ export const useFoldersStore = defineStore('folders', () => {
 
     const getFileById = computed(() => payload => findFile(payload.id, folders.value));
 
-    async function loadFolders() {
+    const loadFolders = async () => {
         const response = await axios.get('/api/folders');
 
         if (response.status === 200 && response.data.success === true) {
@@ -17,9 +17,9 @@ export const useFoldersStore = defineStore('folders', () => {
 
             sortChildren(folders.value);
         }
-    }
+    };
 
-    async function createFolder(payload) {
+    const createFolder = async payload => {
         try {
             const response = await axios.post('/api/folders', payload);
 
@@ -40,9 +40,9 @@ export const useFoldersStore = defineStore('folders', () => {
         } catch (error) {
             if (error.status === 422) { return error.response.data; }
         }
-    }
+    };
 
-    async function createFile(payload) {
+    const createFile = async payload => {
         try {
             const response = await axios.post('/api/files', payload);
 
@@ -60,9 +60,9 @@ export const useFoldersStore = defineStore('folders', () => {
         } catch (error) {
             if (error.status === 422) { return error.response.data; }
         }
-    }
+    };
 
-    async function updateFolderById(payload) {
+    const updateFolderById = async payload => {
         try {
             const response = await axios.patch(`/api/folders/${payload.id}`, {
                 name: payload.name,
@@ -84,9 +84,9 @@ export const useFoldersStore = defineStore('folders', () => {
         } catch (error) {
             if (error.status === 422) { return error.response.data; }
         }
-    }
+    };
 
-    async function updateFileById(payload) {
+    const updateFileById = async payload => {
         try {
             const response = await axios.patch(`/api/files/${payload.id}`, {
                 name: payload.name,
@@ -111,9 +111,9 @@ export const useFoldersStore = defineStore('folders', () => {
         } catch (error) {
             if (error.status === 422) { return error.response.data; }
         }
-    }
+    };
 
-    async function deleteFolderById(payload) {
+    const deleteFolderById = async payload => {
         const response = await axios.delete(`/api/folders/${payload.id}`);
 
         if (response.status === 200 && response.data.success === true) {
@@ -128,9 +128,9 @@ export const useFoldersStore = defineStore('folders', () => {
 
             return response.data;
         }
-    }
+    };
 
-    async function deleteFileById(payload) {
+    const deleteFileById = async payload => {
         const response = await axios.delete(`/api/files/${payload.id}`);
 
         if (response.status === 200 && response.data.success === true) {
@@ -144,9 +144,9 @@ export const useFoldersStore = defineStore('folders', () => {
 
             return response.data;
         }
-    }
+    };
 
-    function findFolder(id, folders) {
+    const findFolder = (id, folders) => {
         for (const folder of folders) {
             if (folder.id === id) { return folder; }
 
@@ -156,9 +156,9 @@ export const useFoldersStore = defineStore('folders', () => {
                 if (childFolder) { return childFolder; }
             }
         }
-    }
+    };
 
-    function findFile(id, folders) {
+    const findFile = (id, folders) => {
         for (const folder of folders) {
             if (folder.files) {
                 const file = folder.files.find(file => file.id === id);
@@ -172,9 +172,9 @@ export const useFoldersStore = defineStore('folders', () => {
                 if (childFile) { return childFile; }
             }
         }
-    }
+    };
 
-    function sortChildren(folders) {
+    const sortChildren = folders => {
         for (const folder of folders) {
             if (folder.files) { folder.files.sort(compareByName); }
 
@@ -184,9 +184,9 @@ export const useFoldersStore = defineStore('folders', () => {
 
             sortChildren(folder.children_folders);
         }
-    }
+    };
 
-    function updateParentsSize(type, id, folders, correction) {
+    const updateParentsSize = (type, id, folders, correction) => {
         if (correction === 0) { return; }
 
         const currentItem = (type === 'folder') ? findFolder(id, folders) : findFile(id, folders);
@@ -198,7 +198,7 @@ export const useFoldersStore = defineStore('folders', () => {
         parent.size += correction;
 
         updateParentsSize(parent.type, parent.id, folders, correction);
-    }
+    };
 
     return {
         folders,

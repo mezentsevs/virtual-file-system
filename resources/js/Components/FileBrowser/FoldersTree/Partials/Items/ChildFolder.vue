@@ -49,7 +49,5 @@ defineEmits(['itemSelected']);
 
 const isChildrenHidden = ref(true);
 
-function onIconToggled(icon) {
-    isChildrenHidden.value = (icon === 'closed');
-}
+const onIconToggled = icon => isChildrenHidden.value = (icon === 'closed');
 </script>

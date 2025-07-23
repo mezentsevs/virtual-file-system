@@ -77,7 +77,7 @@ watch(
     () => setUp(),
 );
 
-async function onSave(event) {
+const onSave = async event => {
     errors.value = {};
 
     const data = await foldersStore.updateFolderById({
@@ -88,19 +88,19 @@ async function onSave(event) {
     if (data.success === false) { errors.value = data.errors; }
 
     blurAfterSubmit(event, 'name');
-}
+};
 
-async function onDeleteButtonClick() {
+const onDeleteButtonClick = async () => {
     const data = await foldersStore.deleteFolderById({ id: folder.value.id });
 
     if (data.success === true) { emit('folderDeleted'); }
-}
+};
 
-function setUp() {
+const setUp = () => {
     name.value = folder.value.name;
 
     errors.value = {};
-}
+};
 
 setUp();
 </script>

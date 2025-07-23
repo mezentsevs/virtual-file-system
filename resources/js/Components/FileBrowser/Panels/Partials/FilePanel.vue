@@ -65,7 +65,7 @@ watch(
     () => setUp(),
 );
 
-async function onSave(event) {
+const onSave = async event => {
     errors.value = {};
 
     const data = await foldersStore.updateFileById({
@@ -77,21 +77,21 @@ async function onSave(event) {
     if (data.success === false) { errors.value = data.errors; }
 
     blurAfterSubmit(event, 'name');
-}
+};
 
-async function onDeleteButtonClick() {
+const onDeleteButtonClick = async () => {
     const data = await foldersStore.deleteFileById({ id: file.value.id });
 
     if (data.success === true) { emit('fileDeleted'); }
-}
+};
 
-function setUp() {
+const setUp = () => {
     name.value = file.value.name;
 
     content.value = file.value.content;
 
     errors.value = {};
-}
+};
 
 setUp();
 </script>

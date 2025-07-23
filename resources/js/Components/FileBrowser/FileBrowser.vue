@@ -33,15 +33,13 @@ const foldersTreeRef = ref(null);
 
 provide('currentItem', currentItem);
 
-function setCurrentItem(item) {
-    currentItem.value = item;
-}
+const setCurrentItem = item => currentItem.value = item;
 
-function onCurrentItemDeleted() {
+const onCurrentItemDeleted = () => {
     const parentFolder = foldersStore.getFolderById({ id: currentItem.value.folder_id });
     setCurrentItem(parentFolder);
     foldersTreeRef.value.setSelectedItem(parentFolder);
-}
+};
 
 setCurrentItem(props.folders.find(folder => folder.folder_id === null));
 </script>

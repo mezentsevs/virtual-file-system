@@ -28,13 +28,13 @@ const props = defineProps({
 
 const emit = defineEmits(['itemSelected']);
 
-function onFileClick(event) {
+const onFileClick = event => {
     setSelected(event.target.closest('.file'));
 
     emit('itemSelected', props.file);
-}
+};
 
-function setSelected($file) {
+const setSelected = $file => {
     if (!$file.classList.value.includes('selected')) {
         document.querySelectorAll('.folder')
             .forEach((folder) => folder.classList.remove('selected'));
@@ -44,5 +44,5 @@ function setSelected($file) {
 
         $file.classList.add('selected');
     }
-}
+};
 </script>

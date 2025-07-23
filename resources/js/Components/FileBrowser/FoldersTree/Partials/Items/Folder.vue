@@ -40,23 +40,21 @@ const icons = {
     opened: FolderOpenIcon,
 };
 
-function onFolderIconClick() {
+const onFolderIconClick = () => {
     toggleIcon();
 
     emit('iconToggled', currentIcon.value);
-}
+};
 
-function onFolderNameClick(event) {
+const onFolderNameClick = event => {
     setSelected(event.target.closest('.folder'));
 
     emit('itemSelected', props.folder);
-}
+};
 
-function toggleIcon() {
-    currentIcon.value = currentIcon.value === 'closed' ? 'opened' : 'closed';
-}
+const toggleIcon = () => currentIcon.value = currentIcon.value === 'closed' ? 'opened' : 'closed';
 
-function setSelected($folder) {
+const setSelected = $folder => {
     if (!$folder.classList.value.includes('selected')) {
         document.querySelectorAll('.folder')
             .forEach((folder) => folder.classList.remove('selected'));
@@ -66,5 +64,5 @@ function setSelected($folder) {
 
         $folder.classList.add('selected');
     }
-}
+};
 </script>

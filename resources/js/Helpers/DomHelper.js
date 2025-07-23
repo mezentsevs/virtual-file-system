@@ -1,7 +1,7 @@
-export function blurAfterSubmit(event, id) {
+export const blurAfterSubmit = (event, id) => {
     if (!(event instanceof SubmitEvent)) { return; }
 
     const $el = document.getElementById(id);
 
     if ($el) { $el.blur(); }
-}
+};

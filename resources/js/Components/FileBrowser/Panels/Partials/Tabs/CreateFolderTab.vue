@@ -42,7 +42,7 @@ watch(
     () => errors.value = {},
 );
 
-async function onSave(event) {
+const onSave = async event => {
     errors.value = {};
 
     const data = await foldersStore.createFolder({
@@ -53,5 +53,5 @@ async function onSave(event) {
     if (data.success === false) { errors.value = data.errors; }
 
     blurAfterSubmit(event, 'new-folder-name');
-}
+};
 </script>

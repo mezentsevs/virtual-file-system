@@ -57,16 +57,14 @@ const emit = defineEmits(['item-selected']);
 
 const isChildrenHidden = ref(true);
 
-function onItemSelected(item) {
+const onItemSelected = item => {
     setSelectedItem(item);
     emit('item-selected', item);
-}
+};
 
-function onIconToggled(icon) {
-    isChildrenHidden.value = (icon === 'closed');
-}
+const onIconToggled = icon => isChildrenHidden.value = (icon === 'closed');
 
-function setSelectedItem(item) {
+const setSelectedItem = item => {
     const selector = item.type === 'folder'
         ? `#folder-${item.id}`
         : `#file-${item.id}`;
@@ -76,12 +74,11 @@ function setSelectedItem(item) {
         clearSelection();
         $element.classList.add('selected');
     }
-}
+};
 
-function clearSelection() {
-    document.querySelectorAll('.folder, .file')
-        .forEach(el => el.classList.remove('selected'));
-}
+const clearSelection = () => document.querySelectorAll('.folder, .file')
+    .forEach(el => el.classList.remove('selected'));
+
 
 defineExpose({
     setSelectedItem,
