@@ -6,15 +6,32 @@
             </h2>
         </template>
 
-        <section v-if="isLoaded" class="flex justify-center">
+        <section v-if="foldersLoadingStatus === 'loaded'" class="flex justify-center">
             <FileBrowser :folders="foldersStore.folders" class="w-full max-w-5xl m-12 bg-white dark:bg-gray-800 overflow-hidden rounded-2xl shadow-md" />
+        </section>
+
+        <section v-else-if="foldersLoadingStatus === 'error'" class="flex justify-center">
+            <div class="w-full max-w-5xl m-12 p-8 bg-white dark:bg-gray-800 text-center rounded-2xl shadow-md">
+                <ErrorMessage>
+                    Failed to load data. Please try again later.
+                </ErrorMessage>
+
+                <SecondaryButton
+                    @click="loadFolders"
+                    class="mt-4"
+                >
+                    Retry
+                </SecondaryButton>
+            </div>
         </section>
     </AppLayout>
 </template>
 
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import ErrorMessage from '@/Components/Uikit/Messages/ErrorMessage.vue';
 import FileBrowser from '@/Components/FileBrowser/FileBrowser.vue';
+import SecondaryButton from '@/Components/Uikit/Buttons/SecondaryButton.vue';
 import { ref } from 'vue';
 import { useFoldersStore } from '@/Stores/Folders.js';
 
@@ -27,7 +44,15 @@ defineProps({
     },
 });
 
-const isLoaded = ref(false);
+const foldersLoadingStatus = ref('');
 
-foldersStore.loadFolders().then(() => isLoaded.value = true);
+const loadFolders = () => {
+    foldersLoadingStatus.value = 'loading';
+
+    foldersStore.loadFolders()
+        .then(() => foldersLoadingStatus.value = 'loaded')
+        .catch(() => foldersLoadingStatus.value = 'error');
+};
+
+loadFolders();
 </script>
