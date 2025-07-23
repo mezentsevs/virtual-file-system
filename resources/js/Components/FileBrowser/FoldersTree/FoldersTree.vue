@@ -45,7 +45,7 @@ import ChildFolder from '@/Components/FileBrowser/FoldersTree/Partials/Items/Chi
 import File from '@/Components/FileBrowser/FoldersTree/Partials/Items/File.vue';
 import Folder from '@/Components/FileBrowser/FoldersTree/Partials/Items/Folder.vue';
 import { ref, defineProps, defineEmits } from 'vue';
-import { useClearSelection } from '@/Composables/SelectionComposables.js';
+import { useSelection } from '@/Composables/SelectionComposable.js';
 
 const props = defineProps({
     folders: {
@@ -56,7 +56,7 @@ const props = defineProps({
 
 const emit = defineEmits(['item-selected']);
 
-const { clearSelection } = useClearSelection();
+const { setSelected } = useSelection();
 
 const isChildrenHidden = ref(true);
 
@@ -72,15 +72,9 @@ const setSelectedItem = item => {
         ? `#folder-${item.id}`
         : `#file-${item.id}`;
 
-    const $element = document.querySelector(selector);
+    const $el = document.querySelector(selector);
 
-    if ($element) {
-        if ($element.classList.value.includes('selected')) { return; }
-
-        clearSelection();
-
-        $element.classList.add('selected');
-    }
+    if ($el) { setSelected($el); }
 };
 
 defineExpose({

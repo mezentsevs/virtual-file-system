@@ -18,7 +18,7 @@
 
 <script setup>
 import FileIcon from '@/Components/Icons/FileIcon.vue';
-import { useClearSelection } from '@/Composables/SelectionComposables.js';
+import { useSelection } from '@/Composables/SelectionComposable.js';
 
 const props = defineProps({
     file: {
@@ -29,19 +29,11 @@ const props = defineProps({
 
 const emit = defineEmits(['itemSelected']);
 
-const { clearSelection } = useClearSelection();
+const { setSelected } = useSelection();
 
 const onFileClick = event => {
     setSelected(event.target.closest('.file'));
 
     emit('itemSelected', props.file);
-};
-
-const setSelected = $file => {
-    if ($file.classList.value.includes('selected')) { return; }
-
-    clearSelection();
-
-    $file.classList.add('selected');
 };
 </script>

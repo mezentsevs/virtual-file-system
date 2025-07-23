@@ -20,7 +20,7 @@
 import FolderIcon from '@/Components/Icons/FolderIcon.vue';
 import FolderOpenIcon from '@/Components/Icons/FolderOpenIcon.vue';
 import { ref } from 'vue';
-import { useClearSelection } from '@/Composables/SelectionComposables.js';
+import { useSelection } from '@/Composables/SelectionComposable.js';
 
 const props = defineProps({
     folder: {
@@ -34,7 +34,7 @@ const emit = defineEmits([
     'iconToggled',
 ]);
 
-const { clearSelection } = useClearSelection();
+const { setSelected } = useSelection();
 
 const currentIcon = ref('closed');
 
@@ -56,12 +56,4 @@ const onFolderNameClick = event => {
 };
 
 const toggleIcon = () => currentIcon.value = currentIcon.value === 'closed' ? 'opened' : 'closed';
-
-const setSelected = $folder => {
-    if ($folder.classList.value.includes('selected')) { return; }
-
-    clearSelection();
-
-    $folder.classList.add('selected');
-};
 </script>
