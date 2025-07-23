@@ -7,7 +7,7 @@
         </template>
 
         <section v-if="isLoaded" class="flex justify-center">
-            <FileBrowser :folders="foldersStore.folders" class="w-full max-w-5xl m-12 bg-white dark:bg-gray-800 overflow-hidden rounded-none sm:rounded-2xl shadow-md" />
+            <FileBrowser :folders="foldersStore.folders" class="w-full max-w-5xl m-12 bg-white dark:bg-gray-800 overflow-hidden rounded-2xl shadow-md" />
         </section>
     </AppLayout>
 </template>
