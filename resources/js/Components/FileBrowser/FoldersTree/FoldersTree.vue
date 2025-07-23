@@ -45,6 +45,7 @@ import ChildFolder from '@/Components/FileBrowser/FoldersTree/Partials/Items/Chi
 import File from '@/Components/FileBrowser/FoldersTree/Partials/Items/File.vue';
 import Folder from '@/Components/FileBrowser/FoldersTree/Partials/Items/Folder.vue';
 import { ref, defineProps, defineEmits } from 'vue';
+import { useClearSelection } from '@/Composables/SelectionComposables.js';
 
 const props = defineProps({
     folders: {
@@ -55,6 +56,8 @@ const props = defineProps({
 
 const emit = defineEmits(['item-selected']);
 
+const { clearSelection } = useClearSelection();
+
 const isChildrenHidden = ref(true);
 
 const onItemSelected = item => {
@@ -63,9 +66,6 @@ const onItemSelected = item => {
 };
 
 const onIconToggled = icon => isChildrenHidden.value = (icon === 'closed');
-
-const clearSelection = () => document.querySelectorAll('.folder, .file')
-    .forEach(el => el.classList.remove('selected'));
 
 const setSelectedItem = item => {
     const selector = item.type === 'folder'
