@@ -34,15 +34,14 @@ const onFileClick = event => {
     emit('itemSelected', props.file);
 };
 
+const clearSelection = () => document.querySelectorAll('.folder, .file')
+    .forEach(el => el.classList.remove('selected'));
+
 const setSelected = $file => {
-    if (!$file.classList.value.includes('selected')) {
-        document.querySelectorAll('.folder')
-            .forEach((folder) => folder.classList.remove('selected'));
+    if ($file.classList.value.includes('selected')) { return; }
 
-        document.querySelectorAll('.file')
-            .forEach((file) => file.classList.remove('selected'));
+    clearSelection();
 
-        $file.classList.add('selected');
-    }
+    $file.classList.add('selected');
 };
 </script>

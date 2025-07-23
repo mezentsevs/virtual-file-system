@@ -54,15 +54,14 @@ const onFolderNameClick = event => {
 
 const toggleIcon = () => currentIcon.value = currentIcon.value === 'closed' ? 'opened' : 'closed';
 
+const clearSelection = () => document.querySelectorAll('.folder, .file')
+    .forEach(el => el.classList.remove('selected'));
+
 const setSelected = $folder => {
-    if (!$folder.classList.value.includes('selected')) {
-        document.querySelectorAll('.folder')
-            .forEach((folder) => folder.classList.remove('selected'));
+    if ($folder.classList.value.includes('selected')) { return; }
 
-        document.querySelectorAll('.file')
-            .forEach((file) => file.classList.remove('selected'));
+    clearSelection();
 
-        $folder.classList.add('selected');
-    }
+    $folder.classList.add('selected');
 };
 </script>

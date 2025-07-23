@@ -64,21 +64,24 @@ const onItemSelected = item => {
 
 const onIconToggled = icon => isChildrenHidden.value = (icon === 'closed');
 
+const clearSelection = () => document.querySelectorAll('.folder, .file')
+    .forEach(el => el.classList.remove('selected'));
+
 const setSelectedItem = item => {
     const selector = item.type === 'folder'
         ? `#folder-${item.id}`
         : `#file-${item.id}`;
 
     const $element = document.querySelector(selector);
+
     if ($element) {
+        if ($element.classList.value.includes('selected')) { return; }
+
         clearSelection();
+
         $element.classList.add('selected');
     }
 };
-
-const clearSelection = () => document.querySelectorAll('.folder, .file')
-    .forEach(el => el.classList.remove('selected'));
-
 
 defineExpose({
     setSelectedItem,
