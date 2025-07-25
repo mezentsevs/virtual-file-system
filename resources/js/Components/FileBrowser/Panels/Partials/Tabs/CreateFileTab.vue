@@ -53,7 +53,7 @@ let newFileContent = '';
 
 watch(
     () => folder.value.id,
-    () => errors.value = {},
+    () => (errors.value = {}),
 );
 
 const onSave = async event => {
@@ -65,7 +65,9 @@ const onSave = async event => {
         content: newFileContent,
     });
 
-    if (data.success === false) { errors.value = data.errors; }
+    if (data.success === false) {
+        errors.value = data.errors;
+    }
 
     blurAfterSubmit(event, 'new-file-name');
 };

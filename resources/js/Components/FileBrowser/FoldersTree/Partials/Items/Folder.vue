@@ -29,10 +29,7 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits([
-    'itemSelected',
-    'iconToggled',
-]);
+const emit = defineEmits(['itemSelected', 'iconToggled']);
 
 const { setSelected } = useSelection();
 
@@ -55,5 +52,5 @@ const onFolderNameClick = event => {
     emit('itemSelected', props.folder);
 };
 
-const toggleIcon = () => currentIcon.value = currentIcon.value === 'closed' ? 'opened' : 'closed';
+const toggleIcon = () => (currentIcon.value = currentIcon.value === 'closed' ? 'opened' : 'closed');
 </script>

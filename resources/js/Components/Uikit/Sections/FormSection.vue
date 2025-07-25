@@ -20,7 +20,10 @@
                     </div>
                 </div>
 
-                <div v-if="hasActions" class="flex items-center justify-end px-4 py-3 bg-gray-50 dark:bg-gray-800 text-end sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
+                <div
+                    v-if="hasActions"
+                    class="flex items-center justify-end px-4 py-3 bg-gray-50 dark:bg-gray-800 text-end sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md"
+                >
                     <slot name="actions" />
                 </div>
             </form>
@@ -34,5 +37,5 @@ import { computed, useSlots } from 'vue';
 
 defineEmits(['submitted']);
 
-const hasActions = computed(() => !! useSlots().actions);
+const hasActions = computed(() => !!useSlots().actions);
 </script>

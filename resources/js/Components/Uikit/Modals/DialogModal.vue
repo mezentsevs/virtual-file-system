@@ -1,10 +1,5 @@
 <template>
-    <Modal
-        :show="show"
-        :max-width="maxWidth"
-        :closeable="closeable"
-        @close="close"
-    >
+    <Modal :show="show" :max-width="maxWidth" :closeable="closeable" @close="close">
         <div class="px-6 py-4">
             <div class="text-lg font-medium text-gray-900 dark:text-gray-100">
                 <slot name="title" />

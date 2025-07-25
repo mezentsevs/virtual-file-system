@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-        <div @click="open = ! open">
+        <div @click="open = !open">
             <slot name="trigger" />
         </div>
 
@@ -19,7 +19,7 @@
                 v-show="open"
                 class="absolute z-50 mt-2 rounded-md shadow-lg"
                 :class="[widthClass, alignmentClasses]"
-                style="display: none;"
+                style="display: none"
                 @click="open = false"
             >
                 <div class="rounded-md ring-1 ring-black ring-opacity-5" :class="contentClasses">
@@ -50,7 +50,7 @@ const props = defineProps({
 
 let open = ref(false);
 
-const closeOnEscape = (e) => {
+const closeOnEscape = e => {
     if (open.value && e.key === 'Escape') {
         open.value = false;
     }
@@ -61,7 +61,7 @@ onUnmounted(() => document.removeEventListener('keydown', closeOnEscape));
 
 const widthClass = computed(() => {
     return {
-        '48': 'w-48',
+        48: 'w-48',
     }[props.width.toString()];
 });
 

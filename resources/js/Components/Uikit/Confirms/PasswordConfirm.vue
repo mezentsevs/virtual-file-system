@@ -28,9 +28,7 @@
             </template>
 
             <template #footer>
-                <SecondaryButton @click="closeModal">
-                    Cancel
-                </SecondaryButton>
+                <SecondaryButton @click="closeModal"> Cancel </SecondaryButton>
 
                 <PrimaryButton
                     class="ms-3"
@@ -95,19 +93,21 @@ const startConfirmingPassword = () => {
 const confirmPassword = () => {
     form.processing = true;
 
-    axios.post(route('password.confirm'), {
-        password: form.password,
-    }).then(() => {
-        form.processing = false;
+    axios
+        .post(route('password.confirm'), {
+            password: form.password,
+        })
+        .then(() => {
+            form.processing = false;
 
-        closeModal();
-        nextTick().then(() => emit('confirmed'));
-
-    }).catch(error => {
-        form.processing = false;
-        form.error = error.response.data.errors.password[0];
-        passwordInput.value.focus();
-    });
+            closeModal();
+            nextTick().then(() => emit('confirmed'));
+        })
+        .catch(error => {
+            form.processing = false;
+            form.error = error.response.data.errors.password[0];
+            passwordInput.value.focus();
+        });
 };
 
 const closeModal = () => {

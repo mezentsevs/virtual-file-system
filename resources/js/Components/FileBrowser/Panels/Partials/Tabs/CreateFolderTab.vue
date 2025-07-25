@@ -39,7 +39,7 @@ let newFolderName = '';
 
 watch(
     () => folder.value.id,
-    () => errors.value = {},
+    () => (errors.value = {}),
 );
 
 const onSave = async event => {
@@ -50,7 +50,9 @@ const onSave = async event => {
         name: newFolderName,
     });
 
-    if (data.success === false) { errors.value = data.errors; }
+    if (data.success === false) {
+        errors.value = data.errors;
+    }
 
     blurAfterSubmit(event, 'new-folder-name');
 };

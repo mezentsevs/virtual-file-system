@@ -6,7 +6,8 @@
     </Header>
 
     <FoldersTreeItemStatistics>
-        Folders: {{ folder.folders_count }}, Files: {{ folder.files_count }}, Size: {{ formatBytes(folder.size) }}
+        Folders: {{ folder.folders_count }}, Files: {{ folder.files_count }}, Size:
+        {{ formatBytes(folder.size) }}
     </FoldersTreeItemStatistics>
 
     <form @submit.prevent="onSave">
@@ -25,8 +26,14 @@
 
     <div class="m-16 flex flex-col items-center">
         <div class="w-1/2 flex flex-row justify-between">
-            <CreateFolderButton :class="{ 'current-tab': currentTab === 'folder' }" @click="currentTab = 'folder'" />
-            <CreateFileButton :class="{ 'current-tab': currentTab === 'file' }" @click="currentTab = 'file'" />
+            <CreateFolderButton
+                :class="{ 'current-tab': currentTab === 'folder' }"
+                @click="currentTab = 'folder'"
+            />
+            <CreateFileButton
+                :class="{ 'current-tab': currentTab === 'file' }"
+                @click="currentTab = 'file'"
+            />
         </div>
     </div>
 
@@ -85,7 +92,9 @@ const onSave = async event => {
         name: name.value,
     });
 
-    if (data.success === false) { errors.value = data.errors; }
+    if (data.success === false) {
+        errors.value = data.errors;
+    }
 
     blurAfterSubmit(event, 'name');
 };
@@ -93,7 +102,9 @@ const onSave = async event => {
 const onDeleteButtonClick = async () => {
     const data = await foldersStore.deleteFolderById({ id: folder.value.id });
 
-    if (data.success === true) { emit('folderDeleted'); }
+    if (data.success === true) {
+        emit('folderDeleted');
+    }
 };
 
 const setUp = () => {

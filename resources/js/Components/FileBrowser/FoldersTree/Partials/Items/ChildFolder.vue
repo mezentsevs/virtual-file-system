@@ -1,7 +1,7 @@
 <template>
     <Folder
         :folder="childFolder"
-        @item-selected="(item) => $emit('itemSelected', item)"
+        @item-selected="item => $emit('itemSelected', item)"
         @icon-toggled="onIconToggled"
     />
 
@@ -14,7 +14,7 @@
             v-for="childFolder in childFolder.children_folders"
             :key="childFolder.id"
             :child-folder
-            @item-selected="(item) => $emit('itemSelected', item)"
+            @item-selected="item => $emit('itemSelected', item)"
         />
     </ul>
 
@@ -27,7 +27,7 @@
             v-for="file in childFolder.files"
             :key="file.id"
             :file
-            @item-selected="(item) => $emit('itemSelected', item)"
+            @item-selected="item => $emit('itemSelected', item)"
         />
     </ul>
 </template>
@@ -49,5 +49,5 @@ defineEmits(['itemSelected']);
 
 const isChildrenHidden = ref(true);
 
-const onIconToggled = icon => isChildrenHidden.value = (icon === 'closed');
+const onIconToggled = icon => (isChildrenHidden.value = icon === 'closed');
 </script>

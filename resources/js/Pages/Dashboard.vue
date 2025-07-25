@@ -7,21 +7,19 @@
         </template>
 
         <section v-if="foldersLoadingStatus === 'loaded'" class="flex justify-center">
-            <FileBrowser :folders="foldersStore.folders" class="w-full max-w-5xl m-12 bg-white dark:bg-gray-800 overflow-hidden rounded-2xl shadow-md" />
+            <FileBrowser
+                :folders="foldersStore.folders"
+                class="w-full max-w-5xl m-12 bg-white dark:bg-gray-800 overflow-hidden rounded-2xl shadow-md"
+            />
         </section>
 
         <section v-else-if="foldersLoadingStatus === 'error'" class="flex justify-center">
-            <div class="w-full max-w-5xl m-12 p-8 bg-white dark:bg-gray-800 text-center rounded-2xl shadow-md">
-                <ErrorMessage>
-                    Failed to load data. Please try again later.
-                </ErrorMessage>
+            <div
+                class="w-full max-w-5xl m-12 p-8 bg-white dark:bg-gray-800 text-center rounded-2xl shadow-md"
+            >
+                <ErrorMessage> Failed to load data. Please try again later. </ErrorMessage>
 
-                <PrimaryButton
-                    @click="loadFolders"
-                    class="mt-4"
-                >
-                    Retry
-                </PrimaryButton>
+                <PrimaryButton class="mt-4" @click="loadFolders"> Retry </PrimaryButton>
             </div>
         </section>
     </AppLayout>
@@ -49,9 +47,10 @@ const foldersLoadingStatus = ref('');
 const loadFolders = () => {
     foldersLoadingStatus.value = 'loading';
 
-    foldersStore.loadFolders()
-        .then(() => foldersLoadingStatus.value = 'loaded')
-        .catch(() => foldersLoadingStatus.value = 'error');
+    foldersStore
+        .loadFolders()
+        .then(() => (foldersLoadingStatus.value = 'loaded'))
+        .catch(() => (foldersLoadingStatus.value = 'error'));
 };
 
 loadFolders();

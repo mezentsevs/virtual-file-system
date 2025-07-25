@@ -74,7 +74,9 @@ const onSave = async event => {
         content: content.value,
     });
 
-    if (data.success === false) { errors.value = data.errors; }
+    if (data.success === false) {
+        errors.value = data.errors;
+    }
 
     blurAfterSubmit(event, 'name');
 };
@@ -82,7 +84,9 @@ const onSave = async event => {
 const onDeleteButtonClick = async () => {
     const data = await foldersStore.deleteFileById({ id: file.value.id });
 
-    if (data.success === true) { emit('fileDeleted'); }
+    if (data.success === true) {
+        emit('fileDeleted');
+    }
 };
 
 const setUp = () => {
