@@ -15,7 +15,9 @@ use Illuminate\Http\JsonResponse;
 
 class FolderController extends Controller
 {
-    public function __construct(protected FolderService $folders) {}
+    public function __construct(protected FolderService $folders)
+    {
+    }
 
     public function index(IndexFolderRequest $request): JsonResponse
     {

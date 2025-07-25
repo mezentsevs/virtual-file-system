@@ -88,10 +88,10 @@ class Folder extends Model
     {
         return Attribute::make(
             get: fn (): int => $this->folders->reduce(function (?int $acc, self $folder) {
-                    return $acc + $folder->size;
-                }) + $this->files->reduce(function (?int $acc, File $file) {
-                    return $acc + $file->size;
-                }),
+                return $acc + $folder->size;
+            }) + $this->files->reduce(function (?int $acc, File $file) {
+                return $acc + $file->size;
+            }),
         );
     }
 }

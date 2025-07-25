@@ -8,7 +8,9 @@ use App\Services\FolderService;
 
 class UserCreatedListener
 {
-    public function __construct(protected FolderService $folders) {}
+    public function __construct(protected FolderService $folders)
+    {
+    }
 
     public function handle(UserCreatedEvent $event): void
     {

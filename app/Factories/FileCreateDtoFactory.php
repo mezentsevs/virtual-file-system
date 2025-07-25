@@ -9,7 +9,7 @@ class FileCreateDtoFactory implements DtoFromArrayFactory
 {
     public static function fromArray(array $data): FileCreateDto
     {
-        $dto = new FileCreateDto;
+        $dto = new FileCreateDto();
 
         $dto->folderId = $data['folder_id'];
         $dto->name = $data['name'];

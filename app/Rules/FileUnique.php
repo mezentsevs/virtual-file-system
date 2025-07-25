@@ -9,7 +9,9 @@ use Illuminate\Translation\PotentiallyTranslatedString;
 
 class FileUnique implements ValidationRule
 {
-    public function __construct(protected Folder $parentFolder) {}
+    public function __construct(protected Folder $parentFolder)
+    {
+    }
 
     /**
      * @param Closure(string, ?string=): PotentiallyTranslatedString $fail

@@ -9,7 +9,7 @@ class FolderUpdateDtoFactory implements DtoFromArrayFactory
 {
     public static function fromArray(array $data): FolderUpdateDto
     {
-        $dto = new FolderUpdateDto;
+        $dto = new FolderUpdateDto();
 
         $dto->folder = $data['folder'];
         $dto->name = $data['name'];

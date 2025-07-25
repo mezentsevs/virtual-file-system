@@ -10,7 +10,7 @@ class FileService
 {
     public function create(FileCreateDto $dto): File
     {
-        $file = new File;
+        $file = new File();
 
         $file->folder_id = $dto->folderId;
         $file->name = $dto->name;
