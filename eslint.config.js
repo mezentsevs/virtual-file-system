@@ -9,8 +9,8 @@ export default [
         ignores: [
             'dist/**',
             'node_modules/**',
-            'public/**'
-        ]
+            'public/**',
+        ],
     },
 
     {
@@ -27,20 +27,20 @@ export default [
                 },
                 requireConfigFile: false,
                 ecmaFeatures: {
-                    jsx: true
-                }
-            }
+                    jsx: true,
+                },
+            },
         },
         plugins: {
-            vue: eslintPluginVue
+            vue: eslintPluginVue,
         },
         rules: {
             'vue/html-self-closing': ['error', {
                 html: {
                     void: 'never',
                     normal: 'always',
-                    component: 'always'
-                }
+                    component: 'always',
+                },
             }],
             'vue/attributes-order': ['error', {
                 order: [
@@ -54,9 +54,9 @@ export default [
                     'OTHER_DIRECTIVES',
                     'OTHER_ATTR',
                     'EVENTS',
-                    'CONTENT'
+                    'CONTENT',
                 ],
-                alphabetical: false
+                alphabetical: false,
             }],
             'vue/order-in-components': ['error', {
                 order: [
@@ -91,10 +91,10 @@ export default [
                     'watchQuery',
                     'methods',
                     ['template', 'render'],
-                    'renderError'
-                ]
-            }]
-        }
+                    'renderError',
+                ],
+            }],
+        },
     },
 
     {
@@ -104,12 +104,12 @@ export default [
             sourceType: 'module',
             globals: {
                 ...globals.browser,
-                ...globals.node
-            }
+                ...globals.node,
+            },
         },
         plugins: {
             import: eslintPluginImport,
-            promise: eslintPluginPromise
+            promise: eslintPluginPromise,
         },
         rules: {
             'no-console': 'warn',
@@ -118,20 +118,20 @@ export default [
                 'error',
                 {
                     groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-                    'newlines-between': 'always'
-                }
-            ]
+                    'newlines-between': 'always',
+                },
+            ],
         },
         settings: {
             'import/resolver': {
                 alias: {
                     map: [
                         ['@', './resources/js'],
-                        ['~', './resources']
+                        ['~', './resources'],
                     ],
-                    extensions: ['.js', '.vue', '.json']
-                }
-            }
-        }
-    }
+                    extensions: ['.js', '.vue', '.json'],
+                },
+            },
+        },
+    },
 ];
