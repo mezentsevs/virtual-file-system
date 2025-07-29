@@ -1,6 +1,6 @@
 <template>
     <ActionSection>
-        <template #title> Two Factor Authentication </template>
+        <template #title>Two Factor Authentication</template>
 
         <template #description>
             Add additional security to your account using two factor authentication.
@@ -9,15 +9,13 @@
         <template #content>
             <h3
                 v-if="twoFactorEnabled && !confirming"
-                class="text-lg font-medium text-gray-900 dark:text-gray-100"
-            >
+                class="text-lg font-medium text-gray-900 dark:text-gray-100">
                 You have enabled two factor authentication.
             </h3>
 
             <h3
                 v-else-if="twoFactorEnabled && confirming"
-                class="text-lg font-medium text-gray-900 dark:text-gray-100"
-            >
+                class="text-lg font-medium text-gray-900 dark:text-gray-100">
                 Finish enabling two factor authentication.
             </h3>
 
@@ -52,9 +50,11 @@
 
                     <div
                         v-if="setupKey"
-                        class="mt-4 max-w-xl text-sm text-gray-600 dark:text-gray-400"
-                    >
-                        <p class="font-semibold">Setup Key: <span v-html="setupKey" /></p>
+                        class="mt-4 max-w-xl text-sm text-gray-600 dark:text-gray-400">
+                        <p class="font-semibold">
+                            Setup Key:
+                            <span v-html="setupKey" />
+                        </p>
                     </div>
 
                     <div v-if="confirming" class="mt-4">
@@ -69,8 +69,7 @@
                             inputmode="numeric"
                             autofocus
                             autocomplete="one-time-code"
-                            @keyup.enter="confirmTwoFactorAuthentication"
-                        />
+                            @keyup.enter="confirmTwoFactorAuthentication" />
 
                         <InputError :message="confirmationForm.errors.code" class="mt-2" />
                     </div>
@@ -86,8 +85,7 @@
                     </div>
 
                     <div
-                        class="grid gap-1 max-w-xl mt-4 px-4 py-4 font-mono text-sm bg-gray-100 dark:bg-gray-900 dark:text-gray-100 rounded-lg"
-                    >
+                        class="grid gap-1 max-w-xl mt-4 px-4 py-4 font-mono text-sm bg-gray-100 dark:bg-gray-900 dark:text-gray-100 rounded-lg">
                         <div v-for="code in recoveryCodes" :key="code">
                             {{ code }}
                         </div>
@@ -101,8 +99,7 @@
                         <PrimaryButton
                             type="button"
                             :class="{ 'opacity-25': enabling }"
-                            :disabled="enabling"
-                        >
+                            :disabled="enabling">
                             Enable
                         </PrimaryButton>
                     </PasswordConfirm>
@@ -115,8 +112,7 @@
                             type="button"
                             class="me-3"
                             :class="{ 'opacity-25': enabling }"
-                            :disabled="enabling"
-                        >
+                            :disabled="enabling">
                             Confirm
                         </PrimaryButton>
                     </PasswordConfirm>
@@ -124,8 +120,7 @@
                     <PasswordConfirm @confirmed="regenerateRecoveryCodes">
                         <SecondaryButton
                             v-if="recoveryCodes.length > 0 && !confirming"
-                            class="me-3"
-                        >
+                            class="me-3">
                             Regenerate Recovery Codes
                         </SecondaryButton>
                     </PasswordConfirm>
@@ -133,8 +128,7 @@
                     <PasswordConfirm @confirmed="showRecoveryCodes">
                         <SecondaryButton
                             v-if="recoveryCodes.length === 0 && !confirming"
-                            class="me-3"
-                        >
+                            class="me-3">
                             Show Recovery Codes
                         </SecondaryButton>
                     </PasswordConfirm>
@@ -143,8 +137,7 @@
                         <SecondaryButton
                             v-if="confirming"
                             :class="{ 'opacity-25': disabling }"
-                            :disabled="disabling"
-                        >
+                            :disabled="disabling">
                             Cancel
                         </SecondaryButton>
                     </PasswordConfirm>
@@ -153,8 +146,7 @@
                         <DangerButton
                             v-if="!confirming"
                             :class="{ 'opacity-25': disabling }"
-                            :disabled="disabling"
-                        >
+                            :disabled="disabling">
                             Disable
                         </DangerButton>
                     </PasswordConfirm>

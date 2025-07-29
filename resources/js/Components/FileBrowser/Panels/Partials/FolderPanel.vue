@@ -19,8 +19,7 @@
             class="block w-full mt-1 focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
             required
             autocomplete="name"
-            @focusin="name = folder.name"
-        />
+            @focusin="name = folder.name" />
         <InputError v-for="error in errors.name" class="mt-2" :message="error" />
     </form>
 
@@ -28,12 +27,10 @@
         <div class="w-1/2 flex flex-row justify-between">
             <CreateFolderButton
                 :class="{ 'current-tab': currentTab === 'folder' }"
-                @click="currentTab = 'folder'"
-            />
+                @click="currentTab = 'folder'" />
             <CreateFileButton
                 :class="{ 'current-tab': currentTab === 'file' }"
-                @click="currentTab = 'file'"
-            />
+                @click="currentTab = 'file'" />
         </div>
     </div>
 

@@ -1,38 +1,32 @@
 <template>
     <nav
-        class="folders-tree w-1/3 min-w-[300px] min-h-[600px] m-4 border border-solid border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 overflow-hidden rounded-lg"
-    >
+        class="folders-tree w-1/3 min-w-[300px] min-h-[600px] m-4 border border-solid border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 overflow-hidden rounded-lg">
         <ul
             v-for="folder in folders"
             :key="folder.id"
-            class="max-h-screen p-4 overflow-x-hidden overflow-y-auto"
-        >
+            class="max-h-screen p-4 overflow-x-hidden overflow-y-auto">
             <Folder :folder @item-selected="onItemSelected" @icon-toggled="onIconToggled" />
 
             <ul
                 v-if="folder.children_folders.length"
                 class="children-folders pl-4"
-                :class="[isChildrenHidden ? 'hidden' : 'shown']"
-            >
+                :class="[isChildrenHidden ? 'hidden' : 'shown']">
                 <ChildFolder
                     v-for="childFolder in folder.children_folders"
                     :key="childFolder.id"
                     :child-folder
-                    @item-selected="onItemSelected"
-                />
+                    @item-selected="onItemSelected" />
             </ul>
 
             <ul
                 v-if="folder.files.length"
                 class="files pl-4"
-                :class="[isChildrenHidden ? 'hidden' : 'shown']"
-            >
+                :class="[isChildrenHidden ? 'hidden' : 'shown']">
                 <File
                     v-for="file in folder.files"
                     :key="file.id"
                     :file
-                    @item-selected="onItemSelected"
-                />
+                    @item-selected="onItemSelected" />
             </ul>
         </ul>
     </nav>

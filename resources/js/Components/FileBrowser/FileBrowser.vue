@@ -4,8 +4,7 @@
 
         <FoldersTreeItemPanel
             @folder-deleted="onCurrentItemDeleted"
-            @file-deleted="onCurrentItemDeleted"
-        />
+            @file-deleted="onCurrentItemDeleted" />
     </div>
 </template>
 

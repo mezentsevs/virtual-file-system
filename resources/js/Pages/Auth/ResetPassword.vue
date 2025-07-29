@@ -16,8 +16,7 @@
                     class="mt-1 block w-full"
                     required
                     autofocus
-                    autocomplete="username"
-                />
+                    autocomplete="username" />
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
@@ -29,8 +28,7 @@
                     type="password"
                     class="mt-1 block w-full"
                     required
-                    autocomplete="new-password"
-                />
+                    autocomplete="new-password" />
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 
@@ -42,16 +40,14 @@
                     type="password"
                     class="mt-1 block w-full"
                     required
-                    autocomplete="new-password"
-                />
+                    autocomplete="new-password" />
                 <InputError class="mt-2" :message="form.errors.password_confirmation" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <PrimaryButton
                     :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
-                >
+                    :disabled="form.processing">
                     Reset Password
                 </PrimaryButton>
             </div>

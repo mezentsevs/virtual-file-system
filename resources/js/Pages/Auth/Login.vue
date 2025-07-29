@@ -20,8 +20,7 @@
                     class="mt-1 block w-full"
                     required
                     autofocus
-                    autocomplete="username"
-                />
+                    autocomplete="username" />
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
@@ -33,8 +32,7 @@
                     type="password"
                     class="mt-1 block w-full"
                     required
-                    autocomplete="current-password"
-                />
+                    autocomplete="current-password" />
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 
@@ -49,16 +47,14 @@
                 <Link
                     v-if="canResetPassword"
                     :href="route('password.request')"
-                    class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                >
+                    class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                     Forgot your password?
                 </Link>
 
                 <PrimaryButton
                     class="ms-4"
                     :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
-                >
+                    :disabled="form.processing">
                     Log in
                 </PrimaryButton>
             </div>

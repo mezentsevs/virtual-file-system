@@ -1,8 +1,8 @@
 <template>
     <ActionSection>
-        <template #title> Delete Account </template>
+        <template #title>Delete Account</template>
 
-        <template #description> Permanently delete your account. </template>
+        <template #description>Permanently delete your account.</template>
 
         <template #content>
             <div class="max-w-xl text-sm text-gray-600 dark:text-gray-400">
@@ -12,12 +12,12 @@
             </div>
 
             <div class="mt-5">
-                <DangerButton @click="confirmUserDeletion"> Delete Account </DangerButton>
+                <DangerButton @click="confirmUserDeletion">Delete Account</DangerButton>
             </div>
 
             <!-- Delete Account Confirmation Modal -->
             <DialogModal :show="confirmingUserDeletion" @close="closeModal">
-                <template #title> Delete Account </template>
+                <template #title>Delete Account</template>
 
                 <template #content>
                     Are you sure you want to delete your account? Once your account is deleted, all
@@ -32,22 +32,20 @@
                             class="mt-1 block w-3/4"
                             placeholder="Password"
                             autocomplete="current-password"
-                            @keyup.enter="deleteUser"
-                        />
+                            @keyup.enter="deleteUser" />
 
                         <InputError :message="form.errors.password" class="mt-2" />
                     </div>
                 </template>
 
                 <template #footer>
-                    <SecondaryButton @click="closeModal"> Cancel </SecondaryButton>
+                    <SecondaryButton @click="closeModal">Cancel</SecondaryButton>
 
                     <DangerButton
                         class="ms-3"
                         :class="{ 'opacity-25': form.processing }"
                         :disabled="form.processing"
-                        @click="deleteUser"
-                    >
+                        @click="deleteUser">
                         Delete Account
                     </DangerButton>
                 </template>

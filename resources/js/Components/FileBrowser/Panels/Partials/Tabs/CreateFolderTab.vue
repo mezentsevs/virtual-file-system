@@ -12,8 +12,7 @@
             type="text"
             class="block w-full mt-1 focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
             required
-            autocomplete="new-folder-name"
-        />
+            autocomplete="new-folder-name" />
         <InputError v-for="error in errors.name" class="mt-2" :message="error" />
     </form>
 </template>

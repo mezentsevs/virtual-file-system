@@ -29,8 +29,7 @@
                     inputmode="numeric"
                     class="mt-1 block w-full"
                     autofocus
-                    autocomplete="one-time-code"
-                />
+                    autocomplete="one-time-code" />
                 <InputError class="mt-2" :message="form.errors.code" />
             </div>
 
@@ -42,8 +41,7 @@
                     v-model="form.recovery_code"
                     type="text"
                     class="mt-1 block w-full"
-                    autocomplete="one-time-code"
-                />
+                    autocomplete="one-time-code" />
                 <InputError class="mt-2" :message="form.errors.recovery_code" />
             </div>
 
@@ -51,18 +49,16 @@
                 <button
                     type="button"
                     class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 underline cursor-pointer"
-                    @click.prevent="toggleRecovery"
-                >
-                    <template v-if="!recovery"> Use a recovery code </template>
+                    @click.prevent="toggleRecovery">
+                    <template v-if="!recovery">Use a recovery code</template>
 
-                    <template v-else> Use an authentication code </template>
+                    <template v-else>Use an authentication code</template>
                 </button>
 
                 <PrimaryButton
                     class="ms-4"
                     :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
-                >
+                    :disabled="form.processing">
                     Log in
                 </PrimaryButton>
             </div>

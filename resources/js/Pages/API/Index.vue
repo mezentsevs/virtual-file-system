@@ -11,8 +11,7 @@
                 <ApiTokenManager
                     :tokens="tokens"
                     :available-permissions="availablePermissions"
-                    :default-permissions="defaultPermissions"
-                />
+                    :default-permissions="defaultPermissions" />
             </div>
         </div>
     </AppLayout>

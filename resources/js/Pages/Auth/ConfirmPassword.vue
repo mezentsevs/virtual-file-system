@@ -22,8 +22,7 @@
                     class="mt-1 block w-full"
                     required
                     autocomplete="current-password"
-                    autofocus
-                />
+                    autofocus />
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 
@@ -31,8 +30,7 @@
                 <PrimaryButton
                     class="ms-4"
                     :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
-                >
+                    :disabled="form.processing">
                     Confirm
                 </PrimaryButton>
             </div>

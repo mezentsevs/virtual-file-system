@@ -6,39 +6,33 @@
         </div>
 
         <div
-            class="relative min-h-screen px-0 sm:px-4 pt-8 sm:pt-0 selection:bg-indigo-500 selection:text-white flex flex-col items-center justify-start sm:justify-center"
-        >
+            class="relative min-h-screen px-0 sm:px-4 pt-8 sm:pt-0 selection:bg-indigo-500 selection:text-white flex flex-col items-center justify-start sm:justify-center">
             <div class="relative w-full max-w-2xl lg:max-w-7xl min-w-[20rem]">
                 <header
-                    class="w-full min-w-min py-4 bg-white dark:bg-gray-800 grid grid-cols-1 sm:grid-cols-3 items-center gap-2 sm:gap-4 rounded-none sm:rounded-2xl shadow-md"
-                >
+                    class="w-full min-w-min py-4 bg-white dark:bg-gray-800 grid grid-cols-1 sm:grid-cols-3 items-center gap-2 sm:gap-4 rounded-none sm:rounded-2xl shadow-md">
                     <h1
-                        class="flex flex-row items-center justify-center sm:col-start-2 sm:justify-center"
-                    >
+                        class="flex flex-row items-center justify-center sm:col-start-2 sm:justify-center">
                         <Link
                             :href="'/'"
-                            class="inline-block w-8 h-8 sm:w-12 sm:h-12 shrink-0 m-1 sm:m-2 text-indigo-500 dark:text-indigo-600"
-                        >
+                            class="inline-block w-8 h-8 sm:w-12 sm:h-12 shrink-0 m-1 sm:m-2 text-indigo-500 dark:text-indigo-600">
                             <LogoIcon />
                         </Link>
                         <span
-                            class="inline-block text-gray-700 dark:text-white text-lg sm:text-xl lg:text-3xl font-black tracking-tight whitespace-nowrap"
-                        >
+                            class="inline-block text-gray-700 dark:text-white text-lg sm:text-xl lg:text-3xl font-black tracking-tight whitespace-nowrap">
                             {{ appName }}
                         </span>
                     </h1>
 
                     <nav
                         v-if="canLogin"
-                        class="px-2 flex justify-center sm:justify-end sm:col-start-3"
-                    >
+                        class="px-2 flex justify-center sm:justify-end sm:col-start-3">
                         <div class="flex flex-wrap justify-center gap-1 sm:gap-0">
                             <NavButton v-if="$page.props.auth.user" :href="route('dashboard')">
                                 Dashboard
                             </NavButton>
 
                             <template v-else>
-                                <NavButton :href="route('login')"> Log in </NavButton>
+                                <NavButton :href="route('login')">Log in</NavButton>
 
                                 <NavButton v-if="canRegister" :href="route('register')">
                                     Register
@@ -49,21 +43,21 @@
                 </header>
 
                 <main
-                    class="min-w-min min-h-96 mt-1 sm:mt-10 px-0 sm:px-8 py-6 sm:py-10 bg-white dark:bg-gray-800 text-black dark:text-white/70 text-center flex flex-col justify-center rounded-none sm:rounded-2xl shadow-md"
-                >
+                    class="min-w-min min-h-96 mt-1 sm:mt-10 px-0 sm:px-8 py-6 sm:py-10 bg-white dark:bg-gray-800 text-black dark:text-white/70 text-center flex flex-col justify-center rounded-none sm:rounded-2xl shadow-md">
                     <p class="max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
                         This is a
-                        <span class="text-indigo-500 dark:text-indigo-400 font-medium"
-                            >virtual file system</span
-                        >, written in and for educational and demonstrational purposes.
+                        <span class="text-indigo-500 dark:text-indigo-400 font-medium">
+                            virtual file system
+                        </span>
+                        , written in and for educational and demonstrational purposes.
                     </p>
                 </main>
 
                 <footer class="py-8 sm:py-16 text-xs sm:text-sm text-center">
-                    <small
-                        >&copy; {{ new Date().getFullYear() }} {{ appName }} All rights reserved |
-                        Laravel v{{ laravelVersion }} | PHP v{{ phpVersion }}</small
-                    >
+                    <small>
+                        &copy; {{ new Date().getFullYear() }} {{ appName }} All rights reserved |
+                        Laravel v{{ laravelVersion }} | PHP v{{ phpVersion }}
+                    </small>
                 </footer>
             </div>
         </div>

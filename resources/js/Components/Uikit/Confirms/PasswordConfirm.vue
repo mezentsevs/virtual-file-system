@@ -20,22 +20,20 @@
                         class="mt-1 block w-3/4"
                         placeholder="Password"
                         autocomplete="current-password"
-                        @keyup.enter="confirmPassword"
-                    />
+                        @keyup.enter="confirmPassword" />
 
                     <InputError :message="form.error" class="mt-2" />
                 </div>
             </template>
 
             <template #footer>
-                <SecondaryButton @click="closeModal"> Cancel </SecondaryButton>
+                <SecondaryButton @click="closeModal">Cancel</SecondaryButton>
 
                 <PrimaryButton
                     class="ms-3"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
-                    @click="confirmPassword"
-                >
+                    @click="confirmPassword">
                     {{ button }}
                 </PrimaryButton>
             </template>

@@ -1,6 +1,6 @@
 <template>
     <ActionSection>
-        <template #title> Browser Sessions </template>
+        <template #title>Browser Sessions</template>
 
         <template #description>
             Manage and log out your active sessions on other browsers and devices.
@@ -25,13 +25,11 @@
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke-width="1.5"
-                            stroke="currentColor"
-                        >
+                            stroke="currentColor">
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"
-                            />
+                                d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
                         </svg>
 
                         <svg
@@ -41,13 +39,11 @@
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke-width="1.5"
-                            stroke="currentColor"
-                        >
+                            stroke="currentColor">
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
-                            />
+                                d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
                         </svg>
                     </div>
 
@@ -63,9 +59,9 @@
 
                                 <span
                                     v-if="session.is_current_device"
-                                    class="text-green-500 font-semibold"
-                                    >This device</span
-                                >
+                                    class="text-green-500 font-semibold">
+                                    This device
+                                </span>
                                 <span v-else>Last active {{ session.last_active }}</span>
                             </div>
                         </div>
@@ -74,16 +70,14 @@
             </div>
 
             <div class="flex items-center mt-5">
-                <PrimaryButton @click="confirmLogout">
-                    Log Out Other Browser Sessions
-                </PrimaryButton>
+                <PrimaryButton @click="confirmLogout">Log Out Other Browser Sessions</PrimaryButton>
 
-                <ActionMessage :on="form.recentlySuccessful" class="ms-3"> Done. </ActionMessage>
+                <ActionMessage :on="form.recentlySuccessful" class="ms-3">Done.</ActionMessage>
             </div>
 
             <!-- Log Out Other Devices Confirmation Modal -->
             <DialogModal :show="confirmingLogout" @close="closeModal">
-                <template #title> Log Out Other Browser Sessions </template>
+                <template #title>Log Out Other Browser Sessions</template>
 
                 <template #content>
                     Please enter your password to confirm you would like to log out of your other
@@ -97,22 +91,20 @@
                             class="mt-1 block w-3/4"
                             placeholder="Password"
                             autocomplete="current-password"
-                            @keyup.enter="logoutOtherBrowserSessions"
-                        />
+                            @keyup.enter="logoutOtherBrowserSessions" />
 
                         <InputError :message="form.errors.password" class="mt-2" />
                     </div>
                 </template>
 
                 <template #footer>
-                    <SecondaryButton @click="closeModal"> Cancel </SecondaryButton>
+                    <SecondaryButton @click="closeModal">Cancel</SecondaryButton>
 
                     <PrimaryButton
                         class="ms-3"
                         :class="{ 'opacity-25': form.processing }"
                         :disabled="form.processing"
-                        @click="logoutOtherBrowserSessions"
-                    >
+                        @click="logoutOtherBrowserSessions">
                         Log Out Other Browser Sessions
                     </PrimaryButton>
                 </template>

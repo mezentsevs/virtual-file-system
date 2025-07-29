@@ -12,8 +12,7 @@
             type="text"
             class="block w-full mt-1 focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
             required
-            autocomplete="new-file-name"
-        />
+            autocomplete="new-file-name" />
         <InputError v-for="error in errors.name" class="mt-2" :message="error" />
 
         <InputLabel for="new-file-content" value="New file content" class="mt-1" />
@@ -23,8 +22,7 @@
             class="block w-full mt-1 focus:text-gray-800 dark:focus:text-gray-200 transition-colors"
             rows="10"
             cols="100"
-            autocomplete="new-file-content"
-        />
+            autocomplete="new-file-content" />
         <InputError v-for="error in errors.content" class="mt-2" :message="error" />
     </form>
 </template>

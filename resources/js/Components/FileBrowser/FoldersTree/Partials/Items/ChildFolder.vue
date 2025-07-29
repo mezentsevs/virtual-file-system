@@ -2,33 +2,28 @@
     <Folder
         :folder="childFolder"
         @item-selected="item => $emit('itemSelected', item)"
-        @icon-toggled="onIconToggled"
-    />
+        @icon-toggled="onIconToggled" />
 
     <ul
         v-if="childFolder.children_folders.length"
         class="children-folders pl-4"
-        :class="[isChildrenHidden ? 'hidden' : 'shown']"
-    >
+        :class="[isChildrenHidden ? 'hidden' : 'shown']">
         <ChildFolder
             v-for="childFolder in childFolder.children_folders"
             :key="childFolder.id"
             :child-folder
-            @item-selected="item => $emit('itemSelected', item)"
-        />
+            @item-selected="item => $emit('itemSelected', item)" />
     </ul>
 
     <ul
         v-if="childFolder.files.length"
         class="files pl-4"
-        :class="[isChildrenHidden ? 'hidden' : 'shown']"
-    >
+        :class="[isChildrenHidden ? 'hidden' : 'shown']">
         <File
             v-for="file in childFolder.files"
             :key="file.id"
             :file
-            @item-selected="item => $emit('itemSelected', item)"
-        />
+            @item-selected="item => $emit('itemSelected', item)" />
     </ul>
 </template>
 
