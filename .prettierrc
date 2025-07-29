@@ -8,14 +8,16 @@
     "bracketSpacing": true,
     "arrowParens": "avoid",
     "endOfLine": "auto",
-    "htmlWhitespaceSensitivity": "css",
+    "htmlWhitespaceSensitivity": "ignore",
     "vueIndentScriptAndStyle": false,
-    "bracketSameLine": false,
+    "bracketSameLine": true,
+    "singleAttributePerLine": false,
     "overrides": [
         {
             "files": "*.vue",
             "options": {
-                "parser": "vue"
+                "parser": "vue",
+                "htmlWhitespaceSensitivity": "ignore"
             }
         }
     ]
