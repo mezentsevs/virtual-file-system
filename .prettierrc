@@ -16,8 +16,13 @@
         {
             "files": "*.vue",
             "options": {
-                "parser": "vue",
-                "htmlWhitespaceSensitivity": "ignore"
+                "parser": "vue"
+            }
+        },
+        {
+            "files": "*.js",
+            "options": {
+                "parser": "babel"
             }
         }
     ]
