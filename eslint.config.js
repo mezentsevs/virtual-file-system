@@ -16,7 +16,7 @@ export default [
     {
         files: ['**/*.vue'],
         languageOptions: {
-            ecmaVersion: 2025,
+            ecmaVersion: 'latest',
             sourceType: 'module',
             globals: globals.browser,
             parser: vueParser,
@@ -100,7 +100,7 @@ export default [
     {
         files: ['**/*.js'],
         languageOptions: {
-            ecmaVersion: 2025,
+            ecmaVersion: 'latest',
             sourceType: 'module',
             globals: {
                 ...globals.browser,
