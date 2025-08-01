@@ -1,8 +1,9 @@
-import vueParser from 'vue-eslint-parser';
-import eslintPluginVue from 'eslint-plugin-vue';
 import eslintPluginImport from 'eslint-plugin-import';
+import eslintPluginPrettier from 'eslint-plugin-prettier';
 import eslintPluginPromise from 'eslint-plugin-promise';
+import eslintPluginVue from 'eslint-plugin-vue';
 import globals from 'globals';
+import vueEslintParser from 'vue-eslint-parser';
 
 export default [
     {
@@ -12,14 +13,13 @@ export default [
             'public/**',
         ],
     },
-
     {
         files: ['**/*.vue'],
         languageOptions: {
             ecmaVersion: 'latest',
             sourceType: 'module',
             globals: globals.browser,
-            parser: vueParser,
+            parser: vueEslintParser,
             parserOptions: {
                 parser: {
                     js: '@babel/eslint-parser',
@@ -33,11 +33,13 @@ export default [
         },
         plugins: {
             vue: eslintPluginVue,
+            prettier: eslintPluginPrettier,
         },
         rules: {
+            'prettier/prettier': 'error',
             'vue/html-self-closing': ['error', {
                 html: {
-                    void: 'never',
+                    void: 'always',
                     normal: 'always',
                     component: 'always',
                 },
@@ -96,7 +98,6 @@ export default [
             }],
         },
     },
-
     {
         files: ['**/*.js'],
         languageOptions: {
@@ -110,8 +111,10 @@ export default [
         plugins: {
             import: eslintPluginImport,
             promise: eslintPluginPromise,
+            prettier: eslintPluginPrettier,
         },
         rules: {
+            'prettier/prettier': 'error',
             'no-console': 'warn',
             'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
             'import/order': [
@@ -129,6 +132,9 @@ export default [
                         ['@', './resources/js'],
                         ['~', './resources'],
                     ],
+                    extensions: ['.js', '.vue', '.json'],
+                },
+                node: {
                     extensions: ['.js', '.vue', '.json'],
                 },
             },
