@@ -138,7 +138,7 @@
                                             <img
                                                 class="size-8 rounded-full object-cover"
                                                 :src="$page.props.auth.user.profile_photo_url"
-                                                :alt="$page.props.auth.user.name" >
+                                                :alt="$page.props.auth.user.name" />
                                         </button>
 
                                         <span v-else class="inline-flex rounded-md">
@@ -249,7 +249,7 @@
                                 <img
                                     class="size-10 rounded-full object-cover"
                                     :src="$page.props.auth.user.profile_photo_url"
-                                    :alt="$page.props.auth.user.name" >
+                                    :alt="$page.props.auth.user.name" />
                             </div>
 
                             <div>

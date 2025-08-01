@@ -15,7 +15,7 @@
                     ref="photoInput"
                     type="file"
                     class="hidden"
-                    @change="updatePhotoPreview" >
+                    @change="updatePhotoPreview" />
 
                 <InputLabel for="photo" value="Photo" />
 
@@ -24,7 +24,7 @@
                     <img
                         :src="user.profile_photo_url"
                         :alt="user.name"
-                        class="rounded-full size-20 object-cover" >
+                        class="rounded-full size-20 object-cover" />
                 </div>
 
                 <!-- New Profile Photo Preview -->
