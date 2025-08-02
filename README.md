@@ -104,7 +104,9 @@ That's it! Thank you!
 <img width="1920" height="1200" alt="2025-07-31_17-45-21" src="https://github.com/user-attachments/assets/f3d88145-e982-4a16-861d-8a2346105c8c" />
 <img width="1920" height="1200" alt="2025-07-31_17-47-30" src="https://github.com/user-attachments/assets/b411df31-5d97-4c13-b915-676207140123" />
 <img width="1920" height="1200" alt="2025-07-31_17-57-52" src="https://github.com/user-attachments/assets/a85aec15-c337-42c3-b387-1b00db333388" />
-<img width="1920" height="1200" alt="2025-07-31_17-58-34" src="https://github.com/user-attachments/assets/99233dc2-2a84-403b-9028-77967a93ec31" />
+<img width="1920" height="1200" alt="2025-08-02_10-19-01" src="https://github.com/user-attachments/assets/19849f53-b494-45bf-809a-b47805660e57" />
+<img width="1920" height="1200" alt="2025-08-02_10-12-35" src="https://github.com/user-attachments/assets/34222367-a326-429f-9349-9602a768d1c0" />
+<img width="1920" height="1200" alt="2025-08-02_10-14-07" src="https://github.com/user-attachments/assets/5db1dde3-3393-4fb8-83e9-d97631c03ab1" />
 <img width="1920" height="1200" alt="2025-07-31_18-01-56" src="https://github.com/user-attachments/assets/1068aa4d-cb2b-47ba-b74b-880f1eb13c93" />
 <img width="1920" height="1200" alt="2025-07-31_18-02-37" src="https://github.com/user-attachments/assets/a0920098-e7b1-458d-bd20-1ede1ae33f2d" />
 <img width="1920" height="1200" alt="2025-07-31_18-04-45" src="https://github.com/user-attachments/assets/bff07870-6611-48f5-9a96-65286f6ca248" />
