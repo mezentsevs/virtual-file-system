@@ -31,6 +31,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|File whereName($value)
  * @method static Builder<static>|File whereSize($value)
  * @method static Builder<static>|File whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class File extends Model
 {

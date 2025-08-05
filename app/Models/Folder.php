@@ -23,9 +23,9 @@ use Illuminate\Support\Carbon;
  * @property-read int|null $children_folders_count
  * @property-read Collection<int, File> $files
  * @property-read int|null $files_count
+ * @property-read Folder|null $folder
  * @property-read Collection<int, Folder> $folders
  * @property-read int|null $folders_count
- * @property-read Folder $folder
  * @property-read int $size
  * @property-read string $type
  * @property-read User $user
@@ -39,6 +39,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|Folder whereName($value)
  * @method static Builder<static>|Folder whereUpdatedAt($value)
  * @method static Builder<static>|Folder whereUserId($value)
+ * @mixin \Eloquent
  */
 class Folder extends Model
 {
