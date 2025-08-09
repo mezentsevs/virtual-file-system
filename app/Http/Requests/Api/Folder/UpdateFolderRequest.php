@@ -25,7 +25,7 @@ class UpdateFolderRequest extends ApiRequest
         $folder = $this->route('folder');
 
         return [
-            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z0-9\s\p{Pd}_.]+$/', new FolderUnique($folder->folder)],
+            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z0-9\s\p{Pd}_.]+$/', new FolderUnique($folder?->folder)],
         ];
     }
 }

@@ -9,7 +9,7 @@ use Illuminate\Translation\PotentiallyTranslatedString;
 
 class FileUnique implements ValidationRule
 {
-    public function __construct(protected Folder $parentFolder)
+    public function __construct(protected ?Folder $parentFolder)
     {
     }
 
@@ -18,7 +18,7 @@ class FileUnique implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if (in_array($value, $this->parentFolder->files()->pluck('name')->toArray(), true)) {
+        if ($this->parentFolder && in_array($value, $this->parentFolder->files()->pluck('name')->toArray(), true)) {
             $fail('The :attribute must be unique.');
         }
     }

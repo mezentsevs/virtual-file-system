@@ -26,11 +26,11 @@ class UpdateFileRequest extends ApiRequest
 
         $rules = [];
 
-        if ($file->name !== $this->input('name')) {
+        if ($file && $file->name !== $this->input('name')) {
             $rules['name'] = ['required', 'string', 'max:255', 'regex:/^[a-zA-Z0-9\s\p{Pd}_.]+$/', new FileUnique($file->folder)];
         }
 
-        if ($file->content !== $this->input('content')) {
+        if ($file && $file->content !== $this->input('content')) {
             $rules['content'] = 'nullable|string|max:10000';
         }
 
