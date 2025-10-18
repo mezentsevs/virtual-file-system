@@ -4,6 +4,8 @@
 
 This is a virtual file system, written in and for educational and demonstrational purposes.
 
+A full-stack SPA implementing a virtual file system with a hierarchical tree structure. It supports full CRUD operations, validation, and sorting, providing an intuitive interface for managing files and folders directly in the browser.
+
 Based on tech stack:
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML),
 - [PHP](https://www.php.net),
