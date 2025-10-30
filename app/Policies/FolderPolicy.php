@@ -10,7 +10,6 @@ class FolderPolicy
     public function viewAny(): bool
     {
         return auth()->check();
-
     }
 
     public function create(): bool
