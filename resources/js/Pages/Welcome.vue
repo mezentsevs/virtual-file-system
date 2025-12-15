@@ -5,6 +5,10 @@
             <small>v{{ appVersion }}</small>
         </div>
 
+        <div class="fixed top-4 right-4 z-50">
+            <ThemeToggle />
+        </div>
+
         <div
             class="relative min-h-screen px-0 sm:px-4 pt-8 sm:pt-0 selection:bg-indigo-500 selection:text-white flex flex-col items-center justify-start sm:justify-center">
             <div class="relative w-full max-w-2xl lg:max-w-7xl min-w-[20rem]">
@@ -65,9 +69,10 @@
 </template>
 
 <script setup>
+import { Head, Link } from '@inertiajs/vue3';
 import LogoIcon from '@/Components/Icons/LogoIcon.vue';
 import NavButton from '@/Components/Uikit/Buttons/NavButton.vue';
-import { Head, Link } from '@inertiajs/vue3';
+import ThemeToggle from '@/Components/Uikit/Toggles/ThemeToggle.vue';
 
 defineProps({
     canLogin: {

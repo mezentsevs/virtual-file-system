@@ -30,6 +30,8 @@
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
+                            <ThemeToggle class="me-3" />
+
                             <div class="ms-3 relative">
                                 <!-- Teams Dropdown -->
                                 <Dropdown
@@ -193,6 +195,8 @@
 
                         <!-- Hamburger -->
                         <div class="-me-2 flex items-center sm:hidden">
+                            <ThemeToggle class="me-2" />
+
                             <button
                                 class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out"
                                 @click="showingNavigationDropdown = !showingNavigationDropdown">
@@ -359,14 +363,15 @@
 </template>
 
 <script setup>
+import { Head, Link, router } from '@inertiajs/vue3';
+import { ref } from 'vue';
 import Banner from '@/Components/Uikit/Banners/Banner.vue';
 import Dropdown from '@/Components/Uikit/Dropdowns/Dropdown.vue';
 import DropdownLink from '@/Components/Uikit/Links/DropdownLink.vue';
 import LogoIcon from '@/Components/Icons/LogoIcon.vue';
 import NavLink from '@/Components/Uikit/Links/NavLink.vue';
 import ResponsiveNavLink from '@/Components/Uikit/Links/ResponsiveNavLink.vue';
-import { Head, Link, router } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import ThemeToggle from '@/Components/Uikit/Toggles/ThemeToggle.vue';
 
 defineProps({
     title: String,
