@@ -62,6 +62,7 @@ Based on tech stack:
 - Vue.js Frontend: Component-based architecture with Composition API
 - Inertia.js: Seamless SPA experience without building separate API client
 - Tailwind CSS: Utility-first styling for consistent design
+- Responsive Design: Adaptive interface for desktop, tablet, and mobile devices
 - Dual Theme Support: Light and dark modes with persistent user preferences
 
 ## Getting Started
