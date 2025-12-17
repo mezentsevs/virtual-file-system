@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-row items-top justify-between">
+    <div class="flex flex-col md:flex-row items-top justify-between gap-4 p-4 min-w-[320px]">
         <FoldersTree ref="foldersTreeRef" :folders @item-selected="setCurrentItem" />
 
         <FoldersTreeItemPanel

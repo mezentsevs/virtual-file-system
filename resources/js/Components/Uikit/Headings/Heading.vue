@@ -1,5 +1,8 @@
 <template>
-    <component :is="heading" class="grow text-gray-800 dark:text-gray-200 text-center truncate">
+    <component
+        :is="heading"
+        :title
+        class="grow text-gray-800 dark:text-gray-200 text-center truncate">
         <slot />
     </component>
 </template>
@@ -11,6 +14,10 @@ const props = defineProps({
     level: {
         type: Number,
         default: 1,
+    },
+    title: {
+        type: String,
+        default: '',
     },
 });
 

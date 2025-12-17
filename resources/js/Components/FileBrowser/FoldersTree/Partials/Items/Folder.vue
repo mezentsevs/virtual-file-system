@@ -7,6 +7,7 @@
         </div>
 
         <span
+            :title="folder.name"
             class="inline-block ml-1 hover:text-indigo-600 dark:hover:text-indigo-400 truncate cursor-pointer select-none transition-colors"
             @click="onFolderNameClick">
             {{ folder.name }}

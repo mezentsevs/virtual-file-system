@@ -1,5 +1,5 @@
 <template>
-    <AppLayout title="Dashboard" class="min-w-[1024px]">
+    <AppLayout title="Dashboard" class="min-w-0">
         <template #header>
             <h2 class="text-gray-800 dark:text-gray-200 text-xl font-semibold leading-tight">
                 {{ appName }}
@@ -9,12 +9,12 @@
         <section v-if="foldersLoadingStatus === 'loaded'" class="flex justify-center">
             <FileBrowser
                 :folders="foldersStore.folders"
-                class="w-full max-w-5xl m-12 bg-white dark:bg-gray-800 overflow-hidden rounded-2xl shadow-md" />
+                class="w-full m-12 max-w-full lg:max-w-5xl bg-white dark:bg-gray-800 overflow-hidden rounded-2xl shadow-md" />
         </section>
 
         <section v-else-if="foldersLoadingStatus === 'error'" class="flex justify-center">
             <div
-                class="w-full max-w-5xl m-12 p-8 bg-white dark:bg-gray-800 text-center rounded-2xl shadow-md">
+                class="w-full m-12 max-w-full lg:max-w-5xl p-8 bg-white dark:bg-gray-800 text-center rounded-2xl shadow-md">
                 <ErrorMessage>Failed to load data. Please try again later.</ErrorMessage>
 
                 <PrimaryButton class="mt-4" @click="loadFolders">Retry</PrimaryButton>

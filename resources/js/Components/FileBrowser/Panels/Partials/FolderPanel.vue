@@ -1,6 +1,6 @@
 <template>
     <Header>
-        <Heading :level="3" class="h-9 text-3xl">{{ folder.name }}</Heading>
+        <Heading :level="3" class="h-9 text-3xl" :title="folder.name">{{ folder.name }}</Heading>
         <SaveButton class="shrink-0" @click="onSave" />
         <DeleteButton v-if="folder.folder_id" class="ml-2 shrink-0" @click="onDeleteButtonClick" />
     </Header>
@@ -23,12 +23,14 @@
         <InputError v-for="error in errors.name" class="mt-2" :message="error" />
     </form>
 
-    <div class="m-16 flex flex-col items-center">
-        <div class="w-1/2 flex flex-row justify-between">
+    <div class="m-4 md:m-8 lg:m-16 flex flex-col items-center">
+        <div class="flex flex-row justify-center space-x-4 md:space-x-8 lg:space-x-12">
             <CreateFolderButton
+                class="shrink-0"
                 :class="{ 'current-tab': currentTab === 'folder' }"
                 @click="currentTab = 'folder'" />
             <CreateFileButton
+                class="shrink-0"
                 :class="{ 'current-tab': currentTab === 'file' }"
                 @click="currentTab = 'file'" />
         </div>

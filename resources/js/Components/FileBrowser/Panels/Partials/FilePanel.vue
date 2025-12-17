@@ -1,6 +1,6 @@
 <template>
     <Header>
-        <Heading :level="3" class="h-9 text-3xl">{{ file.name }}</Heading>
+        <Heading :level="3" class="h-9 text-3xl" :title="file.name">{{ file.name }}</Heading>
         <SaveButton class="shrink-0" @click="onSave" />
         <DeleteButton class="ml-2 shrink-0" @click="onDeleteButtonClick" />
     </Header>
