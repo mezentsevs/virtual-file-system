@@ -237,7 +237,7 @@
                         </p>
 
                         <p class="text-gray-500 dark:text-gray-500 text-xs mt-2">
-                            This project is for educational and demonstrational purposes.
+                            Start Organizing Your Virtual Files.
                         </p>
                     </div>
                 </div>
