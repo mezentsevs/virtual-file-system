@@ -146,8 +146,8 @@ That's it! Thank you!
 
 <img width="1920" height="1200" alt="2025-12-16_16-40-20" src="https://github.com/user-attachments/assets/e846de2a-6333-42d7-8bd2-cf95f327c03f" />
 <img width="1920" height="1200" alt="2025-12-16_16-41-21" src="https://github.com/user-attachments/assets/8429fb83-ee7c-4a5a-8fd2-05f5fbb8df04" />
-<img width="1920" height="1200" alt="2025-12-16_16-42-56" src="https://github.com/user-attachments/assets/c31b0fa2-1ca4-4a9a-83ad-887c192f0171" />
-<img width="1920" height="1200" alt="2025-12-16_16-43-50" src="https://github.com/user-attachments/assets/a1582b13-c865-4e13-afce-9a437f89dd40" />
+<img width="1920" height="1200" alt="2025-12-24_09-13-28" src="https://github.com/user-attachments/assets/1dae1b70-b529-4fd9-a9ed-a5a0332c42d1" />
+<img width="1920" height="1200" alt="2025-12-24_09-14-32" src="https://github.com/user-attachments/assets/33de2861-4404-4c2b-b01a-a06f28c899ce" />
 <img width="1920" height="1200" alt="2025-12-16_16-48-37" src="https://github.com/user-attachments/assets/f041a06f-1137-41c1-813c-45c6d88c682b" />
 <img width="1920" height="1200" alt="2025-12-16_16-49-29" src="https://github.com/user-attachments/assets/a1224329-1172-4378-b20d-8478575981d6" />
 <img width="1920" height="1200" alt="2025-12-16_16-51-35" src="https://github.com/user-attachments/assets/0e772e2e-3153-4d94-a085-4eb53f737f5b" />
