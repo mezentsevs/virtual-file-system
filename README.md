@@ -165,6 +165,13 @@ That's it! Thank you!
 <img width="1920" height="1200" alt="2025-12-16_17-23-35" src="https://github.com/user-attachments/assets/6cde0ad8-9724-469e-a966-83661d34125d" />
 <img width="1920" height="1200" alt="2025-12-16_17-24-56" src="https://github.com/user-attachments/assets/29f181f7-35c1-486e-996b-932a1889aa69" />
 
+## ⭐ If You Found This Useful
+
+If this project helped you - whether it saved you time, taught you something, or gave you an idea - please consider leaving a star or a like.
+A ⭐, 👍, ❤️, or 💎 tells me that the work matters. It's a small gesture that genuinely fuels my motivation to keep improving the project and building new tools.
+
+Thanks for your interest in this project!
+
 ## License
 
 The 'Virtual file system' is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
